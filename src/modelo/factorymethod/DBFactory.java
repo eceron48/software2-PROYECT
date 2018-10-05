@@ -1,10 +1,6 @@
-package controlador;
+package modelo.factorymethod;
 
 import java.util.Properties;
-
-import factory.Properties.util.PropertiesUtil;
-import modelo.IDBAdapter;
-
 
 public class DBFactory {
 	private static final String DB_FACTORY_PROPERTY_URL = "BD_INF/DBFactory.properties";

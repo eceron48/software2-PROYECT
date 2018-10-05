@@ -1,4 +1,4 @@
-package factory.Properties.util;
+package modelo.factorymethod;
 
 import java.io.InputStream;
 import java.util.Properties;

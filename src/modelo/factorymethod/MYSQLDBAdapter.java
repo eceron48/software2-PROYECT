@@ -1,15 +1,12 @@
-package controlador;
+package modelo.factorymethod;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.Properties;
-
 import javax.swing.JOptionPane;
 
-import factory.Properties.util.PropertiesUtil;
-import modelo.IDBAdapter;
 
 
 
