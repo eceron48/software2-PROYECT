@@ -6,6 +6,9 @@ public class Persona {
 	private String direccion;
 	private int    telefono;
 	
+	public Persona() {
+		
+	}
 	public Persona(String nombre,String cedula,String direccion,int telefono) {
 		this.cedula=cedula;
 		this.direccion=direccion;

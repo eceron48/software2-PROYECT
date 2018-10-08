@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 public class MYSQLDBAdapter implements IDBAdapter {
 
-	private static final String DB_PROPERTIES = "META-INF/DBMySQL.properties";
+	private static final String DB_PROPERTIES = "BD_INF/DBMySQL.properties";
 	
 	 private static final String DB_NAME_PROP =	 		"dbname";
 	 private static final String DB_HOST_PROP =	 		"host";
@@ -47,6 +47,7 @@ public class MYSQLDBAdapter implements IDBAdapter {
 			try {
 				String connectionString = createConnectionString();
 				Connection connection = DriverManager.getConnection(connectionString,"root","123");
+			//	System.out.println("conectado a"+DB_NAME_PROP);
 				System.out.println("Connection class ==> "+ connection.getClass().getName());
 				return connection;
 			} catch (SQLDataException e) {

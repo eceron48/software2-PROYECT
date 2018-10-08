@@ -26,7 +26,7 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 	try {  PreparedStatement statement = connection.
 	
 	prepareStatement("SELECT idcedula,pnombre,pdireccion,ptelefono" 
-	+ " FROM productos");
+	+ " FROM persona");
 
 	ResultSet results = statement.executeQuery();  while(results.next()){
 	
@@ -45,8 +45,8 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 	} 
 	
 
-
-	public boolean saveProduct(Product product) throws SQLException{  
+/*
+	public boolean insertar(Persona product) throws SQLException{  
 		Connection connection = dbAdapter.getConnection();
 
 	try {  PreparedStatement statement = connection.
@@ -66,6 +66,6 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 	connection.close();  } catch (Exception e) {}
 	
 	}  }
-
+*/
 
 }
