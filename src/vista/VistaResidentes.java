@@ -50,7 +50,7 @@ public class VistaResidentes extends JFrame {
 	 */
 	public VistaResidentes() {
 		setTitle("Gestionar Residentes");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 901, 374);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
@@ -152,7 +152,7 @@ public class VistaResidentes extends JFrame {
 		panel_1.add(txtVivienda);
 		txtVivienda.setColumns(10);
 		
-		JLabel NVivienda = new JLabel("N\u00B0 Vivienda:");
+		JLabel NVivienda = new JLabel("N Vivienda:");
 		NVivienda.setBounds(20, 111, 80, 21);
 		panel_1.add(NVivienda);
 		
@@ -179,10 +179,10 @@ public class VistaResidentes extends JFrame {
 		btnEliminar.setBounds(234, 266, 70, 57);
 		contentPane.add(btnEliminar);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setToolTipText("Limpiar");
-		btnNewButton.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar.png")));
-		btnNewButton.setBounds(326, 266, 70, 57);
-		contentPane.add(btnNewButton);
+		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setToolTipText("Limpiar");
+		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar.png")));
+		btnLimpiar.setBounds(326, 266, 70, 57);
+		contentPane.add(btnLimpiar);
 	}
 }

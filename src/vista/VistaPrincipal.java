@@ -2,27 +2,18 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 import javax.swing.ImageIcon;
-import javax.swing.border.LineBorder;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.SwingConstants;
-import java.awt.Window.Type;
+
 import javax.swing.JLabel;
 
 public class VistaPrincipal extends JFrame {
@@ -63,10 +54,20 @@ public class VistaPrincipal extends JFrame {
 		menuBar.add(Administracion);
 		
 		JButton btnGestionarSuperadmin = new JButton("  Gestionar  SuperAdmin");
+		btnGestionarSuperadmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnGestionarSuperadmin.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/SuperAdmin.png")));
 		Administracion.add(btnGestionarSuperadmin);
 		
 		JButton btnGestionarAdmin = new JButton("Gestionar Administrador");
+		btnGestionarAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 		btnGestionarAdmin.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Admin.png")));
 		Administracion.add(btnGestionarAdmin);
 		

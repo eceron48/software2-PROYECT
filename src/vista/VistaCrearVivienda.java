@@ -46,7 +46,7 @@ public class VistaCrearVivienda extends JFrame {
 	 */
 	public VistaCrearVivienda() {
 		setTitle("VIVIENDAS");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 422, 336);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

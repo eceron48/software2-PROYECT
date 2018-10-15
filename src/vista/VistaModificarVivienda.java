@@ -27,9 +27,9 @@ public class VistaModificarVivienda extends JFrame {
 	private JTextField txtCasa;
 	private JTable tbModificarVivienda;
 	private JTextField txtModificarBloque;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtModificarApto;
+	private JTextField txtModificarPiso;
+	private JTextField txtModificarCasa;
 
 	/**
 	 * Launch the application.
@@ -51,7 +51,7 @@ public class VistaModificarVivienda extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaModificarVivienda() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 585, 485);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 153));
@@ -106,17 +106,17 @@ public class VistaModificarVivienda extends JFrame {
 		panel.add(txtCasa);
 		txtCasa.setColumns(10);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setToolTipText("Buscar");
-		btnNewButton.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Search.png")));
-		btnNewButton.setBounds(365, 25, 65, 64);
-		panel.add(btnNewButton);
+		JButton btnBuscar = new JButton("");
+		btnBuscar.setToolTipText("Buscar");
+		btnBuscar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Search.png")));
+		btnBuscar.setBounds(365, 25, 65, 64);
+		panel.add(btnBuscar);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setToolTipText("Cancelar");
-		btnNewButton_1.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnNewButton_1.setBounds(445, 25, 65, 64);
-		panel.add(btnNewButton_1);
+		JButton btnCancelar = new JButton("");
+		btnCancelar.setToolTipText("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar.png")));
+		btnCancelar.setBounds(445, 25, 65, 64);
+		panel.add(btnCancelar);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Casa2.png")));
@@ -142,56 +142,56 @@ public class VistaModificarVivienda extends JFrame {
 		));
 		scrollPane.setViewportView(tbModificarVivienda);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_1.setBounds(123, 281, 308, 136);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel PanelModificarApto = new JPanel();
+		PanelModificarApto.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		PanelModificarApto.setBounds(123, 281, 308, 136);
+		contentPane.add(PanelModificarApto);
+		PanelModificarApto.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Modificar Vivienda");
 		lblNewLabel_1.setBounds(105, 2, 113, 14);
-		panel_1.add(lblNewLabel_1);
+		PanelModificarApto.add(lblNewLabel_1);
 		
 		JLabel label = new JLabel("Bloque:");
 		label.setBounds(39, 29, 46, 14);
-		panel_1.add(label);
+		PanelModificarApto.add(label);
 		
 		txtModificarBloque = new JTextField();
 		txtModificarBloque.setColumns(10);
 		txtModificarBloque.setBounds(95, 27, 86, 20);
-		panel_1.add(txtModificarBloque);
+		PanelModificarApto.add(txtModificarBloque);
 		
 		JLabel label_1 = new JLabel("N\u00B0 Apto:");
 		label_1.setBounds(39, 54, 46, 14);
-		panel_1.add(label_1);
+		PanelModificarApto.add(label_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(95, 51, 86, 20);
-		panel_1.add(textField_1);
+		txtModificarApto = new JTextField();
+		txtModificarApto.setColumns(10);
+		txtModificarApto.setBounds(95, 51, 86, 20);
+		PanelModificarApto.add(txtModificarApto);
 		
 		JLabel label_2 = new JLabel("Piso:");
 		label_2.setBounds(39, 79, 46, 14);
-		panel_1.add(label_2);
+		PanelModificarApto.add(label_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(95, 76, 86, 20);
-		panel_1.add(textField_2);
+		txtModificarPiso = new JTextField();
+		txtModificarPiso.setColumns(10);
+		txtModificarPiso.setBounds(95, 76, 86, 20);
+		PanelModificarApto.add(txtModificarPiso);
 		
 		JLabel label_3 = new JLabel("N\u00B0 Casa:");
 		label_3.setBounds(39, 104, 46, 14);
-		panel_1.add(label_3);
+		PanelModificarApto.add(label_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(95, 101, 86, 20);
-		panel_1.add(textField_3);
+		txtModificarCasa = new JTextField();
+		txtModificarCasa.setColumns(10);
+		txtModificarCasa.setBounds(95, 101, 86, 20);
+		PanelModificarApto.add(txtModificarCasa);
 		
 		JButton btnModificar = new JButton("");
 		btnModificar.setToolTipText("Modificar");
 		btnModificar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Modificar (2).png")));
 		btnModificar.setBounds(208, 39, 75, 54);
-		panel_1.add(btnModificar);
+		PanelModificarApto.add(btnModificar);
 	}
 }
