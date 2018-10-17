@@ -161,9 +161,9 @@ public class VistaModificarVivienda extends JFrame {
 		txtModificarBloque.setBounds(95, 27, 86, 20);
 		PanelModificarApto.add(txtModificarBloque);
 		
-		JLabel label_1 = new JLabel("N\u00B0 Apto:");
-		label_1.setBounds(39, 54, 46, 14);
-		PanelModificarApto.add(label_1);
+		JLabel lblNApto = new JLabel("N Apto:");
+		lblNApto.setBounds(39, 54, 46, 14);
+		PanelModificarApto.add(lblNApto);
 		
 		txtModificarApto = new JTextField();
 		txtModificarApto.setColumns(10);
@@ -179,9 +179,9 @@ public class VistaModificarVivienda extends JFrame {
 		txtModificarPiso.setBounds(95, 76, 86, 20);
 		PanelModificarApto.add(txtModificarPiso);
 		
-		JLabel label_3 = new JLabel("N\u00B0 Casa:");
-		label_3.setBounds(39, 104, 46, 14);
-		PanelModificarApto.add(label_3);
+		JLabel lblNCasa = new JLabel("N      Casa:");
+		lblNCasa.setBounds(39, 104, 46, 14);
+		PanelModificarApto.add(lblNCasa);
 		
 		txtModificarCasa = new JTextField();
 		txtModificarCasa.setColumns(10);
