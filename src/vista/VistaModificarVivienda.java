@@ -17,15 +17,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
+import javax.swing.border.TitledBorder;
 
 public class VistaModificarVivienda extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtBloque;
 	private JTextField txtApto;
-	private JTextField txtPiso;
 	private JTextField txtCasa;
-	private JTable tbModificarVivienda;
 	private JTextField txtModificarBloque;
 	private JTextField txtModificarApto;
 	private JTextField txtModificarPiso;
@@ -51,8 +49,9 @@ public class VistaModificarVivienda extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaModificarVivienda() {
+		setTitle("MODIFICAR VIVIENDA");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 585, 485);
+		setBounds(100, 100, 587, 360);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,52 +69,34 @@ public class VistaModificarVivienda extends JFrame {
 		cbModificarVivienda.setBounds(25, 11, 153, 20);
 		panel.add(cbModificarVivienda);
 		
-		JLabel Bloque = new JLabel("Bloque:");
-		Bloque.setBounds(198, 25, 46, 14);
-		panel.add(Bloque);
-		
 		JLabel Apto = new JLabel("N\u00B0 Apto:");
-		Apto.setBounds(198, 50, 46, 14);
+		Apto.setBounds(188, 14, 46, 14);
 		panel.add(Apto);
 		
-		JLabel Piso = new JLabel("Piso:");
-		Piso.setBounds(198, 75, 46, 14);
-		panel.add(Piso);
-		
 		JLabel Casa = new JLabel("N\u00B0 Casa:");
-		Casa.setBounds(198, 100, 58, 14);
+		Casa.setBounds(188, 39, 58, 14);
 		panel.add(Casa);
 		
-		txtBloque = new JTextField();
-		txtBloque.setBounds(254, 23, 86, 20);
-		panel.add(txtBloque);
-		txtBloque.setColumns(10);
-		
 		txtApto = new JTextField();
-		txtApto.setBounds(254, 47, 86, 20);
+		txtApto.setBounds(244, 11, 86, 20);
 		panel.add(txtApto);
 		txtApto.setColumns(10);
 		
-		txtPiso = new JTextField();
-		txtPiso.setBounds(254, 72, 86, 20);
-		panel.add(txtPiso);
-		txtPiso.setColumns(10);
-		
 		txtCasa = new JTextField();
-		txtCasa.setBounds(254, 97, 86, 20);
+		txtCasa.setBounds(244, 36, 86, 20);
 		panel.add(txtCasa);
 		txtCasa.setColumns(10);
 		
 		JButton btnBuscar = new JButton("");
 		btnBuscar.setToolTipText("Buscar");
 		btnBuscar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Search.png")));
-		btnBuscar.setBounds(365, 25, 65, 64);
+		btnBuscar.setBounds(356, 28, 65, 64);
 		panel.add(btnBuscar);
 		
 		JButton btnCancelar = new JButton("");
 		btnCancelar.setToolTipText("Cancelar");
 		btnCancelar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnCancelar.setBounds(445, 25, 65, 64);
+		btnCancelar.setBounds(441, 28, 65, 64);
 		panel.add(btnCancelar);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -123,34 +104,11 @@ public class VistaModificarVivienda extends JFrame {
 		lblNewLabel.setBounds(33, 43, 145, 82);
 		panel.add(lblNewLabel);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 158, 534, 107);
-		contentPane.add(scrollPane);
-		
-		tbModificarVivienda = new JTable();
-		tbModificarVivienda.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"Bloque", "nApartamento", "Piso", "nCasa"
-			}
-		));
-		scrollPane.setViewportView(tbModificarVivienda);
-		
 		JPanel PanelModificarApto = new JPanel();
-		PanelModificarApto.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		PanelModificarApto.setBounds(123, 281, 308, 136);
+		PanelModificarApto.setBorder(new TitledBorder(null, "Modificar Vivienda", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
+		PanelModificarApto.setBounds(136, 168, 308, 136);
 		contentPane.add(PanelModificarApto);
 		PanelModificarApto.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Modificar Vivienda");
-		lblNewLabel_1.setBounds(105, 2, 113, 14);
-		PanelModificarApto.add(lblNewLabel_1);
 		
 		JLabel label = new JLabel("Bloque:");
 		label.setBounds(39, 29, 46, 14);
@@ -179,7 +137,7 @@ public class VistaModificarVivienda extends JFrame {
 		txtModificarPiso.setBounds(95, 76, 86, 20);
 		PanelModificarApto.add(txtModificarPiso);
 		
-		JLabel lblNCasa = new JLabel("N      Casa:");
+		JLabel lblNCasa = new JLabel("N Casa:");
 		lblNCasa.setBounds(39, 104, 46, 14);
 		PanelModificarApto.add(lblNCasa);
 		

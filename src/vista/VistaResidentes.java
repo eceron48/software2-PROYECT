@@ -17,6 +17,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.TitledBorder;
 
 public class VistaResidentes extends JFrame {
 
@@ -26,8 +29,6 @@ public class VistaResidentes extends JFrame {
 	private JTextField txtNombre;
 	private JTextField txtCedula;
 	private JTextField txtTelefono;
-	private JTextField txtVivienda;
-	private JTextField txtNVivienda;
 
 	/**
 	 * Launch the application.
@@ -51,20 +52,16 @@ public class VistaResidentes extends JFrame {
 	public VistaResidentes() {
 		setTitle("Gestionar Residentes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 901, 374);
+		setBounds(100, 100, 674, 449);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblBuscarPor = new JLabel("Buscar Por:");
-		lblBuscarPor.setBounds(37, 11, 70, 14);
-		contentPane.add(lblBuscarPor);
-		
 		JPanel panel = new JPanel();
-		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(37, 36, 573, 78);
+		panel.setBorder(new TitledBorder(null, "Buscar Por:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
+		panel.setBounds(37, 11, 573, 79);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -92,97 +89,105 @@ public class VistaResidentes extends JFrame {
 		panel.add(btnBuscarTodos);
 		
 		JScrollPane scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(37, 131, 576, 107);
+		scrollPaneResidentes.setBounds(37, 101, 573, 107);
 		contentPane.add(scrollPaneResidentes);
 		
 		tbResidentes = new JTable();
 		tbResidentes.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"NOMBRE", "CEDULA", "TELEFONO", "VIVIENDA", "nVIVIENDA"
+				"Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"
 			}
 		));
 		scrollPaneResidentes.setViewportView(tbResidentes);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_1.setBounds(635, 95, 240, 143);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new TitledBorder(null, "Crear Residente", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
+		panel_2.setBounds(37, 219, 573, 182);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("Casa");
+		rdbtnNewRadioButton.setBounds(16, 18, 56, 23);
+		panel_2.add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnApto = new JRadioButton("Apto");
+		rdbtnApto.setBounds(74, 18, 49, 23);
+		panel_2.add(rdbtnApto);
 		
 		JLabel Nombre = new JLabel("Nombre:");
-		Nombre.setBounds(30, 11, 60, 14);
-		panel_1.add(Nombre);
-		
-		txtNombre = new JTextField();
-		txtNombre.setBounds(100, 8, 130, 20);
-		panel_1.add(txtNombre);
-		txtNombre.setColumns(10);
+		Nombre.setBounds(26, 51, 60, 14);
+		panel_2.add(Nombre);
 		
 		JLabel Cedula = new JLabel("Cedula:");
-		Cedula.setBounds(30, 36, 60, 14);
-		panel_1.add(Cedula);
+		Cedula.setBounds(26, 76, 60, 14);
+		panel_2.add(Cedula);
+		
+		txtNombre = new JTextField();
+		txtNombre.setBounds(106, 48, 130, 20);
+		panel_2.add(txtNombre);
+		txtNombre.setColumns(10);
+		
+		JLabel Telefono = new JLabel("Telefono:");
+		Telefono.setBounds(26, 101, 60, 14);
+		panel_2.add(Telefono);
 		
 		txtCedula = new JTextField();
-		txtCedula.setBounds(100, 33, 130, 20);
-		panel_1.add(txtCedula);
+		txtCedula.setBounds(106, 73, 130, 20);
+		panel_2.add(txtCedula);
 		txtCedula.setColumns(10);
 		
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(100, 58, 130, 20);
-		panel_1.add(txtTelefono);
+		txtTelefono.setBounds(106, 98, 130, 20);
+		panel_2.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
-		JLabel Telefono = new JLabel("Telefono:");
-		Telefono.setBounds(30, 61, 60, 14);
-		panel_1.add(Telefono);
-		
 		JLabel Vivienda = new JLabel("Vivienda:");
-		Vivienda.setBounds(30, 86, 60, 14);
-		panel_1.add(Vivienda);
+		Vivienda.setBounds(26, 126, 70, 14);
+		panel_2.add(Vivienda);
 		
-		txtVivienda = new JTextField();
-		txtVivienda.setBounds(100, 83, 130, 20);
-		panel_1.add(txtVivienda);
-		txtVivienda.setColumns(10);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(104, 123, 132, 20);
+		panel_2.add(comboBox);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
-		JLabel NVivienda = new JLabel("N Vivienda:");
-		NVivienda.setBounds(20, 111, 80, 21);
-		panel_1.add(NVivienda);
+		JLabel lblParqueadero = new JLabel("Parqueadero:");
+		lblParqueadero.setBounds(26, 151, 79, 14);
+		panel_2.add(lblParqueadero);
 		
-		txtNVivienda = new JTextField();
-		txtNVivienda.setBounds(100, 111, 130, 20);
-		panel_1.add(txtNVivienda);
-		txtNVivienda.setColumns(10);
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(104, 151, 132, 20);
+		panel_2.add(comboBox_1);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
 		JButton btnModificar = new JButton("");
+		btnModificar.setBounds(259, 108, 70, 57);
+		panel_2.add(btnModificar);
 		btnModificar.setToolTipText("Modificar");
 		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar (2).png")));
-		btnModificar.setBounds(50, 266, 70, 57);
-		contentPane.add(btnModificar);
-		
-		JButton btnGuardar = new JButton("");
-		btnGuardar.setToolTipText("Guardar");
-		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar.png")));
-		btnGuardar.setBounds(143, 266, 70, 57);
-		contentPane.add(btnGuardar);
 		
 		JButton btnEliminar = new JButton("");
+		btnEliminar.setBounds(419, 108, 70, 57);
+		panel_2.add(btnEliminar);
 		btnEliminar.setToolTipText("Eliminar");
 		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar.png")));
-		btnEliminar.setBounds(234, 266, 70, 57);
-		contentPane.add(btnEliminar);
+		
+		JButton btnGuardar = new JButton("");
+		btnGuardar.setBounds(339, 108, 70, 57);
+		panel_2.add(btnGuardar);
+		btnGuardar.setToolTipText("Guardar");
+		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar.png")));
 		
 		JButton btnLimpiar = new JButton("");
+		btnLimpiar.setBounds(493, 108, 70, 57);
+		panel_2.add(btnLimpiar);
 		btnLimpiar.setToolTipText("Limpiar");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar.png")));
-		btnLimpiar.setBounds(326, 266, 70, 57);
-		contentPane.add(btnLimpiar);
 	}
 }
