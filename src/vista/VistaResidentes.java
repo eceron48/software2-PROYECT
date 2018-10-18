@@ -23,12 +23,12 @@ import javax.swing.border.TitledBorder;
 
 public class VistaResidentes extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField txtBuscarResidente;
-	private JTable tbResidentes;
-	private JTextField txtNombre;
-	private JTextField txtCedula;
-	private JTextField txtTelefono;
+	public JPanel contentPane;
+	public JTextField txtBuscarResidente;
+	public JTable tbResidentes;
+	public JTextField txtNombre;
+	public JTextField txtCedula;
+	public JTextField txtTelefono;
 
 	/**
 	 * Launch the application.
