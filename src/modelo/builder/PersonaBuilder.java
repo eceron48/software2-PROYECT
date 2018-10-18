@@ -9,13 +9,14 @@ protected Persona persona;
 	public Persona obtenerPersona() {
 		return persona;
 	}
-	public abstract void contruirNombre();
-	public abstract void contruirDireccion();
-	public abstract void contruirTelefono();
-	public abstract void contruirCedula();
-	public abstract void contruirFechaEntrada();
-	public abstract void contruirFechaSalida();
-	public abstract void contruirapartamento();
+	public abstract void construirNombre();
+	public abstract void construirDireccion();
+	public abstract void construirTelefono();
+	public abstract void construirCedula();
+	public abstract void construirFechaEntrada();
+	public abstract void construirFechaSalida();
+	public abstract void construirapartamento();
+	public abstract void construirparqueadero();
 	
 
 }

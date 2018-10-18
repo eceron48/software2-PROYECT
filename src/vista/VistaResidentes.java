@@ -17,9 +17,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorResidente;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VistaResidentes extends JFrame {
 
@@ -78,12 +83,13 @@ public class VistaResidentes extends JFrame {
 		panel.add(txtBuscarResidente);
 		txtBuscarResidente.setColumns(10);
 		
-		JButton btnBuscar = new JButton("BUSCAR");
+		JButton btnBuscar = new JButton("buscar");
+		btnBuscar.addActionListener(new ControladorResidente(this));
 		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar.png")));
 		btnBuscar.setBounds(249, 21, 124, 46);
 		panel.add(btnBuscar);
 		
-		JButton btnBuscarTodos = new JButton("BUSCAR TODOS");
+		JButton btnBuscarTodos = new JButton("buscar todos");
 		btnBuscarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
 		btnBuscarTodos.setBounds(399, 21, 152, 46);
 		panel.add(btnBuscarTodos);
@@ -152,19 +158,19 @@ public class VistaResidentes extends JFrame {
 		Vivienda.setBounds(26, 126, 70, 14);
 		panel_2.add(Vivienda);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(104, 123, 132, 20);
-		panel_2.add(comboBox);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
+		JComboBox comboBoxvivienda = new JComboBox();
+		comboBoxvivienda.setBounds(104, 123, 132, 20);
+		panel_2.add(comboBoxvivienda);
+		comboBoxvivienda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
 		JLabel lblParqueadero = new JLabel("Parqueadero:");
 		lblParqueadero.setBounds(26, 151, 79, 14);
 		panel_2.add(lblParqueadero);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(104, 151, 132, 20);
-		panel_2.add(comboBox_1);
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
+		JComboBox comboBoxparqueadero = new JComboBox();
+		comboBoxparqueadero.setBounds(104, 151, 132, 20);
+		panel_2.add(comboBoxparqueadero);
+		comboBoxparqueadero.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
 		JButton btnModificar = new JButton("");
 		btnModificar.setBounds(259, 108, 70, 57);
