@@ -3,15 +3,14 @@ package modelo;
 public class Persona {
 	private String nombre;
 	private String cedula;
-	private String direccion;
 	private int    telefono;
+	private Parqueadero parqueadero;
 	
 	public Persona() {
 		
 	}
-	public Persona(String nombre,String cedula,String direccion,int telefono) {
+	public Persona(String nombre,String cedula,int telefono) {
 		this.cedula=cedula;
-		this.direccion=direccion;
 		this.nombre=nombre;
 		this.telefono=telefono;
 		
@@ -33,13 +32,6 @@ public class Persona {
 		this.cedula = cedula;
 	}
 
-	public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
 
 	public int getTelefono() {
 		return telefono;

@@ -34,7 +34,6 @@ public class ControladorResidente implements ActionListener  {
 			fabricabuilder.construirPersona();
 			
 			Persona persona=fabricabuilder.getpersona();
-					System.out.println("telefono "+persona.getTelefono());
 				DAOResidente dr=new DAOResidente();
 			try {
 				dr.insertar(persona);

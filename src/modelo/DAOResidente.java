@@ -27,12 +27,12 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 
 	try {  PreparedStatement statement = connection.
 	
-	prepareStatement("SELECT idcedula,pnombre,pdireccion,ptelefono" 
+	prepareStatement("SELECT idcedula,pnombre,ptelefono" 
 	+ " FROM persona");
 
 	ResultSet results = statement.executeQuery();  while(results.next()){
 	
-	listaresidente.add(new Persona(results.getString(1),results.getString(2) , results.getString(3), results.getInt(4)));
+	listaresidente.add(new Persona(results.getString(1),results.getString(2) , results.getInt(3)));
 
 	}  return listaresidente;
 	

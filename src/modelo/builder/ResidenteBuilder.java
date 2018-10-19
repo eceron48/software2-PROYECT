@@ -23,10 +23,10 @@ public class ResidenteBuilder extends PersonaBuilder{
 	@Override
 	public void construirNombre() {
 		
-	//	persona.setNombre("carlos");
+	
 	
 		persona.setNombre(v.txtNombre.getText().toString());
-		System.out.println("nombre "+persona.getNombre());
+	
 	}
 
 	@Override
@@ -36,17 +36,17 @@ public class ResidenteBuilder extends PersonaBuilder{
 
 	@Override
 	public void construirTelefono() {
-	//	persona.setTelefono(123155);
+
 		persona.setTelefono(Integer.parseInt(v.txtTelefono.getText()));
-		System.out.println(persona.getTelefono());
+		
 
 	}
 
 	@Override
 	public void construirCedula() {
-	//	persona.setCedula("cedula123");
+
 		persona.setCedula(v.txtCedula.getText().toString());
-		System.out.println("cc "+persona.getCedula());
+	
 
 	}
 

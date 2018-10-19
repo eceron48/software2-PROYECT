@@ -9,6 +9,8 @@ private String nombre;
 private SAdministrador sadministrador;
 private List<Vivienda>vivienda;
 
+private static ZonaResidencial singleton;
+
 
 public int getEstrato() {
 	return estrato;
