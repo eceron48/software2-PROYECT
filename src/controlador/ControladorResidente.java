@@ -21,6 +21,7 @@ public class ControladorResidente implements ActionListener  {
 		this.vr=vr;
 	}
 	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent llamar) {
@@ -28,7 +29,7 @@ public class ControladorResidente implements ActionListener  {
 		
 		case "guardar":
 			FabricaBuilder fabricabuilder=new FabricaBuilder();
-			PersonaBuilder residentebuilder = new ResidenteBuilder();
+			PersonaBuilder residentebuilder = new ResidenteBuilder(vr);
 			fabricabuilder.setpersonabuilder(residentebuilder);
 			fabricabuilder.construirPersona();
 			
@@ -38,10 +39,11 @@ public class ControladorResidente implements ActionListener  {
 			try {
 				dr.insertar(persona);
 				
+				
 				vr.txtCedula.setText("");
 				vr.txtNombre.setText("");
 				vr.txtTelefono.setText(null);
-				
+			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -7,12 +7,16 @@ import modelo.Persona;
 import vista.VistaResidentes;
 
 public class ResidenteBuilder extends PersonaBuilder{
-	VistaResidentes v = new VistaResidentes();
-
-	public ResidenteBuilder() {
+	private final VistaResidentes v;
+	
+	
+	public ResidenteBuilder(VistaResidentes v) {
+		this.v=v;
 		super.persona = new Persona();
 
 	}
+	
+
 	
 
 
