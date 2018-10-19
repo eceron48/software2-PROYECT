@@ -2,14 +2,14 @@ package modelo;
 
 import java.util.List;
 
-public class ZonaResidencial {
+public class ZonaResidencialSingleton {
 private int estrato;
 private String direccion;
 private String nombre;
 private SAdministrador sadministrador;
 private List<Vivienda>vivienda;
 
-private static ZonaResidencial singleton;
+private static ZonaResidencialSingleton singleton;
 
 
 public int getEstrato() {
