@@ -43,19 +43,20 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 	} catch (Exception e) {}  }
 
 	} 
-	
+	 
 
-/*
-	public boolean insertar(Persona product) throws SQLException{  
+
+	public boolean insertar(Persona persona) throws SQLException{  
 		Connection connection = dbAdapter.getConnection();
 
 	try {  PreparedStatement statement = connection.
 
-			prepareStatement("INSERT INTO productos(idproductos,"  + "nombreproducto, precioproducto) VALUES (?,?,?)");
+			prepareStatement("INSERT INTO persona(idcedula,"  + "pnombre, ptelefono) VALUES (?,?,?)");
 	
-	statement.setLong(1, product.getIdproduct()); statement.setString(2, product.getProductName());
+	statement.setString(1, persona.getCedula()); statement.setString(2, product.getProductName());
 	
-	statement.setDouble(3, product.getPrice());  statement.executeUpdate();
+	statement.setDouble(3, persona.getPrice());  statement.executeUpdate();
+	statement.setDouble(3, persona.getPrice());  statement.executeUpdate();
 	
 	return true; } catch (Exception e) {
 	
@@ -66,6 +67,5 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 	connection.close();  } catch (Exception e) {}
 	
 	}  }
-*/
 
 }

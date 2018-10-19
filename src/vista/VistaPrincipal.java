@@ -123,7 +123,7 @@ public class VistaPrincipal extends JFrame {
 				VistaCrearVivienda crearVivienda = new VistaCrearVivienda();
 				crearVivienda.setVisible(true);
 			}
-		});
+		}); 
 		btnCrearVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Home.png")));
 		ZonasResidenciales.add(btnCrearVivienda);
 		

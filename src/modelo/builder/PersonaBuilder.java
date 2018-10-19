@@ -5,7 +5,7 @@ import modelo.Persona;
 public abstract class PersonaBuilder {
 	
 protected Persona persona;
-	
+	 
 	public Persona obtenerPersona() {
 		return persona;
 	}

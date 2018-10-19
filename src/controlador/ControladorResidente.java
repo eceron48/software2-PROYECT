@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import modelo.DAOResidente;
 import modelo.Persona;
 import modelo.builder.FabricaBuilder;
 import modelo.builder.PersonaBuilder;
@@ -26,10 +27,14 @@ public class ControladorResidente implements ActionListener {
 		
 		case "guardar":
 			FabricaBuilder fabricabuilder=new FabricaBuilder();
-			PersonaBuilder residentebuilder = new ResidenteBuilder(vr);
+			PersonaBuilder residentebuilder = new ResidenteBuilder();
 			fabricabuilder.setpersonabuilder(residentebuilder);
 			fabricabuilder.construirPersona();
-	    
+			Persona persona=
+					Pizza pizza = cocina.getPizza();
+				DAOResidente dr=new DAOResidente();
+				
+				
 			
 			break;
 			

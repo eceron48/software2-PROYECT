@@ -16,6 +16,6 @@ public class FabricaBuilder {
 	    	personabuilder.construirNombre();
 	    	personabuilder.construirCedula();
 	    	personabuilder.construirTelefono();
-	    }
+	      }
 
 }
