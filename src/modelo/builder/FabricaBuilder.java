@@ -13,8 +13,8 @@ public class FabricaBuilder {
 	    return personabuilder.obtenerPersona(); }
 	 
 	    public void construirPersona() {
-	    	personabuilder.construirNombre();
 	    	personabuilder.construirCedula();
+	    	personabuilder.construirNombre();
 	    	personabuilder.construirTelefono();
 	      }
 

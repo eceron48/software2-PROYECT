@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import modelo.factorymethod.DBFactory;
 import modelo.factorymethod.IDBAdapter;
 
@@ -51,13 +53,15 @@ public List<Persona> mostrarTodoResidente() throws SQLException{
 
 	try {  PreparedStatement statement = connection.
 
-			prepareStatement("INSERT INTO persona(idcedula,"  + "pnombre, ptelefono) VALUES (?,?,?)");
+			prepareStatement("INSERT INTO persona(idcedula,pnombre, ptelefono,prol,cuota_idcuota)" + "VALUES (?,?,?,?,?)");
 	
-	statement.setString(1, persona.getCedula()); statement.setString(2, product.getProductName());
-	
-	statement.setDouble(3, persona.getPrice());  statement.executeUpdate();
-	statement.setDouble(3, persona.getPrice());  statement.executeUpdate();
-	
+	statement.setString(1, persona.getCedula());
+	statement.setString(2, persona.getNombre());
+	statement.setInt(3, persona.getTelefono());
+	statement.setString(4,"residente");
+	statement.setInt(5,1);
+	statement.executeUpdate();
+	JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
 	return true; } catch (Exception e) {
 	
 	e.printStackTrace();  return false;

@@ -34,6 +34,7 @@ public class VistaResidentes extends JFrame {
 	public JTextField txtNombre;
 	public JTextField txtCedula;
 	public JTextField txtTelefono;
+	public JButton btnGuardar;
 
 	/**
 	 * Launch the application.
@@ -124,7 +125,7 @@ public class VistaResidentes extends JFrame {
 		panel_2.add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnApto = new JRadioButton("Apto");
-		rdbtnApto.setBounds(74, 18, 49, 23);
+		rdbtnApto.setBounds(74, 18, 56, 23);
 		panel_2.add(rdbtnApto);
 		
 		JLabel Nombre = new JLabel("Nombre:");
@@ -184,10 +185,11 @@ public class VistaResidentes extends JFrame {
 		btnEliminar.setToolTipText("Eliminar");
 		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar.png")));
 		
-		JButton btnGuardar = new JButton("");
-		btnGuardar.setBounds(339, 108, 70, 57);
+		btnGuardar = new JButton("guardar");
+		btnGuardar.setBounds(339, 108, 56, 57);
 		panel_2.add(btnGuardar);
-		btnGuardar.setToolTipText("Guardar");
+		btnGuardar.setToolTipText("");
+		btnGuardar.addActionListener(new ControladorResidente(this));
 		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar.png")));
 		
 		JButton btnLimpiar = new JButton("");
@@ -196,4 +198,5 @@ public class VistaResidentes extends JFrame {
 		btnLimpiar.setToolTipText("Limpiar");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar.png")));
 	}
+	
 }

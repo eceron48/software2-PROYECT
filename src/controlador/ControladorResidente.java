@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +13,7 @@ import modelo.builder.PersonaBuilder;
 import modelo.builder.ResidenteBuilder;
 import vista.VistaResidentes;
 
-public class ControladorResidente implements ActionListener {
+public class ControladorResidente implements ActionListener  {
 	
 	private final VistaResidentes vr;
 	
@@ -30,10 +31,20 @@ public class ControladorResidente implements ActionListener {
 			PersonaBuilder residentebuilder = new ResidenteBuilder();
 			fabricabuilder.setpersonabuilder(residentebuilder);
 			fabricabuilder.construirPersona();
-			Persona persona=
-					Pizza pizza = cocina.getPizza();
+			
+			Persona persona=fabricabuilder.getpersona();
+					System.out.println("telefono "+persona.getTelefono());
 				DAOResidente dr=new DAOResidente();
+			try {
+				dr.insertar(persona);
 				
+				vr.txtCedula.setText("");
+				vr.txtNombre.setText("");
+				vr.txtTelefono.setText(null);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 				
 			
 			break;
