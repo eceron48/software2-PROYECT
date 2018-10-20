@@ -113,18 +113,20 @@ public class VistaCrearVivienda extends JFrame {
 		txtCasa.setBounds(260, 162, 107, 20);
 		panel.add(txtCasa);
 		
-		JButton btnCrear = new JButton("");
+		JButton btnCrear = new JButton("crear");
+		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBackground(Color.WHITE);
-		btnCrear.setToolTipText("Crear");
+		btnCrear.setToolTipText("");
 		btnCrear.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Crear.png")));
-		btnCrear.setBounds(92, 208, 66, 57);
+		btnCrear.setBounds(53, 208, 127, 57);
 		panel.add(btnCrear);
 		
-		JButton btnCancelar = new JButton("");
+		JButton btnCancelar = new JButton("cancelar");
+		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCancelar.setBackground(Color.WHITE);
-		btnCancelar.setToolTipText("Cancelar");
+		btnCancelar.setToolTipText("");
 		btnCancelar.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnCancelar.setBounds(207, 208, 66, 57);
+		btnCancelar.setBounds(190, 208, 127, 57);
 		panel.add(btnCancelar);
 	}
 }

@@ -51,7 +51,7 @@ public class VistaModificarVivienda extends JFrame {
 	public VistaModificarVivienda() {
 		setTitle("MODIFICAR VIVIENDA");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 587, 360);
+		setBounds(100, 100, 546, 345);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,7 +60,7 @@ public class VistaModificarVivienda extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(20, 11, 534, 136);
+		panel.setBounds(20, 11, 482, 136);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -87,16 +87,16 @@ public class VistaModificarVivienda extends JFrame {
 		panel.add(txtCasa);
 		txtCasa.setColumns(10);
 		
-		JButton btnBuscar = new JButton("");
-		btnBuscar.setToolTipText("Buscar");
-		btnBuscar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Search.png")));
-		btnBuscar.setBounds(356, 28, 65, 64);
+		JButton btnBuscar = new JButton("buscar");
+		btnBuscar.setToolTipText("");
+		btnBuscar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Buscar32.png")));
+		btnBuscar.setBounds(223, 71, 107, 41);
 		panel.add(btnBuscar);
 		
-		JButton btnCancelar = new JButton("");
-		btnCancelar.setToolTipText("Cancelar");
-		btnCancelar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnCancelar.setBounds(441, 28, 65, 64);
+		JButton btnCancelar = new JButton("cancelar");
+		btnCancelar.setToolTipText("");
+		btnCancelar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar32.png")));
+		btnCancelar.setBounds(340, 71, 115, 41);
 		panel.add(btnCancelar);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -106,7 +106,7 @@ public class VistaModificarVivienda extends JFrame {
 		
 		JPanel PanelModificarApto = new JPanel();
 		PanelModificarApto.setBorder(new TitledBorder(null, "Modificar Vivienda", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		PanelModificarApto.setBounds(136, 168, 308, 136);
+		PanelModificarApto.setBounds(91, 158, 324, 136);
 		contentPane.add(PanelModificarApto);
 		PanelModificarApto.setLayout(null);
 		
@@ -146,10 +146,10 @@ public class VistaModificarVivienda extends JFrame {
 		txtModificarCasa.setBounds(95, 101, 86, 20);
 		PanelModificarApto.add(txtModificarCasa);
 		
-		JButton btnModificar = new JButton("");
-		btnModificar.setToolTipText("Modificar");
-		btnModificar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Modificar (2).png")));
-		btnModificar.setBounds(208, 39, 75, 54);
+		JButton btnModificar = new JButton("modificar");
+		btnModificar.setToolTipText("");
+		btnModificar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Modificar32.png")));
+		btnModificar.setBounds(191, 52, 122, 41);
 		PanelModificarApto.add(btnModificar);
 	}
 }

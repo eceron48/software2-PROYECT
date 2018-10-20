@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Font;
 
 public class VistaRegistrarCuota extends JFrame {
 
@@ -41,7 +42,7 @@ public class VistaRegistrarCuota extends JFrame {
 	public VistaRegistrarCuota() {
 		setTitle("REGISTRAR CUOTA DE ADMINISTRACION");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 371, 276);
+		setBounds(100, 100, 483, 261);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(153, 255, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,7 +59,7 @@ public class VistaRegistrarCuota extends JFrame {
 		txtTotal.setColumns(10);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(32, 21, 291, 80);
+		panel.setBounds(32, 21, 413, 80);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -71,42 +72,46 @@ public class VistaRegistrarCuota extends JFrame {
 		panel.add(lblPorcentaje);
 		
 		txtPorcentaje = new JTextField();
-		txtPorcentaje.setBounds(95, 48, 86, 20);
+		txtPorcentaje.setBounds(95, 48, 117, 20);
 		panel.add(txtPorcentaje);
 		txtPorcentaje.setColumns(10);
 		
 		txtValorCuota = new JTextField();
-		txtValorCuota.setBounds(95, 8, 86, 20);
+		txtValorCuota.setBounds(95, 8, 117, 20);
 		panel.add(txtValorCuota);
 		txtValorCuota.setColumns(10);
 		
-		JButton btnAgregar = new JButton("");
-		btnAgregar.setToolTipText("Agregar");
-		btnAgregar.setBounds(212, 11, 67, 57);
+		JButton btnAgregar = new JButton("agregar");
+		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnAgregar.setToolTipText("");
+		btnAgregar.setBounds(252, 8, 130, 57);
 		panel.add(btnAgregar);
 		btnAgregar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Crear.png")));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(32, 141, 295, 72);
+		panel_1.setBounds(32, 141, 413, 61);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JButton btnGuardar = new JButton("");
-		btnGuardar.setToolTipText("Guardar");
-		btnGuardar.setBounds(218, 11, 67, 57);
+		JButton btnGuardar = new JButton("guardar");
+		btnGuardar.setBackground(Color.YELLOW);
+		btnGuardar.setToolTipText("");
+		btnGuardar.setBounds(283, 11, 116, 41);
 		panel_1.add(btnGuardar);
-		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar.png")));
+		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar32.png")));
 		
-		JButton btnModificar = new JButton("");
-		btnModificar.setToolTipText("Modificar");
-		btnModificar.setBounds(116, 11, 67, 57);
+		JButton btnModificar = new JButton("modificar");
+		btnModificar.setBackground(Color.YELLOW);
+		btnModificar.setToolTipText("");
+		btnModificar.setBounds(157, 11, 116, 41);
 		panel_1.add(btnModificar);
-		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar (2).png")));
+		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar32.png")));
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setToolTipText("Ver Cuotas");
-		btnNewButton.setBounds(10, 11, 61, 57);
+		JButton btnNewButton = new JButton("ver cuotas");
+		btnNewButton.setBackground(Color.YELLOW);
+		btnNewButton.setToolTipText("");
+		btnNewButton.setBounds(10, 11, 130, 41);
 		panel_1.add(btnNewButton);
-		btnNewButton.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/mostrar.png")));
+		btnNewButton.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Ver32.png")));
 	}
 }
