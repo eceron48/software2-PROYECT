@@ -35,6 +35,7 @@ public class VistaResidentes extends JFrame {
 	public JTextField txtCedula;
 	public JTextField txtTelefono;
 	public JButton btnGuardar;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -58,7 +59,7 @@ public class VistaResidentes extends JFrame {
 	public VistaResidentes() {
 		setTitle("Gestionar Residentes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 674, 449);
+		setBounds(100, 100, 815, 478);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,7 +68,7 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Buscar Por:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel.setBounds(37, 11, 573, 79);
+		panel.setBounds(37, 11, 731, 79);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -80,23 +81,23 @@ public class VistaResidentes extends JFrame {
 		panel.add(rbNombre);
 		
 		txtBuscarResidente = new JTextField();
-		txtBuscarResidente.setBounds(19, 47, 186, 20);
+		txtBuscarResidente.setBounds(19, 47, 299, 20);
 		panel.add(txtBuscarResidente);
 		txtBuscarResidente.setColumns(10);
 		
 		JButton btnBuscar = new JButton("buscar");
 		btnBuscar.addActionListener(new ControladorResidente(this));
 		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar.png")));
-		btnBuscar.setBounds(249, 21, 124, 46);
+		btnBuscar.setBounds(401, 21, 124, 46);
 		panel.add(btnBuscar);
 		
 		JButton btnBuscarTodos = new JButton("buscar todos");
 		btnBuscarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
-		btnBuscarTodos.setBounds(399, 21, 152, 46);
+		btnBuscarTodos.setBounds(549, 21, 152, 46);
 		panel.add(btnBuscarTodos);
 		
 		JScrollPane scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(37, 101, 573, 107);
+		scrollPaneResidentes.setBounds(37, 101, 731, 107);
 		contentPane.add(scrollPaneResidentes);
 		
 		tbResidentes = new JTable();
@@ -116,87 +117,106 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Crear Residente", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel_2.setBounds(37, 219, 573, 182);
+		panel_2.setBounds(37, 219, 731, 196);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Casa");
-		rdbtnNewRadioButton.setBounds(16, 18, 56, 23);
-		panel_2.add(rdbtnNewRadioButton);
-		
-		JRadioButton rdbtnApto = new JRadioButton("Apto");
-		rdbtnApto.setBounds(74, 18, 56, 23);
-		panel_2.add(rdbtnApto);
-		
 		JLabel Nombre = new JLabel("Nombre:");
-		Nombre.setBounds(26, 51, 60, 14);
+		Nombre.setBounds(10, 27, 60, 14);
 		panel_2.add(Nombre);
 		
 		JLabel Cedula = new JLabel("Cedula:");
-		Cedula.setBounds(26, 76, 60, 14);
+		Cedula.setBounds(10, 58, 60, 14);
 		panel_2.add(Cedula);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(106, 48, 130, 20);
+		txtNombre.setBounds(86, 24, 130, 20);
 		panel_2.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JLabel Telefono = new JLabel("Telefono:");
-		Telefono.setBounds(26, 101, 60, 14);
+		Telefono.setBounds(10, 86, 60, 14);
 		panel_2.add(Telefono);
 		
 		txtCedula = new JTextField();
-		txtCedula.setBounds(106, 73, 130, 20);
+		txtCedula.setBounds(86, 55, 130, 20);
 		panel_2.add(txtCedula);
 		txtCedula.setColumns(10);
 		
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(106, 98, 130, 20);
+		txtTelefono.setBounds(86, 83, 130, 20);
 		panel_2.add(txtTelefono);
 		txtTelefono.setColumns(10);
 		
-		JLabel Vivienda = new JLabel("Vivienda:");
-		Vivienda.setBounds(26, 126, 70, 14);
+		JLabel Vivienda = new JLabel("Casa:");
+		Vivienda.setBounds(10, 117, 70, 14);
 		panel_2.add(Vivienda);
 		
 		JComboBox comboBoxvivienda = new JComboBox();
-		comboBoxvivienda.setBounds(104, 123, 132, 20);
+		comboBoxvivienda.setBounds(86, 114, 132, 20);
 		panel_2.add(comboBoxvivienda);
 		comboBoxvivienda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
 		JLabel lblParqueadero = new JLabel("Parqueadero:");
-		lblParqueadero.setBounds(26, 151, 79, 14);
+		lblParqueadero.setBounds(10, 148, 79, 14);
 		panel_2.add(lblParqueadero);
 		
 		JComboBox comboBoxparqueadero = new JComboBox();
-		comboBoxparqueadero.setBounds(104, 151, 132, 20);
+		comboBoxparqueadero.setBounds(86, 145, 132, 20);
 		panel_2.add(comboBoxparqueadero);
 		comboBoxparqueadero.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
-		JButton btnModificar = new JButton("");
-		btnModificar.setBounds(259, 108, 70, 57);
+		JButton btnModificar = new JButton("modificar");
+		btnModificar.setBackground(Color.RED);
+		btnModificar.setBounds(237, 135, 119, 41);
 		panel_2.add(btnModificar);
-		btnModificar.setToolTipText("Modificar");
-		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar (2).png")));
+		btnModificar.setToolTipText("");
+		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar32.png")));
 		
-		JButton btnEliminar = new JButton("");
-		btnEliminar.setBounds(419, 108, 70, 57);
+		JButton btnEliminar = new JButton("eliminar");
+		btnEliminar.setBackground(Color.RED);
+		btnEliminar.setBounds(481, 135, 119, 41);
 		panel_2.add(btnEliminar);
-		btnEliminar.setToolTipText("Eliminar");
-		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar.png")));
+		btnEliminar.setToolTipText("");
+		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar32.png")));
 		
 		btnGuardar = new JButton("guardar");
-		btnGuardar.setBounds(339, 108, 56, 57);
+		btnGuardar.setBackground(Color.RED);
+		btnGuardar.setBounds(366, 135, 112, 41);
 		panel_2.add(btnGuardar);
 		btnGuardar.setToolTipText("");
 		btnGuardar.addActionListener(new ControladorResidente(this));
-		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar.png")));
+		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar32.png")));
 		
-		JButton btnLimpiar = new JButton("");
-		btnLimpiar.setBounds(493, 108, 70, 57);
+		JButton btnLimpiar = new JButton("limpiar");
+		btnLimpiar.setBackground(Color.RED);
+		btnLimpiar.setBounds(605, 135, 112, 39);
 		panel_2.add(btnLimpiar);
-		btnLimpiar.setToolTipText("Limpiar");
-		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar.png")));
+		btnLimpiar.setToolTipText("");
+		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(237, 20, 469, 74);
+		panel_2.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"Numero Apto", "Bloque", "Piso"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				Integer.class, String.class, Integer.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		scrollPane.setViewportView(table);
 	}
-	
 }
