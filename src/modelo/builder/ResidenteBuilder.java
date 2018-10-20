@@ -14,10 +14,7 @@ public class ResidenteBuilder extends PersonaBuilder{
 		this.v=v;
 		super.persona = new Persona();
 
-	}
-	
-
-	
+	}	
 
 
 	@Override
