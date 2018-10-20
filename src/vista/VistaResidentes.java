@@ -196,22 +196,25 @@ public class VistaResidentes extends JFrame {
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(237, 20, 469, 74);
+		scrollPane.setBounds(237, 20, 480, 104);
 		panel_2.add(scrollPane);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
+				{new Integer(101), new Integer(1), new Integer(1)},
+				{new Integer(102), new Integer(1), new Integer(2)},
+				{new Integer(103), new Integer(1), new Integer(3)},
+				{new Integer(201), new Integer(2), new Integer(1)},
+				{new Integer(202), new Integer(2), new Integer(2)},
+				{new Integer(202), new Integer(2), new Integer(3)},
 			},
 			new String[] {
 				"Numero Apto", "Bloque", "Piso"
 			}
 		) {
 			Class[] columnTypes = new Class[] {
-				Integer.class, String.class, Integer.class
+				Integer.class, Integer.class, Integer.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];

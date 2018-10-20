@@ -12,64 +12,76 @@ import javax.swing.JOptionPane;
 import modelo.factorymethod.DBFactory;
 import modelo.factorymethod.IDBAdapter;
 
-
 public class DAOResidente {
-	
+
 	private IDBAdapter dbAdapter;
 
-	 public DAOResidente(){
-	 dbAdapter = DBFactory.getDefaultDBAdapter();
-	 }
-	
-public List<Persona> mostrarTodoResidente() throws SQLException{
-	 Connection connection = dbAdapter.getConnection();
-	 List<Persona> listaresidente = new ArrayList<>();
+	public DAOResidente() {
+		dbAdapter = DBFactory.getDefaultDBAdapter();
+	}
 
-	try {  PreparedStatement statement = connection.
-	
-	prepareStatement("SELECT idcedula,pnombre,ptelefono" 
-	+ " FROM persona");
+	public List<Persona> mostrarTodoResidente() throws SQLException {
+		Connection connection = dbAdapter.getConnection();
+		List<Persona> listaresidente = new ArrayList<>();
 
-	ResultSet results = statement.executeQuery();  while(results.next()){
-	
-	listaresidente.add(new Persona(results.getString(1),results.getString(2) , results.getInt(3)));
+		try {
+			PreparedStatement statement = connection.
 
-	}  return listaresidente;
-	
-	} catch (Exception e) {e.printStackTrace();
+					prepareStatement("SELECT idcedula,pnombre,ptelefono" + " FROM persona");
 
-	return null;  }finally{
-	
-	try { connection.close();
-	
-	} catch (Exception e) {}  }
+			ResultSet results = statement.executeQuery();
+			while (results.next()) {
 
-	} 
-	 
+				listaresidente.add(new Persona(results.getString(1), results.getString(2), results.getInt(3)));
 
+			}
+			return listaresidente;
 
-	public boolean insertar(Persona persona) throws SQLException{  
+		} catch (Exception e) {
+			e.printStackTrace();
+
+			return null;
+		} finally {
+
+			try {
+				connection.close();
+
+			} catch (Exception e) {
+			}
+		}
+
+	}
+
+	public boolean insertar(Persona persona) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
 
-	try {  PreparedStatement statement = connection.
+		try {
+			PreparedStatement statement = connection.
 
-			prepareStatement("INSERT INTO persona(idcedula,pnombre, ptelefono,prol,cuota_idcuota)" + "VALUES (?,?,?,?,?)");
-	
-	statement.setString(1, persona.getCedula());
-	statement.setString(2, persona.getNombre());
-	statement.setInt(3, persona.getTelefono());
-	statement.setString(4,"residente");
-	statement.setInt(5,1);
-	statement.executeUpdate();
-	JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
-	return true; } catch (Exception e) {
-	
-	e.printStackTrace();  return false;
-	
-	}finally{ try {
+					prepareStatement("INSERT INTO persona(idcedula,pnombre, ptelefono,prol,cuota_idcuota)"
+							+ "VALUES (?,?,?,?,?)");
 
-	connection.close();  } catch (Exception e) {}
-	
-	}  }
+			statement.setString(1, persona.getCedula());
+			statement.setString(2, persona.getNombre());
+			statement.setInt(3, persona.getTelefono());
+			statement.setString(4, "residente");
+			statement.setInt(5, 1);
+			statement.executeUpdate();
+			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
+			return true;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return false;
+
+		} finally {
+			try {
+
+				connection.close();
+			} catch (Exception e) {
+			}
+
+		}
+	}
 
 }
