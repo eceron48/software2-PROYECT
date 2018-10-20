@@ -64,7 +64,8 @@ public class VistaPrincipal extends JFrame {
 		JButton btnGestionarAdmin = new JButton("Gestionar Administrador");
 		btnGestionarAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VistaAdministrador vistaAdmin = new VistaAdministrador();
+				vistaAdmin.setVisible(true);			
 				
 			}
 		});

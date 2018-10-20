@@ -68,7 +68,7 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Buscar Por:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel.setBounds(37, 11, 731, 79);
+		panel.setBounds(37, 11, 752, 79);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -87,7 +87,7 @@ public class VistaResidentes extends JFrame {
 		
 		JButton btnBuscar = new JButton("buscar");
 		btnBuscar.addActionListener(new ControladorResidente(this));
-		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar.png")));
+		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar32.png")));
 		btnBuscar.setBounds(401, 21, 124, 46);
 		panel.add(btnBuscar);
 		
@@ -97,7 +97,7 @@ public class VistaResidentes extends JFrame {
 		panel.add(btnBuscarTodos);
 		
 		JScrollPane scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(37, 101, 731, 107);
+		scrollPaneResidentes.setBounds(37, 101, 752, 107);
 		contentPane.add(scrollPaneResidentes);
 		
 		tbResidentes = new JTable();
@@ -117,7 +117,7 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Crear Residente", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel_2.setBounds(37, 219, 731, 196);
+		panel_2.setBounds(37, 219, 752, 196);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -167,30 +167,30 @@ public class VistaResidentes extends JFrame {
 		comboBoxparqueadero.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
 		
 		JButton btnModificar = new JButton("modificar");
-		btnModificar.setBackground(Color.RED);
-		btnModificar.setBounds(237, 135, 119, 41);
+		btnModificar.setBackground(Color.LIGHT_GRAY);
+		btnModificar.setBounds(237, 135, 130, 41);
 		panel_2.add(btnModificar);
 		btnModificar.setToolTipText("");
 		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar32.png")));
 		
 		JButton btnEliminar = new JButton("eliminar");
-		btnEliminar.setBackground(Color.RED);
-		btnEliminar.setBounds(481, 135, 119, 41);
+		btnEliminar.setBackground(Color.LIGHT_GRAY);
+		btnEliminar.setBounds(501, 135, 119, 41);
 		panel_2.add(btnEliminar);
 		btnEliminar.setToolTipText("");
 		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar32.png")));
 		
 		btnGuardar = new JButton("guardar");
-		btnGuardar.setBackground(Color.RED);
-		btnGuardar.setBounds(366, 135, 112, 41);
+		btnGuardar.setBackground(Color.LIGHT_GRAY);
+		btnGuardar.setBounds(377, 135, 119, 41);
 		panel_2.add(btnGuardar);
 		btnGuardar.setToolTipText("");
 		btnGuardar.addActionListener(new ControladorResidente(this));
 		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar32.png")));
 		
 		JButton btnLimpiar = new JButton("limpiar");
-		btnLimpiar.setBackground(Color.RED);
-		btnLimpiar.setBounds(605, 135, 112, 39);
+		btnLimpiar.setBackground(Color.LIGHT_GRAY);
+		btnLimpiar.setBounds(630, 135, 112, 40);
 		panel_2.add(btnLimpiar);
 		btnLimpiar.setToolTipText("");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));

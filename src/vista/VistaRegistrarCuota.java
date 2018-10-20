@@ -94,21 +94,21 @@ public class VistaRegistrarCuota extends JFrame {
 		panel_1.setLayout(null);
 		
 		JButton btnGuardar = new JButton("guardar");
-		btnGuardar.setBackground(Color.YELLOW);
+		btnGuardar.setBackground(Color.LIGHT_GRAY);
 		btnGuardar.setToolTipText("");
 		btnGuardar.setBounds(283, 11, 116, 41);
 		panel_1.add(btnGuardar);
 		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar32.png")));
 		
 		JButton btnModificar = new JButton("modificar");
-		btnModificar.setBackground(Color.YELLOW);
+		btnModificar.setBackground(Color.LIGHT_GRAY);
 		btnModificar.setToolTipText("");
 		btnModificar.setBounds(157, 11, 116, 41);
 		panel_1.add(btnModificar);
 		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar32.png")));
 		
 		JButton btnNewButton = new JButton("ver cuotas");
-		btnNewButton.setBackground(Color.YELLOW);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setToolTipText("");
 		btnNewButton.setBounds(10, 11, 130, 41);
 		panel_1.add(btnNewButton);

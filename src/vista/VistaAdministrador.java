@@ -69,7 +69,7 @@ public class VistaAdministrador extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 25, 46, 14);
+		lblNombre.setBounds(10, 25, 69, 14);
 		panel.add(lblNombre);
 		
 		txtNombre = new JTextField();
@@ -87,7 +87,7 @@ public class VistaAdministrador extends JFrame {
 		txtCedula.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Telefono:");
-		lblNewLabel.setBounds(10, 84, 46, 14);
+		lblNewLabel.setBounds(10, 84, 69, 14);
 		panel.add(lblNewLabel);
 		
 		txtTelefono = new JTextField();
@@ -105,7 +105,7 @@ public class VistaAdministrador extends JFrame {
 		panel.add(txtDireccion);
 		
 		JLabel lblNewLabel_2 = new JLabel("Usuario:");
-		lblNewLabel_2.setBounds(239, 53, 46, 14);
+		lblNewLabel_2.setBounds(239, 53, 82, 14);
 		panel.add(lblNewLabel_2);
 		
 		txtUsuario = new JTextField();
@@ -118,25 +118,25 @@ public class VistaAdministrador extends JFrame {
 		panel.add(lblNewLabel_3);
 		
 		JButton btnGuardar = new JButton("guardar");
-		btnGuardar.setBackground(Color.GREEN);
+		btnGuardar.setBackground(Color.LIGHT_GRAY);
 		btnGuardar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Guardar32.png")));
-		btnGuardar.setBounds(10, 122, 114, 41);
+		btnGuardar.setBounds(10, 122, 130, 41);
 		panel.add(btnGuardar);
 		
 		JButton btnModificar = new JButton("modificar");
-		btnModificar.setBackground(Color.GREEN);
+		btnModificar.setBackground(Color.LIGHT_GRAY);
 		btnModificar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Modificar32.png")));
-		btnModificar.setBounds(161, 122, 114, 40);
+		btnModificar.setBounds(161, 122, 124, 40);
 		panel.add(btnModificar);
 		
 		JButton btnEliminar = new JButton("eliminar");
-		btnEliminar.setBackground(Color.GREEN);
+		btnEliminar.setBackground(Color.LIGHT_GRAY);
 		btnEliminar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Eliminar32.png")));
-		btnEliminar.setBounds(313, 124, 114, 37);
+		btnEliminar.setBounds(313, 124, 122, 37);
 		panel.add(btnEliminar);
 		
 		JButton btnLimpiar = new JButton("limpiar");
-		btnLimpiar.setBackground(Color.GREEN);
+		btnLimpiar.setBackground(Color.LIGHT_GRAY);
 		btnLimpiar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Limpiar32.png")));
 		btnLimpiar.setBounds(459, 124, 114, 37);
 		panel.add(btnLimpiar);
@@ -170,13 +170,13 @@ public class VistaAdministrador extends JFrame {
 		textField_6.setColumns(10);
 		
 		JButton btnBuscarAdmin = new JButton("buscar");
-		btnBuscarAdmin.setBackground(Color.GREEN);
+		btnBuscarAdmin.setBackground(Color.LIGHT_GRAY);
 		btnBuscarAdmin.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Buscar32.png")));
-		btnBuscarAdmin.setBounds(290, 35, 101, 34);
+		btnBuscarAdmin.setBounds(290, 35, 121, 34);
 		panel_1.add(btnBuscarAdmin);
 		
 		JButton btnMostrarTodos = new JButton("mostrar todos");
-		btnMostrarTodos.setBackground(Color.GREEN);
+		btnMostrarTodos.setBackground(Color.LIGHT_GRAY);
 		btnMostrarTodos.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/BuscarTodo.png")));
 		btnMostrarTodos.setBounds(440, 35, 135, 34);
 		panel_1.add(btnMostrarTodos);
