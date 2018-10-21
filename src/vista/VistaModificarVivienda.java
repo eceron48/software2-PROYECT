@@ -90,13 +90,13 @@ public class VistaModificarVivienda extends JFrame {
 		JButton btnBuscar = new JButton("buscar");
 		btnBuscar.setToolTipText("");
 		btnBuscar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Buscar32.png")));
-		btnBuscar.setBounds(223, 71, 107, 41);
+		btnBuscar.setBounds(214, 71, 116, 41);
 		panel.add(btnBuscar);
 		
 		JButton btnCancelar = new JButton("cancelar");
 		btnCancelar.setToolTipText("");
 		btnCancelar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Cancelar32.png")));
-		btnCancelar.setBounds(340, 71, 115, 41);
+		btnCancelar.setBounds(340, 71, 132, 41);
 		panel.add(btnCancelar);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -106,7 +106,7 @@ public class VistaModificarVivienda extends JFrame {
 		
 		JPanel PanelModificarApto = new JPanel();
 		PanelModificarApto.setBorder(new TitledBorder(null, "Modificar Vivienda", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		PanelModificarApto.setBounds(91, 158, 324, 136);
+		PanelModificarApto.setBounds(91, 158, 337, 136);
 		contentPane.add(PanelModificarApto);
 		PanelModificarApto.setLayout(null);
 		
@@ -149,7 +149,7 @@ public class VistaModificarVivienda extends JFrame {
 		JButton btnModificar = new JButton("modificar");
 		btnModificar.setToolTipText("");
 		btnModificar.setIcon(new ImageIcon(VistaModificarVivienda.class.getResource("/iconos/Modificar32.png")));
-		btnModificar.setBounds(191, 52, 122, 41);
+		btnModificar.setBounds(191, 52, 136, 41);
 		PanelModificarApto.add(btnModificar);
 	}
 }

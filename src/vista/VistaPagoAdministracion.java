@@ -44,7 +44,7 @@ public class VistaPagoAdministracion extends JFrame {
 	 */
 	public VistaPagoAdministracion() {
 		setTitle("PAGO DE CUOTA ADMINISTRACION");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 504, 294);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 255));
@@ -68,12 +68,12 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(Nombre);
 		
 		txtCedula = new JTextField();
-		txtCedula.setBounds(57, 23, 136, 20);
+		txtCedula.setBounds(67, 23, 136, 20);
 		panel.add(txtCedula);
 		txtCedula.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(57, 48, 136, 20);
+		txtNombre.setBounds(67, 48, 136, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
@@ -109,7 +109,7 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(Total);
 		
 		txtTotal = new JTextField();
-		txtTotal.setBounds(57, 76, 136, 20);
+		txtTotal.setBounds(67, 76, 136, 20);
 		panel.add(txtTotal);
 		txtTotal.setColumns(10);
 		

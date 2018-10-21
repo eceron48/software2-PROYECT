@@ -54,7 +54,7 @@ public class VistaAdministrador extends JFrame {
 	 */
 	public VistaAdministrador() {
 		setTitle("GESTIONAR ADMINISTRADOR");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 634, 420);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 255));
@@ -161,7 +161,7 @@ public class VistaAdministrador extends JFrame {
 		panel_1.add(rbCedula);
 		
 		JRadioButton rbNombre = new JRadioButton("Nombre");
-		rbNombre.setBounds(97, 18, 69, 23);
+		rbNombre.setBounds(97, 18, 94, 23);
 		panel_1.add(rbNombre);
 		
 		textField_6 = new JTextField();
@@ -178,7 +178,7 @@ public class VistaAdministrador extends JFrame {
 		JButton btnMostrarTodos = new JButton("mostrar todos");
 		btnMostrarTodos.setBackground(Color.LIGHT_GRAY);
 		btnMostrarTodos.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/BuscarTodo.png")));
-		btnMostrarTodos.setBounds(440, 35, 135, 34);
+		btnMostrarTodos.setBounds(421, 35, 159, 34);
 		panel_1.add(btnMostrarTodos);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -193,7 +193,7 @@ public class VistaAdministrador extends JFrame {
 				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column"
+				"Nombre", "Cedula", "Telefono", "Direccion", "Usuario", "Contrase\u00F1a"
 			}
 		));
 		scrollPane.setViewportView(tbGestionarAdmin);

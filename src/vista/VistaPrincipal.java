@@ -77,10 +77,22 @@ public class VistaPrincipal extends JFrame {
 		menuBar.add(Pagos);
 		
 		JButton btnRegistrarCuota = new JButton("      Registrar  Cuota");
+		btnRegistrarCuota.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VistaRegistrarCuota registrarCuota = new VistaRegistrarCuota();
+				registrarCuota.setVisible(true);
+			}
+		});
 		btnRegistrarCuota.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Registrar.png")));
 		Pagos.add(btnRegistrarCuota);
 		
-		JButton btnPagoAdministracion = new JButton("Pago Administraci\u00F3n");
+		JButton btnPagoAdministracion = new JButton("Pago Administracion");
+		btnPagoAdministracion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VistaPagoAdministracion pagoAdministracion = new VistaPagoAdministracion();
+				pagoAdministracion.setVisible(true);
+			}
+		});
 		btnPagoAdministracion.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Pago.png")));
 		Pagos.add(btnPagoAdministracion);
 		

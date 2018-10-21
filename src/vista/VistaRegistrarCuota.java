@@ -84,7 +84,7 @@ public class VistaRegistrarCuota extends JFrame {
 		JButton btnAgregar = new JButton("agregar");
 		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnAgregar.setToolTipText("");
-		btnAgregar.setBounds(252, 8, 130, 57);
+		btnAgregar.setBounds(252, 8, 151, 57);
 		panel.add(btnAgregar);
 		btnAgregar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Crear.png")));
 		
@@ -96,14 +96,14 @@ public class VistaRegistrarCuota extends JFrame {
 		JButton btnGuardar = new JButton("guardar");
 		btnGuardar.setBackground(Color.LIGHT_GRAY);
 		btnGuardar.setToolTipText("");
-		btnGuardar.setBounds(283, 11, 116, 41);
+		btnGuardar.setBounds(287, 11, 116, 41);
 		panel_1.add(btnGuardar);
 		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar32.png")));
 		
 		JButton btnModificar = new JButton("modificar");
 		btnModificar.setBackground(Color.LIGHT_GRAY);
 		btnModificar.setToolTipText("");
-		btnModificar.setBounds(157, 11, 116, 41);
+		btnModificar.setBounds(150, 11, 130, 41);
 		panel_1.add(btnModificar);
 		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar32.png")));
 		
