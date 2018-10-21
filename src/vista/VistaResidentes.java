@@ -40,7 +40,7 @@ public class VistaResidentes extends JFrame {
 	public JTable apartamento;
 	public JScrollPane scrollPaneResidentes;
 	  public Object[][] datos;
-	  private JScrollPane scrollPane;
+	  private JTable tbApartamentos;
 	/**
 	 * Launch the application.
 	 */
@@ -201,13 +201,23 @@ public class VistaResidentes extends JFrame {
 		btnLimpiar.setToolTipText("");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
 		
-		scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new TitledBorder(null, "apartamento", TitledBorder.CENTER, TitledBorder.TOP, null, null));
-		scrollPane.setToolTipText("tabla1");
-		scrollPane.setBounds(237, 20, 480, 104);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(226, 27, 516, 74);
 		panel_2.add(scrollPane);
+		
+		tbApartamentos = new JTable();
+		tbApartamentos.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"", "", ""},
+				{"", "", ""},
+				{"", "", ""},
+			},
+			new String[] {
+				"Num Apto", "Bloque", "Piso"
+			}
+		));
+		scrollPane.setViewportView(tbApartamentos);
 		
 		
 	}
-	
 }
