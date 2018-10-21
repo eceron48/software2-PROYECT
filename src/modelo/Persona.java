@@ -29,8 +29,16 @@ public class Persona {
 	public void setCuota(CuotaAdministracion cuota) {
 		this.cuota = cuota;
 	}
-	public Persona() {
+
+	
+	public Persona(String nombre, String cedula, int telefono, String string, String string2,
+			String rol) {
 		
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.telefono = telefono;
+	
+		this.rol = rol;
 	}
 	public Persona(String nombre,String cedula,int telefono) {
 		this.cedula=cedula;
@@ -39,6 +47,9 @@ public class Persona {
 		
 	}
 
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getNombre() {
 		return nombre;
 	}

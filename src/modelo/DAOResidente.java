@@ -15,7 +15,7 @@ import modelo.factorymethod.IDBAdapter;
 public class DAOResidente {
 
 	private IDBAdapter dbAdapter;
-
+	public	String rol="residente";
 	public DAOResidente() {
 		dbAdapter = DBFactory.getDefaultDBAdapter();
 	}
@@ -26,13 +26,19 @@ public class DAOResidente {
 
 		try {
 			PreparedStatement statement = connection.
-
-					prepareStatement("SELECT idcedula,pnombre,ptelefono" + " FROM persona");
+					/*select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from 
+					persona, vivienda , parqueadero
+					where
+					persona.prol="residente"
+			*/
+					prepareStatement("select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from " +"persona, vivienda , parqueadero " + 
+							"where " + 
+							"persona.prol="+rol+"");
 
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
 
-				listaresidente.add(new Persona(results.getString(1), results.getString(2), results.getInt(3)));
+				listaresidente.add(new Persona(results.getString(1), results.getString(2), results.getInt(3),results.getString(4),results.getString(5),results.getString(6) ));
 
 			}
 			return listaresidente;
