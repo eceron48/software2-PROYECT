@@ -22,7 +22,6 @@ public class MYSQLDBAdapter implements IDBAdapter {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
@@ -40,7 +39,7 @@ public class MYSQLDBAdapter implements IDBAdapter {
 		try {
 			String connectionString = createConnectionString();
 			Connection connection = DriverManager.getConnection(connectionString);
-			// System.out.println("conectado a"+DB_NAME_PROP);
+			System.out.println("conectado a"+DB_NAME_PROP);
 			System.out.println("Connection class ==> " + connection.getClass().getName());
 			return connection;
 		} catch (SQLDataException e) {

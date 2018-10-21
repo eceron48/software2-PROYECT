@@ -26,17 +26,30 @@ public class DAOResidente {
 
 		try {
 			PreparedStatement statement = connection.
-					/*select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from 
-					persona, vivienda , parqueadero
+				/*	select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from 
+					(persona inner join vivienda) inner join parqueadero
 					where
-					persona.prol="residente"
-			*/
-					prepareStatement("select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from persona, vivienda , parqueadero where persona.prol='"+rol+"'");
-
+					(persona.idcedula=vivienda.persona_idcedula)and(vivienda.parqueadero_idparqueadero=parqueadero.idparqueadero)and (persona.prol="residente");
+					*/
+					prepareStatement("select pnombre,idcedula,ptelefono,vrol,vpid,idparqueadero from (persona inner join vivienda) inner join parqueadero where (persona.idcedula=vivienda.persona_idcedula)and(vivienda.parqueadero_idparqueadero=parqueadero.idparqueadero)and persona.prol='"+rol+"'");
+					
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-
-				listaresidente.add(new Persona(results.getString(1), results.getString(2), results.getInt(3),results.getString(4),results.getString(5),results.getString(6) ));
+			
+				Persona p=new Persona();
+				Vivienda vivienda=new Vivienda();
+				Parqueadero pq=new Parqueadero();
+				p.setNombre(results.getString(1));
+				p.setCedula(results.getString(2));
+				p.setTelefono(results.getString(3));
+				vivienda.setVrol(results.getString(4));
+				vivienda.setIdvivienda(results.getString(5));
+				pq.setCodigo(results.getString(6));
+				p.setVivienda(vivienda);
+				vivienda.setParqueadero(pq);
+			
+		
+				listaresidente.add(p);
 
 			}
 			return listaresidente;
@@ -67,7 +80,7 @@ public class DAOResidente {
 
 			statement.setString(1, persona.getCedula());
 			statement.setString(2, persona.getNombre());
-			statement.setInt(3, persona.getTelefono());
+			statement.setString(3, persona.getTelefono());
 			statement.setString(4, "residente");
 			statement.setInt(5, 1);
 			statement.executeUpdate();

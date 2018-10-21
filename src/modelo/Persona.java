@@ -3,7 +3,7 @@ package modelo;
 public class Persona {
 	private String nombre;
 	private String cedula;
-	private int    telefono;
+	private String    telefono;
 	private Vivienda vivienda;
 	private CuotaAdministracion cuota;
 	private String rol;
@@ -31,19 +31,20 @@ public class Persona {
 	}
 
 	
-	public Persona(String nombre, String cedula, int telefono, String string, String string2,
-			String rol) {
-		
+	public Persona(String nombre, String cedula, String telefono, String vrol, String prol,
+		String rol) {
 		this.nombre = nombre;
 		this.cedula = cedula;
 		this.telefono = telefono;
-	
-		this.rol = rol;
+		this.rol = prol;
 	}
-	public Persona(String nombre,String cedula,int telefono) {
+	public Persona(String nombre,String cedula,String telefono) {
 		this.cedula=cedula;
 		this.nombre=nombre;
 		this.telefono=telefono;
+		
+	}
+	public Persona(Persona persona) {
 		
 	}
 
@@ -67,11 +68,11 @@ public class Persona {
 	}
 
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	
