@@ -109,10 +109,7 @@ public class VistaResidentes extends JFrame {
 		tbResidentes = new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
+				
 			},
 			new String[] {
 				"Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"

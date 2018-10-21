@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 import modelo.DAOResidente;
 import modelo.Persona;
@@ -68,26 +70,28 @@ public class ControladorResidente implements ActionListener  {
             for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
                 this.vr.tbResidentes.removeRow(i-1);
             }
-             DAOResidente dao = new DAOResidente();
+            DAOResidente  dao = new DAOResidente();
+        
+            	
+            	
+            DefaultTableModel modelo=new DefaultTableModel();
 
              {
                  try {
-                     lista=dao.mostrarTodoResidente();
+                  lista=dao.mostrarTodoResidente();
+                     
+                   
+                    
                  } catch (SQLException ex) {
                      Logger.getLogger( ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
                  }
              }
-
-
-             Iterator<Persona> itr = lista.iterator();
-             while(itr.hasNext()){
-                 p=(Persona) itr.next();
-                 this.vr.tbResidentes.addRow( new Object[]{p.getNombre(),p.getCedula(),p.getTelefono(),p.getVivienda().getVrol(),p.getVivienda().getIdvivienda(),p.getVivienda().getParqueadero().getCodigo()});
-             }
-            
-			
-			
-			
+             	
+             
+         
+           	 for(Persona pe : lista){
+           	  this.vr.tbResidentes.addRow(new Object[]{pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getIdvivienda(),pe.getVivienda().getParqueadero().getCodigo()});
+           	 }
 			break;
 		case"eliminar":
 			
