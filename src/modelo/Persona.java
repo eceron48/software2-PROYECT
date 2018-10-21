@@ -4,8 +4,31 @@ public class Persona {
 	private String nombre;
 	private String cedula;
 	private int    telefono;
-	private Parqueadero parqueadero;
+	private Vivienda vivienda;
+	private CuotaAdministracion cuota;
+	private String rol;
 	
+	
+	
+	
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+	public Vivienda getVivienda() {
+		return vivienda;
+	}
+	public void setVivienda(Vivienda vivienda) {
+		this.vivienda = vivienda;
+	}
+	public CuotaAdministracion getCuota() {
+		return cuota;
+	}
+	public void setCuota(CuotaAdministracion cuota) {
+		this.cuota = cuota;
+	}
 	public Persona() {
 		
 	}

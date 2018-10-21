@@ -3,7 +3,7 @@ package modelo;
 import java.util.List;
 import java.util.Properties;
 
-import modelo.singleton.util.PropertiesUtil;
+
 
 public class ZonaResidencialSingleton {
 	private int estrato;
@@ -13,18 +13,11 @@ public class ZonaResidencialSingleton {
 	private List<Vivienda> vivienda;
 
 	private static ZonaResidencialSingleton singleton;
-	private static final String CONFIGURATION_PROP = "modelo/singleton/util/Configuration.properties";
-
-	private static final String APP_NAME_PROP = "appName";
-	private static final String APP_VERSION_PROP = "appVersion";
-
-	private String appName;
-	private String appVersion;
 
 	private ZonaResidencialSingleton() {
-		Properties prop = PropertiesUtil.loadProperty(CONFIGURATION_PROP);
-		this.appName = prop.getProperty(APP_NAME_PROP);
-		this.appVersion = prop.getProperty(APP_VERSION_PROP);
+	//modificar aqui
+		DAOZonaResidencial zona=new DAOZonaResidencial();
+		
 	}
 
 	private static synchronized void createInstance() {
@@ -48,39 +41,10 @@ public class ZonaResidencialSingleton {
 		ZonaResidencialSingleton.singleton = singleton;
 	}
 
-	public String getAppName() {
-		return appName;
-	}
 
-	public void setAppName(String appName) {
-		this.appName = appName;
-	}
+	
 
-	public String getAppVersion() {
-		return appVersion;
-	}
-
-	public static String getConfigurationProp() {
-		return CONFIGURATION_PROP;
-	}
-
-	public static String getAppNameProp() {
-		return APP_NAME_PROP;
-	}
-
-	public static String getAppVersionProp() {
-		return APP_VERSION_PROP;
-	}
-
-	@Override
-	public String toString() {
-		return "ZonaResidencialSingleton [appName=" + appName + ", appVersion=" + appVersion + "]";
-	}
-
-	public void setAppVersion(String appVersion) {
-		this.appVersion = appVersion;
-	}
-
+	
 	public int getEstrato() {
 		return estrato;
 	}

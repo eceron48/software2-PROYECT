@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
@@ -30,13 +31,16 @@ public class VistaResidentes extends JFrame {
 
 	public JPanel contentPane;
 	public JTextField txtBuscarResidente;
-	public JTable tbResidentes;
 	public JTextField txtNombre;
 	public JTextField txtCedula;
 	public JTextField txtTelefono;
 	public JButton btnGuardar;
-	private JTable table;
-
+	public DefaultTableModel tbResidentes;
+	public JTable  residente;
+	public JTable apartamento;
+	public JScrollPane scrollPaneResidentes;
+	  public Object[][] datos;
+	  private JScrollPane scrollPane;
 	/**
 	 * Launch the application.
 	 */
@@ -94,14 +98,15 @@ public class VistaResidentes extends JFrame {
 		JButton btnBuscarTodos = new JButton("buscar todos");
 		btnBuscarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
 		btnBuscarTodos.setBounds(549, 21, 152, 46);
+		btnBuscarTodos.addActionListener(new ControladorResidente(this));
 		panel.add(btnBuscarTodos);
 		
-		JScrollPane scrollPaneResidentes = new JScrollPane();
+		scrollPaneResidentes = new JScrollPane();
 		scrollPaneResidentes.setBounds(37, 101, 752, 107);
 		contentPane.add(scrollPaneResidentes);
 		
-		tbResidentes = new JTable();
-		tbResidentes.setModel(new DefaultTableModel(
+		  residente= new JTable();
+		tbResidentes = new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null, null},
 				{null, null, null, null, null, null},
@@ -112,8 +117,12 @@ public class VistaResidentes extends JFrame {
 			new String[] {
 				"Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"
 			}
-		));
-		scrollPaneResidentes.setViewportView(tbResidentes);
+		);
+		residente.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		residente.setModel(tbResidentes);
+		residente.getColumnModel().getColumn(0).setPreferredWidth(64);
+		residente.getColumnModel().getColumn(2).setResizable(false);
+		scrollPaneResidentes.setViewportView(residente);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Crear Residente", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
@@ -195,31 +204,13 @@ public class VistaResidentes extends JFrame {
 		btnLimpiar.setToolTipText("");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(new TitledBorder(null, "apartamento", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		scrollPane.setToolTipText("tabla1");
 		scrollPane.setBounds(237, 20, 480, 104);
 		panel_2.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{new Integer(101), new Integer(1), new Integer(1)},
-				{new Integer(102), new Integer(1), new Integer(2)},
-				{new Integer(103), new Integer(1), new Integer(3)},
-				{new Integer(201), new Integer(2), new Integer(1)},
-				{new Integer(202), new Integer(2), new Integer(2)},
-				{new Integer(202), new Integer(2), new Integer(3)},
-			},
-			new String[] {
-				"Numero Apto", "Bloque", "Piso"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				Integer.class, Integer.class, Integer.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		scrollPane.setViewportView(table);
+		
 	}
+	
 }

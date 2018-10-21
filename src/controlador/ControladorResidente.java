@@ -3,6 +3,11 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -56,6 +61,32 @@ public class ControladorResidente implements ActionListener  {
 			break;
 			
 		case"buscar todos":
+			 List<Persona> lista= new ArrayList<>();
+            Persona p;
+             
+             
+            for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
+                this.vr.tbResidentes.removeRow(i-1);
+            }
+             DAOResidente dao = new DAOResidente();
+
+             {
+                 try {
+                     lista=dao.mostrarTodoResidente();
+                 } catch (SQLException ex) {
+                     Logger.getLogger( ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+             }
+
+
+             Iterator<Persona> itr = lista.iterator();
+             while(itr.hasNext()){
+                 p=(Persona) itr.next();
+                 this.vr.tbResidentes.addRow( new Object[]{p.getNombre(),p.getCedula(),p.getTelefono(),p.getVivienda().getVrol(),p.getVivienda().getIdvivienda(),p.getVivienda().getParqueadero().getCodigo()});
+             }
+            
+			
+			
 			
 			break;
 		case"eliminar":
