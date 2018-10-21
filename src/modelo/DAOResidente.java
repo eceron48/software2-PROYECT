@@ -31,9 +31,7 @@ public class DAOResidente {
 					where
 					persona.prol="residente"
 			*/
-					prepareStatement("select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from " +"persona, vivienda , parqueadero " + 
-							"where " + 
-							"persona.prol="+rol+"");
+					prepareStatement("select pnombre,idcedula,ptelefono,idparqueadero,vpid,prol from persona, vivienda , parqueadero where persona.prol='"+rol+"'");
 
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
