@@ -41,6 +41,11 @@ public class Vivienda {
 	public void setParqueadero(Parqueadero parqueadero) {
 		this.parqueadero = parqueadero;
 	}
+	@Override
+	public String toString() {
+		return "Vivienda # " + idvivienda + "";
+	}
+	
 	
 
 }

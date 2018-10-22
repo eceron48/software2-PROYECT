@@ -156,11 +156,11 @@ public ArrayList<Casa> llenarComboCasa() {
 	try {
 		Connection  connection = dbAdapter.getConnection();
 		PreparedStatement statement = connection.
-		prepareStatement("select idvivienda,vnombre from vivienda where vivienda.vrol="+rol+"");
+		prepareStatement("select idvivienda,vnombre from vivienda where vivienda.vrol='"+rol+"'");
 		ResultSet results = statement.executeQuery();
 		while(results.next()) {
 			Casa c=new Casa();
-			c.setId(results.getInt(1));
+			//c.setId(results.getInt(1));
 			c.setIdvivienda(results.getString(2));
 			casalista.add(c);
 		
