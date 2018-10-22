@@ -193,7 +193,7 @@ public class VistaAdministrador extends JFrame {
 				{null, null, null, null, null, null},
 			},
 			new String[] {
-				"Nombre", "Cedula", "Telefono", "Direccion", "Usuario", "Contrase\u00F1a"
+				"IDResidente", "Cedula", "Telefono", "Direccion", "Usuario", "Contrase\u00F1a"
 			}
 		));
 		scrollPane.setViewportView(tbGestionarAdmin);

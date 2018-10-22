@@ -72,16 +72,16 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Buscar Por:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel.setBounds(37, 11, 752, 79);
+		panel.setBounds(37, 11, 752, 105);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JRadioButton rbCedula = new JRadioButton("Cedula");
-		rbCedula.setBounds(19, 7, 75, 23);
+		rbCedula.setBounds(23, 17, 75, 23);
 		panel.add(rbCedula);
 		
 		JRadioButton rbNombre = new JRadioButton("Nombre");
-		rbNombre.setBounds(115, 7, 109, 23);
+		rbNombre.setBounds(115, 17, 109, 23);
 		panel.add(rbNombre);
 		
 		txtBuscarResidente = new JTextField();
@@ -92,17 +92,22 @@ public class VistaResidentes extends JFrame {
 		JButton btnBuscar = new JButton("buscar");
 		btnBuscar.addActionListener(new ControladorResidente(this));
 		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar32.png")));
-		btnBuscar.setBounds(401, 21, 124, 46);
+		btnBuscar.setBounds(353, 34, 124, 46);
 		panel.add(btnBuscar);
 		
 		JButton btnBuscarTodos = new JButton("buscar todos");
 		btnBuscarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
-		btnBuscarTodos.setBounds(549, 21, 152, 46);
+		btnBuscarTodos.setBounds(487, 34, 152, 46);
 		btnBuscarTodos.addActionListener(new ControladorResidente(this));
 		panel.add(btnBuscarTodos);
 		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Persona48.png")));
+		lblNewLabel.setBounds(661, 11, 64, 83);
+		panel.add(lblNewLabel);
+		
 		scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(37, 101, 752, 107);
+		scrollPaneResidentes.setBounds(37, 142, 752, 46);
 		contentPane.add(scrollPaneResidentes);
 		
 		  residente= new JTable();
@@ -116,7 +121,14 @@ public class VistaResidentes extends JFrame {
 			}
 		);
 		residente.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		residente.setModel(tbResidentes);
+		residente.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"IDResidente", "Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "Parqueadero"
+			}
+		));
 		residente.getColumnModel().getColumn(0).setPreferredWidth(64);
 		residente.getColumnModel().getColumn(2).setResizable(false);
 		scrollPaneResidentes.setViewportView(residente);
@@ -209,12 +221,12 @@ public class VistaResidentes extends JFrame {
 		tbApartamentos = new JTable();
 		tbApartamentos.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"", "", ""},
-				{"", "", ""},
-				{"", "", ""},
+				{"", "", "", null},
+				{"", "", "", null},
+				{"", "", "", null},
 			},
 			new String[] {
-				"Num Apto", "Bloque", "Piso"
+				"IDApartamento", "Apartamento", "Bloque", "Piso"
 			}
 		));
 		scrollPane.setViewportView(tbApartamentos);
