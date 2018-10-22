@@ -16,7 +16,8 @@ import modelo.factorymethod.IDBAdapter;
 public class DAOResidente {
 
 	private IDBAdapter dbAdapter;
-	public	String rol="residente";
+	public String rol = "residente";
+
 	public DAOResidente() {
 		dbAdapter = DBFactory.getDefaultDBAdapter();
 	}
@@ -26,15 +27,16 @@ public class DAOResidente {
 		List<Residente> listaresidente = new ArrayList<>();
 
 		try {
-			PreparedStatement statement = connection.
-					prepareStatement("select pnombre,idcedula,ptelefono,vrol,vpid,idparqueadero from (persona inner join vivienda) inner join parqueadero where (persona.idcedula=vivienda.persona_idcedula)and(vivienda.parqueadero_idparqueadero=parqueadero.idparqueadero)and persona.prol='"+rol+"'");
-					
+			PreparedStatement statement = connection.prepareStatement(
+					"select pnombre,idcedula,ptelefono,vrol,vpid,idparqueadero from (persona inner join vivienda) inner join parqueadero where (persona.idcedula=vivienda.persona_idcedula)and(vivienda.parqueadero_idparqueadero=parqueadero.idparqueadero)and persona.prol='"
+							+ rol + "'");
+
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-			
-				Residente p=new Residente();
-				Vivienda vivienda=new Vivienda();
-				Parqueadero pq=new Parqueadero();
+
+				Residente p = new Residente();
+				Vivienda vivienda = new Vivienda();
+				Parqueadero pq = new Parqueadero();
 				p.setNombre(results.getString(1));
 				p.setCedula(results.getString(2));
 				p.setTelefono(results.getString(3));
@@ -43,8 +45,7 @@ public class DAOResidente {
 				pq.setCodigo(results.getString(6));
 				p.setVivienda(vivienda);
 				vivienda.setParqueadero(pq);
-			
-		
+
 				listaresidente.add(p);
 
 			}
@@ -96,51 +97,45 @@ public class DAOResidente {
 
 		}
 	}
+
 //-----------------------------borrar----------------------------------------------------------//
 	public void delete(String ide) {
-		
-		
-		String delete= "DELETE FROM persona WHERE idcedula="+ide ;
-		
-		
-try {	Connection connection = dbAdapter.getConnection();
-	PreparedStatement statement = connection.prepareStatement(delete);
-	statement.executeUpdate();
-    
-                
-                JOptionPane.showMessageDialog(null,"Registro eliminado");
-} catch (SQLException e) {
-	e.printStackTrace();
-	JOptionPane.showInputDialog(null, 3,"Error: Metodo Eliminar",0, null, null, e);
-               
-}		
 
+		String delete = "DELETE FROM persona WHERE idcedula=" + ide;
+
+		try {
+			Connection connection = dbAdapter.getConnection();
+			PreparedStatement statement = connection.prepareStatement(delete);
+			statement.executeUpdate();
+
+			JOptionPane.showMessageDialog(null, "Registro eliminado");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JOptionPane.showInputDialog(null, 3, "Error: Metodo Eliminar", 0, null, null, e);
+
+		}
+
+	}
+
+	/*public boolean modificarResidente(Residente r, String cc) {
+
+		boolean eliminar = false;
+
+		String actualizar = "UPDATE Persona SET idcedula='" + r.getCedula() + "', pnombre='" + r.getNombre()
+				+ "', ptelefono='" + r.getTelefono() + "',precioVenta='" + producto.getPrecioventa()
+				+ "',precioCompra='" + producto.getPreciocompra() + "',existencia='" + producto.getExistencia() + "' "
+				+ " WHERE persona.idcedula=" + producto.getId();
+		try {
+			Connection connection = dbAdapter.getConnection();
+			PreparedStatement statement = connection.prepareStatement(actualizar);
+			statement.executeUpdate();
+			eliminar = true;
+			JOptionPane.showMessageDialog(null, "Registro modificado");
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Error: Metodo Modificar");
+			e.addSuppressed(e);
+		}
+		return eliminar;
+	} */
 
 }
-
-	
-
-	public boolean modificarResidente(Residente r,String cc) {
-		
-		boolean eliminar=false;
-       
-String actualizar=
-"UPDATE Persona SET idcedula='"+r.getCedula()+"', pnombre='"+r.getNombre()+"', ptelefono='"+r.getTelefono()+"',precioVenta='"+producto.getPrecioventa()+"',precioCompra='"+producto.getPreciocompra()+"',existencia='"+producto.getExistencia()+"' "+" WHERE persona.idcedula="+producto.getId();
-try {
-		Connection connection = dbAdapter.getConnection();
-		PreparedStatement statement = connection.prepareStatement(actualizar);
-		statement.executeUpdate();
-	eliminar=true;
-                JOptionPane.showMessageDialog(null,"Registro modificado");
-} catch (SQLException e) {
-	JOptionPane.showMessageDialog(null,"Error: Metodo Modificar");
-                e.addSuppressed(e);
-}		
-return eliminar;
-}
-	
-	
-	
-	
-}	
-	
