@@ -91,11 +91,11 @@ public class VistaPagoAdministracion extends JFrame {
 		rbEfectivo.setBounds(125, 7, 83, 23);
 		panel_1.add(rbEfectivo);
 		
-		JRadioButton rbDebito = new JRadioButton("Tarjeta D\u00E9bito");
+		JRadioButton rbDebito = new JRadioButton("Tarjeta Debito");
 		rbDebito.setBounds(216, 7, 109, 23);
 		panel_1.add(rbDebito);
 		
-		JRadioButton rbCredito = new JRadioButton("Tarjeta Cr\u00E9dito");
+		JRadioButton rbCredito = new JRadioButton("Tarjeta Credito");
 		rbCredito.setBounds(327, 7, 109, 23);
 		panel_1.add(rbCredito);
 		
