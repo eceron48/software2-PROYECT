@@ -57,8 +57,7 @@ public class PostgresDBAdapter implements IDBAdapter {
 		System.out.println(user);
 		String password = prop.getProperty(DB_PASSWORD_PROP);
 		System.out.println(password);
-		// String connectionString =
-		// "jdbc:postgresql://127.0.0.1:5433/producto_postgres";
+		
 		String connectionString = "jdbc:postgresql://" + host + ":" + port + "/" + db + "?user=" + user + "&password="
 				+ password;
 

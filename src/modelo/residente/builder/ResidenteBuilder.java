@@ -1,10 +1,14 @@
-package modelo.builder;
+package modelo.residente.builder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
+import modelo.DAOResidente;
 import modelo.Persona;
 import modelo.Residente;
+import modelo.Vivienda;
 import vista.VistaResidentes;
 
 public class ResidenteBuilder extends PersonaBuilder{
@@ -13,7 +17,7 @@ public class ResidenteBuilder extends PersonaBuilder{
 	
 	public ResidenteBuilder(VistaResidentes v) {
 		this.v=v;
-		super.persona = new Persona();
+		super.persona = new Residente();
 	
 
 	}	
@@ -45,21 +49,32 @@ public class ResidenteBuilder extends PersonaBuilder{
 
 	}
 
-	@Override
-	public void construirFechaEntrada() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void construirFechaSalida() {
-		
-
-	}
+	
 
 	@Override
 	public void construirapartamento() {
-			
+		
+		
+		
+		Vivienda vivienda=new Vivienda();
+		if ((this.v.apartamento.getSelectedRow())==-1) {
+		 
+        }
+        else {
+        	
+        	int fila = this.v.apartamento.getSelectedRow();
+			System.out.println("fila " + fila);
+
+			if (fila >= 0) {
+				int ide = (int) this.v.tbResidentes.getValueAt(fila, 0);
+				vivienda.setId(ide);
+				System.out.println("fila " + ide);
+			} 
+        	
+        	
+             JOptionPane.showMessageDialog(null,"No ha seleccionado nigun dato");
+        }
+			persona.setVivienda(vivienda);
 	}
 
 	@Override

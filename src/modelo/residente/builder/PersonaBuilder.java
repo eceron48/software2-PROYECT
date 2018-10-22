@@ -1,13 +1,13 @@
-package modelo.builder;
+package modelo.residente.builder;
 
 import modelo.Persona;
 import modelo.Residente;
 
 public abstract class PersonaBuilder {
 	
-protected Persona persona;
+protected Residente persona;
 	 
-	public Persona obtenerPersona() {
+	public Residente obtenerPersona() {
 		return persona;
 	}
 	 
@@ -15,8 +15,6 @@ protected Persona persona;
 	public abstract void construirNombre();
 	public abstract void construirTelefono();
 	public abstract void construirCedula();
-	public abstract void construirFechaEntrada();
-	public abstract void construirFechaSalida();
 	public abstract void construirapartamento();
 	public abstract void construirparqueadero();
 

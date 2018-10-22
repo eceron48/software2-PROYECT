@@ -6,4 +6,6 @@ public class Casa extends Vivienda {
 		 
 	 }
 
+
+
 }

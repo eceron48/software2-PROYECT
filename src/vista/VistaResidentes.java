@@ -36,11 +36,13 @@ public class VistaResidentes extends JFrame {
 	public JTextField txtTelefono;
 	public JButton btnGuardar;
 	public DefaultTableModel tbResidentes;
+	public DefaultTableModel tbapartamento;
 	public JTable  residente;
 	public JTable apartamento;
 	public JScrollPane scrollPaneResidentes;
 	  public Object[][] datos;
 	  private JTable tbApartamentos;
+	 public JComboBox comboBoxvivienda;
 	/**
 	 * Launch the application.
 	 */
@@ -117,20 +119,11 @@ public class VistaResidentes extends JFrame {
 				
 			},
 			new String[] {
-				"Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"
+				"IDResidente","Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"
 			}
 		);
 		residente.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		residente.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"IDResidente", "Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "Parqueadero"
-			}
-		));
-		residente.getColumnModel().getColumn(0).setPreferredWidth(64);
-		residente.getColumnModel().getColumn(2).setResizable(false);
+		residente.setModel(tbResidentes);
 		scrollPaneResidentes.setViewportView(residente);
 		
 		JPanel panel_2 = new JPanel();
@@ -170,7 +163,7 @@ public class VistaResidentes extends JFrame {
 		Vivienda.setBounds(10, 117, 70, 14);
 		panel_2.add(Vivienda);
 		
-		JComboBox comboBoxvivienda = new JComboBox();
+		comboBoxvivienda = new JComboBox();
 		comboBoxvivienda.setBounds(86, 114, 132, 20);
 		panel_2.add(comboBoxvivienda);
 		comboBoxvivienda.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
@@ -214,23 +207,25 @@ public class VistaResidentes extends JFrame {
 		btnLimpiar.setToolTipText("");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(226, 27, 516, 74);
-		panel_2.add(scrollPane);
+		JScrollPane tablavi = new JScrollPane();
+		tablavi.setBounds(226, 27, 516, 74);
+		panel_2.add(tablavi);
 		
-		tbApartamentos = new JTable();
-		tbApartamentos.setModel(new DefaultTableModel(
+		apartamento = new JTable();
+		tbapartamento = new DefaultTableModel(
 			new Object[][] {
 				{"", "", "", null},
-				{"", "", "", null},
-				{"", "", "", null},
+			
 			},
 			new String[] {
 				"IDApartamento", "Apartamento", "Bloque", "Piso"
 			}
-		));
-		scrollPane.setViewportView(tbApartamentos);
+		);
+		apartamento.setModel(tbapartamento);
+		apartamento.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		tablavi.setViewportView(apartamento);
 		
 		
 	}
+	
 }

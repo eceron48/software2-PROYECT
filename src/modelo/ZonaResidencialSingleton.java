@@ -3,8 +3,10 @@ package modelo;
 import java.util.List;
 import java.util.Properties;
 
+
+
 public class ZonaResidencialSingleton {
-	private int estrato;
+	private int id;
 	private String direccion;
 	private String nombre;
 	private SAdministrador sadministrador;
@@ -12,10 +14,24 @@ public class ZonaResidencialSingleton {
 
 	private static ZonaResidencialSingleton singleton;
 
-	private ZonaResidencialSingleton() {
-		// modificar aqui
-		DAOZonaResidencial zona = new DAOZonaResidencial();
+	
+	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	private ZonaResidencialSingleton() {
+	//modificar aqui
+		DAOZonaResidencial zona=new DAOZonaResidencial();
+		
 	}
 
 	private static synchronized void createInstance() {
@@ -39,17 +55,10 @@ public class ZonaResidencialSingleton {
 		ZonaResidencialSingleton.singleton = singleton;
 	}
 
-	public int getEstrato() {
-		return estrato;
-	}
 
-	public void setEstrato(int estrato) {
-		this.estrato = estrato;
-	}
+	
 
-	public String getDireccion() {
-		return direccion;
-	}
+	
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;

@@ -12,15 +12,15 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
+import modelo.Casa;
 import modelo.DAOResidente;
 import modelo.Parqueadero;
 import modelo.Persona;
 import modelo.Residente;
 import modelo.Vivienda;
-import modelo.builder.FabricaBuilder;
-import modelo.builder.PersonaBuilder;
-import modelo.builder.ResidenteBuilder;
+import modelo.residente.builder.FabricaBuilder;
+import modelo.residente.builder.PersonaBuilder;
+import modelo.residente.builder.ResidenteBuilder;
 import vista.VistaResidentes;
 
 public class ControladorResidente implements ActionListener  {
@@ -43,7 +43,8 @@ public class ControladorResidente implements ActionListener  {
 			fabricabuilder.setpersonabuilder(residentebuilder);
 			fabricabuilder.construirPersona();
 			
-			Persona persona=fabricabuilder.getpersona();
+			Residente persona=fabricabuilder.getpersona();
+			
 				DAOResidente dr=new DAOResidente();
 			try {
 				dr.insertar(persona);
@@ -66,34 +67,36 @@ public class ControladorResidente implements ActionListener  {
 			break;
 			
 		case"buscar todos":
-			 List<Residente> lista= new ArrayList<>();
-           Residente p;
-             
+			
+		
+			ArrayList<Casa>casa=new ArrayList<>();
+			List<Residente> lista= new ArrayList<>();
              
             for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
                 this.vr.tbResidentes.removeRow(i-1);
             }
             DAOResidente  dao = new DAOResidente();
         
+            casa=dao.llenarComboCasa();  
             	
-            	
-         //   DefaultTableModel modelo=new DefaultTableModel();
-
-             {
+               {
                  try {
                   lista=dao.mostrarTodoResidente();
-                     
+                   
                    
                     
                  } catch (SQLException ex) {
                      Logger.getLogger( ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
                  }
              }
-             	
-             
-         
+          
+               	   for(int i=0;i<casa.size();i++) {
+                	 	 vr.comboBoxvivienda.addItem(casa.get(i));
+            	 
+               	  }
+        
            	 for(Residente pe : lista){
-           	  this.vr.tbResidentes.addRow(new Object[]{pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getIdvivienda(),pe.getVivienda().getParqueadero().getCodigo()});
+           	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getIdvivienda(),pe.getVivienda().getParqueadero().getCodigo()});
            	 }
 			break;
 		case"eliminar":
@@ -113,9 +116,10 @@ public class ControladorResidente implements ActionListener  {
 			
 			break;
 		case"modificar":
-			
+			/*
 			 int fila1=this.vr.residente.getSelectedRow();
              if(fila1>=0){
+            	 
                  String nombre=(String) this.vr.tbResidentes.getValueAt(fila1, 0);
                  String cedula= (String) this.vr.tbResidentes.getValueAt(fila1, 1);
                  String telefono= (String) this.vr.tbResidentes.getValueAt(fila1, 2);
@@ -145,6 +149,7 @@ public class ControladorResidente implements ActionListener  {
              }
 			
 			break;
+			*/
 		case"limpiar":
 			
 			

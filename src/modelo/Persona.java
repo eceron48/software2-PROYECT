@@ -5,6 +5,16 @@ public class Persona {
 	private String cedula;
 	private String telefono;
 	private String rol;
+	private int id;
+
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getRol() {
 		return rol;
