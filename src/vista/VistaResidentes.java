@@ -43,6 +43,7 @@ public class VistaResidentes extends JFrame {
 	  public Object[][] datos;
 	  private JTable tbApartamentos;
 	 public JComboBox comboBoxvivienda;
+	public JComboBox comboBoxparqueadero;
 	/**
 	 * Launch the application.
 	 */
@@ -172,7 +173,7 @@ public class VistaResidentes extends JFrame {
 		lblParqueadero.setBounds(10, 148, 79, 14);
 		panel_2.add(lblParqueadero);
 		
-		JComboBox comboBoxparqueadero = new JComboBox();
+		comboBoxparqueadero = new JComboBox();
 		comboBoxparqueadero.setBounds(86, 145, 132, 20);
 		panel_2.add(comboBoxparqueadero);
 		comboBoxparqueadero.setModel(new DefaultComboBoxModel(new String[] {"Seleccione una:"}));
@@ -228,4 +229,7 @@ public class VistaResidentes extends JFrame {
 		
 	}
 	
+	public JComboBox getComboBoxparqueadero() {
+		return comboBoxparqueadero;
+	}
 }

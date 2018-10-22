@@ -8,12 +8,12 @@ public class Vivienda {
 	
 
 	public Vivienda(String vrol, String idvivienda, int id, Parqueadero parqueadero) {
-		super();
 		this.vrol = vrol;
 		this.idvivienda = idvivienda;
 		this.id = id;
 		this.parqueadero = parqueadero;
 	}
+
 	public int getId() {
 		return id;
 	}

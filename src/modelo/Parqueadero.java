@@ -17,6 +17,10 @@ public class Parqueadero {
 
 	}
 
+	public Parqueadero(String codigo) {
+		this.codigo=codigo;
+	}
+
 	public String getCodigo() {
 		return codigo;
 	}
@@ -24,5 +28,12 @@ public class Parqueadero {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+
+	@Override
+	public String toString() {
+		return "parqueadero # [" + codigo + "]";
+	}
+	
+	
 
 }

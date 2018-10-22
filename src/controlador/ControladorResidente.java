@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.Apartamento;
 import modelo.Casa;
 import modelo.DAOResidente;
 import modelo.Parqueadero;
@@ -70,18 +71,23 @@ public class ControladorResidente implements ActionListener  {
 			
 		
 			ArrayList<Casa>casa=new ArrayList<>();
+			ArrayList<Apartamento>apartamento=new ArrayList<>();
 			List<Residente> lista= new ArrayList<>();
+			ArrayList<Parqueadero>parqueadero=new ArrayList<>();
              
             for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
                 this.vr.tbResidentes.removeRow(i-1);
             }
             DAOResidente  dao = new DAOResidente();
         
-            casa=dao.llenarComboCasa();  
+           
             	
                {
                  try {
-                  lista=dao.mostrarTodoResidente();
+                	 apartamento=dao.tablaApartamento();
+                	 parqueadero=dao.llenarComboParqueadero();
+                	 casa=dao.llenarComboCasa();  
+                	 lista=dao.mostrarTodoResidente();
                    
                    
                     
@@ -90,6 +96,11 @@ public class ControladorResidente implements ActionListener  {
                  }
              }
           
+
+           	   for(int i=0;i<parqueadero.size();i++) {
+            	 	 vr.comboBoxparqueadero.addItem(parqueadero.get(i));
+        	 
+           	  }
                	   for(int i=0;i<casa.size();i++) {
                 	 	 vr.comboBoxvivienda.addItem(casa.get(i));
             	 
@@ -98,6 +109,11 @@ public class ControladorResidente implements ActionListener  {
            	 for(Residente pe : lista){
            	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getIdvivienda(),pe.getVivienda().getParqueadero().getCodigo()});
            	 }
+           	 
+           	 for(Apartamento ap : apartamento){
+              	  this.vr.tbapartamento.addRow(new Object[]{ap.getId(),ap.getIdApartamento(),ap.getBloque(),ap.getPiso()});
+              	 }
+           	 
 			break;
 		case"eliminar":
 		//------------------------------------------------------------------------eliminar--------------------------------------------------------------------------------------------------------------	
