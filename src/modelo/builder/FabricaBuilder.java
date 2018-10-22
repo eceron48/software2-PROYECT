@@ -1,6 +1,7 @@
 package modelo.builder;
 
 import modelo.Persona;
+import modelo.Residente;
 
 public class FabricaBuilder {
 	  private PersonaBuilder personabuilder;

@@ -3,9 +3,7 @@ package modelo;
 public class Persona {
 	private String nombre;
 	private String cedula;
-	private String    telefono;
-	private Vivienda vivienda;
-	private CuotaAdministracion cuota;
+	private String telefono;
 	private String rol;
 	
 	
@@ -17,18 +15,7 @@ public class Persona {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
-	public Vivienda getVivienda() {
-		return vivienda;
-	}
-	public void setVivienda(Vivienda vivienda) {
-		this.vivienda = vivienda;
-	}
-	public CuotaAdministracion getCuota() {
-		return cuota;
-	}
-	public void setCuota(CuotaAdministracion cuota) {
-		this.cuota = cuota;
-	}
+	
 
 	
 	public Persona(String nombre, String cedula, String telefono, String vrol, String prol,
