@@ -26,7 +26,6 @@ public class MYSQLDBAdapter implements IDBAdapter {
 		}
 		try {
 			new com.mysql.cj.jdbc.Driver();
-		
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,8 +60,9 @@ public class MYSQLDBAdapter implements IDBAdapter {
 		String user = prop.getProperty(DB_USER_PROP);
 
 		String password = prop.getProperty(DB_PASSWORD_PROP);
-	
-		String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + db +" ?useTimezone=true&serverTimezone=UTC"+" &user="+ user + "&password=" + password;
+
+		String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + db
+				+ " ?useTimezone=true&serverTimezone=UTC" + " &user=" + user + "&password=" + password;
 		System.out.println("ConnectionString ==> " + connectionString);
 		return connectionString;
 	}

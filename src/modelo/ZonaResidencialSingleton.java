@@ -3,8 +3,6 @@ package modelo;
 import java.util.List;
 import java.util.Properties;
 
-
-
 public class ZonaResidencialSingleton {
 	private int estrato;
 	private String direccion;
@@ -15,9 +13,9 @@ public class ZonaResidencialSingleton {
 	private static ZonaResidencialSingleton singleton;
 
 	private ZonaResidencialSingleton() {
-	//modificar aqui
-		DAOZonaResidencial zona=new DAOZonaResidencial();
-		
+		// modificar aqui
+		DAOZonaResidencial zona = new DAOZonaResidencial();
+
 	}
 
 	private static synchronized void createInstance() {
@@ -41,10 +39,6 @@ public class ZonaResidencialSingleton {
 		ZonaResidencialSingleton.singleton = singleton;
 	}
 
-
-	
-
-	
 	public int getEstrato() {
 		return estrato;
 	}

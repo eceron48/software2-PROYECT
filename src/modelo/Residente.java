@@ -3,12 +3,10 @@ package modelo;
 public class Residente extends Persona {
 	private Vivienda vivienda;
 	private CuotaAdministracion cuota;
-	
-	public Residente() {
-		
-	}
 
-	
+	public Residente() {
+
+	}
 
 	public Vivienda getVivienda() {
 		return vivienda;
@@ -25,6 +23,5 @@ public class Residente extends Persona {
 	public void setCuota(CuotaAdministracion cuota) {
 		this.cuota = cuota;
 	}
-	
-	
+
 }
