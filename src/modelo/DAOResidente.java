@@ -67,22 +67,23 @@ public class DAOResidente {
 
 	}
 
-	public boolean insertar(Persona persona) throws SQLException {
+	public boolean insertar(Residente persona) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
 
 		try {
 			PreparedStatement statement = connection.
 
-					prepareStatement("INSERT INTO persona(idcedula,pnombre, ptelefono,prol,cuota_idcuota)"
-							+ "VALUES (?,?,?,?,?)");
+					prepareStatement("INSERT INTO persona(pcedula,pnombre, ptelefono,prol)"
+							+ "VALUES (?,?,?,?)");
 
 			statement.setString(1, persona.getCedula());
 			statement.setString(2, persona.getNombre());
 			statement.setString(3, persona.getTelefono());
 			statement.setString(4, "residente");
-			statement.setInt(5, 1);
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
+			this.mostrarTodoResidente();
+			
 			return true;
 		} catch (Exception e) {
 
@@ -146,7 +147,6 @@ public class DAOResidente {
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
 				Casa c = new Casa();
-				// c.setId(results.getInt(1));
 				c.setIdvivienda(results.getString(2));
 				casalista.add(c);
 

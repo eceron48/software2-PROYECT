@@ -31,7 +31,7 @@ public class Parqueadero {
 
 	@Override
 	public String toString() {
-		return "parqueadero # [" + codigo + "]";
+		return ""+ codigo +"";
 	}
 	
 	

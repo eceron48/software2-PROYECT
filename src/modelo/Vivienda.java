@@ -43,7 +43,7 @@ public class Vivienda {
 	}
 	@Override
 	public String toString() {
-		return "Vivienda # " + idvivienda + "";
+		return ""+ idvivienda +"";
 	}
 	
 	

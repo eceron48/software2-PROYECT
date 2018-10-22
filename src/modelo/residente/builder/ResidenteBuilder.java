@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import modelo.DAOResidente;
+import modelo.Parqueadero;
 import modelo.Persona;
 import modelo.Residente;
 import modelo.Vivienda;
@@ -13,8 +14,8 @@ import vista.VistaResidentes;
 
 public class ResidenteBuilder extends PersonaBuilder{
 	private final VistaResidentes v;
-	
-	
+	Vivienda vi=new Vivienda();
+	Parqueadero p=new Parqueadero();
 	public ResidenteBuilder(VistaResidentes v) {
 		this.v=v;
 		super.persona = new Residente();
@@ -56,36 +57,43 @@ public class ResidenteBuilder extends PersonaBuilder{
 		
 		
 		
-		Vivienda vivienda=new Vivienda();
+		
 		if ((this.v.apartamento.getSelectedRow())==-1) {
+		 String id=v.comboBoxvivienda.getSelectedItem().toString();
+		 	vi.setIdvivienda(id);
 		 
+		 System.out.println("combocasa "+id);			
         }
         else {
         	
         	int fila = this.v.apartamento.getSelectedRow();
-			System.out.println("fila " + fila);
+			System.out.println("fila appto " + fila);
 
 			if (fila >= 0) {
-				int ide = (int) this.v.tbResidentes.getValueAt(fila, 0);
-				vivienda.setId(ide);
-				System.out.println("fila " + ide);
+			int ide = (int) this.v.tbapartamento.getValueAt(fila, 0);
+				
+			String dato=Integer.toString(ide);
+				System.out.println("fila " + dato);
+				vi.setIdvivienda(dato);
 			} 
         	
         	
              JOptionPane.showMessageDialog(null,"No ha seleccionado nigun dato");
         }
-			persona.setVivienda(vivienda);
+			
 	}
 
 	@Override
 	public void construirparqueadero() {
-		// TODO Auto-generated method stub
-
+		 String id=v.comboBoxparqueadero.getSelectedItem().toString();
+		p.setCodigo(id);
+		vi.setParqueadero(p);
+		persona.setVivienda(vi);
+		
+		 System.out.println("combo "+id);	
+		 
 	}
-
-
 	
-
 	
 
 

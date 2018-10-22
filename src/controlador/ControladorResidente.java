@@ -25,7 +25,7 @@ import modelo.residente.builder.ResidenteBuilder;
 import vista.VistaResidentes;
 
 public class ControladorResidente implements ActionListener  {
-	
+
 	private final VistaResidentes vr;
 	
 	public ControladorResidente(VistaResidentes vr) {
@@ -77,6 +77,10 @@ public class ControladorResidente implements ActionListener  {
              
             for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
                 this.vr.tbResidentes.removeRow(i-1);
+            }
+            
+            for(int i=this.vr.tbapartamento.getRowCount(); i>0; i--){
+                this.vr.tbapartamento.removeRow(i-1);
             }
             DAOResidente  dao = new DAOResidente();
         
