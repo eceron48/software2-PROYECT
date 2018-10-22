@@ -34,7 +34,7 @@ public class ResidenteBuilder extends PersonaBuilder{
 	@Override
 	public void construirTelefono() {
 
-		persona.setTelefono(v.txtTelefono.toString());
+		persona.setTelefono(v.txtTelefono.getText().toString());
 		
 
 	}

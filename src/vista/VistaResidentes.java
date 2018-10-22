@@ -184,6 +184,7 @@ public class VistaResidentes extends JFrame {
 		btnEliminar.setBounds(501, 135, 119, 41);
 		panel_2.add(btnEliminar);
 		btnEliminar.setToolTipText("");
+		btnEliminar.addActionListener(new ControladorResidente(this));
 		btnEliminar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Eliminar32.png")));
 		
 		btnGuardar = new JButton("guardar");
