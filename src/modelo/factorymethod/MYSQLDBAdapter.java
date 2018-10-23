@@ -38,7 +38,7 @@ public class MYSQLDBAdapter implements IDBAdapter {
 		try {
 			String connectionString = createConnectionString();
 			Connection connection = DriverManager.getConnection(connectionString);
-			System.out.println("Connection class ==> " + connection.getClass().getName());
+			//System.out.println("Connection class ==> " + connection.getClass().getName());
 			return connection;
 		} catch (SQLDataException e) {
 			JOptionPane.showMessageDialog(null, "error de regsitro de drive", null, 0);
@@ -62,7 +62,7 @@ public class MYSQLDBAdapter implements IDBAdapter {
 		String password = prop.getProperty(DB_PASSWORD_PROP);
 
 		String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + db+ " ?useTimezone=true&serverTimezone=UTC" + " &user=" + user + "&password=" + password;
-		System.out.println("ConnectionString ==> " + connectionString);
+		//System.out.println("ConnectionString ==> " + connectionString);
 		return connectionString;
 	}
 

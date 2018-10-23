@@ -3,6 +3,27 @@ package modelo;
 public class CuotaAdministracion {
 	private Double cuota;
 	private Double total;
+	private Double porcentaje;
+	private int idcuota;
+	
+	
+	
+
+	public int getIdcuota() {
+		return idcuota;
+	}
+
+	public void setIdcuota(int idcuota) {
+		this.idcuota = idcuota;
+	}
+
+	public Double getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(Double porcentaje) {
+		this.porcentaje = porcentaje;
+	}
 
 	public Double getCuota() {
 		return cuota;

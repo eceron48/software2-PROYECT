@@ -6,12 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.ControladorRegistroCuota;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VistaRegistrarCuota extends JFrame {
 
@@ -19,6 +24,7 @@ public class VistaRegistrarCuota extends JFrame {
 	public JTextField txtValorCuota;
 	public JTextField txtPorcentaje;
 	public JTextField txtTotal;
+	public JTextField textidcuota;
 
 	/**
 	 * Launch the application.
@@ -72,11 +78,30 @@ public class VistaRegistrarCuota extends JFrame {
 		panel.add(lblPorcentaje);
 		
 		txtPorcentaje = new JTextField();
+		txtPorcentaje.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+			    char car = evt.getKeyChar();
+		        if((car<'0' || car>'9') && (car<',' || car>'.')) evt.consume();
+			}
+		});
+		
+	
 		txtPorcentaje.setBounds(95, 48, 117, 20);
 		panel.add(txtPorcentaje);
 		txtPorcentaje.setColumns(10);
 		
 		txtValorCuota = new JTextField();
+		txtValorCuota.addKeyListener(new KeyAdapter() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c=e.getKeyChar();
+				if(c<'0'||c>'9') e.consume();
+					
+				
+			}
+		});
 		txtValorCuota.setBounds(95, 8, 117, 20);
 		panel.add(txtValorCuota);
 		txtValorCuota.setColumns(10);
@@ -85,6 +110,7 @@ public class VistaRegistrarCuota extends JFrame {
 		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnAgregar.setToolTipText("");
 		btnAgregar.setBounds(252, 8, 151, 57);
+		btnAgregar.addActionListener(new ControladorRegistroCuota(this));
 		panel.add(btnAgregar);
 		btnAgregar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Crear.png")));
 		
@@ -93,11 +119,12 @@ public class VistaRegistrarCuota extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JButton btnGuardar = new JButton("guardar");
+		JButton btnGuardar = new JButton("eliminar");
 		btnGuardar.setBackground(Color.LIGHT_GRAY);
 		btnGuardar.setToolTipText("");
 		btnGuardar.setBounds(287, 11, 116, 41);
 		panel_1.add(btnGuardar);
+		btnGuardar.addActionListener(new ControladorRegistroCuota(this));
 		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar32.png")));
 		
 		JButton btnModificar = new JButton("modificar");
@@ -105,13 +132,27 @@ public class VistaRegistrarCuota extends JFrame {
 		btnModificar.setToolTipText("");
 		btnModificar.setBounds(150, 11, 130, 41);
 		panel_1.add(btnModificar);
+		btnModificar.addActionListener(new ControladorRegistroCuota(this));
 		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar32.png")));
 		
-		JButton btnNewButton = new JButton("ver cuotas");
+		JButton btnNewButton = new JButton("ver cuota");
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setToolTipText("");
 		btnNewButton.setBounds(10, 11, 130, 41);
+		btnNewButton.addActionListener(new ControladorRegistroCuota(this));
 		panel_1.add(btnNewButton);
 		btnNewButton.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Ver32.png")));
+		
+		JLabel lblNewLabel = new JLabel("id");
+		lblNewLabel.setBounds(393, 109, 17, 21);
+		contentPane.add(lblNewLabel);
+		
+		textidcuota = new JTextField();
+		textidcuota.setEnabled(false);
+		textidcuota.setBounds(409, 109, 36, 20);
+		contentPane.add(textidcuota);
+		textidcuota.setColumns(10);
 	}
+	
+	
 }

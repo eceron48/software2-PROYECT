@@ -25,7 +25,7 @@ public class DAOResidente {
 	public List<Residente> mostrarTodoResidente() throws SQLException {
 		Connection connection = dbAdapter.getConnection();
 		List<Residente> listaresidente = new ArrayList<>();
-
+		
 		try {
 			PreparedStatement statement = connection.prepareStatement(
 					"select idpersona,pnombre,pcedula,ptelefono,vrol,vnombre,referencia from (persona inner join vivienda) inner join parqueadero where (persona.idpersona=vivienda.persona_idpersona)and(vivienda.parqueadero_idparqueadero=parqueadero.idparqueadero)and persona.prol='"
@@ -33,10 +33,10 @@ public class DAOResidente {
 			
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-
 				Residente p = new Residente();
 				Vivienda vivienda = new Vivienda();
 				Parqueadero pq = new Parqueadero();
+				
 				p.setId(results.getInt(1));
 				p.setNombre(results.getString(2));
 				p.setCedula(results.getString(3));
@@ -44,9 +44,9 @@ public class DAOResidente {
 				vivienda.setVrol(results.getString(5));
 				vivienda.setIdvivienda(results.getString(6));
 				pq.setCodigo(results.getString(7));
-				p.setVivienda(vivienda);
 				vivienda.setParqueadero(pq);
-
+				p.setVivienda(vivienda);
+			System.out.println("codigo "+p.getVivienda().getParqueadero().getCodigo());
 				listaresidente.add(p);
 
 			}
@@ -69,7 +69,7 @@ public class DAOResidente {
 
 	public boolean insertar(Residente persona) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
-
+			connection=null;
 		try {
 			PreparedStatement statement = connection.
 
@@ -82,7 +82,6 @@ public class DAOResidente {
 			statement.setString(4, "residente");
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
-			this.mostrarTodoResidente();
 			
 			return true;
 		} catch (Exception e) {
@@ -149,7 +148,7 @@ public class DAOResidente {
 				Casa c = new Casa();
 				c.setIdvivienda(results.getString(2));
 				casalista.add(c);
-
+					
 			}
 
 		} catch (SQLException e) {
@@ -182,17 +181,20 @@ public ArrayList<Apartamento>tablaApartamento(){
 	ArrayList<Apartamento> aparatamento = new ArrayList<>();
 	Apartamento ap=new Apartamento(); 
 	String rol = "apartamento";
-	String SELECT="select idvivienda,vnombre,vpiso,vbloque from vivienda where vivienda.vrol='" + rol + "'";
+	String SELECT="select idvivienda,vnombre,vpiso,vbloque from vivienda where vivienda.vrol='" + rol + "'order by vnombre";
 	
 	try {
 		Connection connection = dbAdapter.getConnection();
 		PreparedStatement statement = connection.prepareStatement(SELECT);
 		ResultSet results = statement.executeQuery();
 		while (results.next()) {
-			ap.setBloque(results.getString(3));
 			ap.setId(results.getInt(1));
-			ap.setIdApartamento(results.getString(3));
-			ap.setPiso(results.getInt(4));
+			ap.setIdvivienda(results.getString(2));
+			ap.setPiso(results.getInt(3));
+			ap.setBloque(results.getString(4));
+			System.out.println("id "+ap.getId());
+			System.out.println("viviendanumero "+ap.getIdvivienda());
+			System.out.println("piso "+ap.getPiso());
 			aparatamento.add(ap);
 					
 		}

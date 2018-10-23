@@ -59,13 +59,15 @@ public class ResidenteBuilder extends PersonaBuilder{
 		
 		
 		if ((this.v.apartamento.getSelectedRow())==-1) {
+			
+			//-----------------------------------------------------------construyo casa que solo tiene una id --------------------------------------------------------------//
 		 String id=v.comboBoxvivienda.getSelectedItem().toString();
 		 	vi.setIdvivienda(id);
 		 
 		 System.out.println("combocasa "+id);			
         }
         else {
-        	
+        	//------------------------------------------------------construyo apartamento-------------------------------------------------------------------------------------------//
         	int fila = this.v.apartamento.getSelectedRow();
 			System.out.println("fila appto " + fila);
 

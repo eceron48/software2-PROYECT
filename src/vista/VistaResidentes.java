@@ -26,6 +26,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
+import javax.swing.ScrollPaneConstants;
 
 public class VistaResidentes extends JFrame {
 
@@ -66,7 +68,7 @@ public class VistaResidentes extends JFrame {
 	public VistaResidentes() {
 		setTitle("Gestionar Residentes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 815, 478);
+		setBounds(100, 100, 815, 555);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,7 +112,10 @@ public class VistaResidentes extends JFrame {
 		panel.add(lblNewLabel);
 		
 		scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(37, 142, 752, 46);
+		scrollPaneResidentes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPaneResidentes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPaneResidentes.setViewportBorder(new LineBorder(new Color(0, 0, 0)));
+		scrollPaneResidentes.setBounds(37, 127, 752, 112);
 		contentPane.add(scrollPaneResidentes);
 		
 		  residente= new JTable();
@@ -129,7 +134,7 @@ public class VistaResidentes extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Crear Residente", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
-		panel_2.setBounds(37, 219, 752, 196);
+		panel_2.setBounds(37, 261, 752, 228);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -180,14 +185,14 @@ public class VistaResidentes extends JFrame {
 		
 		JButton btnModificar = new JButton("modificar");
 		btnModificar.setBackground(Color.LIGHT_GRAY);
-		btnModificar.setBounds(237, 135, 130, 41);
+		btnModificar.setBounds(226, 176, 130, 41);
 		panel_2.add(btnModificar);
 		btnModificar.setToolTipText("");
 		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar32.png")));
 		
 		JButton btnEliminar = new JButton("eliminar");
 		btnEliminar.setBackground(Color.LIGHT_GRAY);
-		btnEliminar.setBounds(501, 135, 119, 41);
+		btnEliminar.setBounds(495, 176, 119, 41);
 		panel_2.add(btnEliminar);
 		btnEliminar.setToolTipText("");
 		btnEliminar.addActionListener(new ControladorResidente(this));
@@ -195,7 +200,7 @@ public class VistaResidentes extends JFrame {
 		
 		btnGuardar = new JButton("guardar");
 		btnGuardar.setBackground(Color.LIGHT_GRAY);
-		btnGuardar.setBounds(377, 135, 119, 41);
+		btnGuardar.setBounds(366, 176, 119, 41);
 		panel_2.add(btnGuardar);
 		btnGuardar.setToolTipText("");
 		btnGuardar.addActionListener(new ControladorResidente(this));
@@ -203,13 +208,15 @@ public class VistaResidentes extends JFrame {
 		
 		JButton btnLimpiar = new JButton("limpiar");
 		btnLimpiar.setBackground(Color.LIGHT_GRAY);
-		btnLimpiar.setBounds(630, 135, 112, 40);
+		btnLimpiar.setBounds(624, 176, 112, 40);
 		panel_2.add(btnLimpiar);
 		btnLimpiar.setToolTipText("");
 		btnLimpiar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Limpiar32.png")));
 		
 		JScrollPane tablavi = new JScrollPane();
-		tablavi.setBounds(226, 27, 516, 74);
+		tablavi.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		tablavi.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		tablavi.setBounds(226, 27, 516, 135);
 		panel_2.add(tablavi);
 		
 		apartamento = new JTable();
@@ -222,8 +229,8 @@ public class VistaResidentes extends JFrame {
 				"IDApartamento", "Apartamento", "Bloque", "Piso"
 			}
 		);
+		apartamento.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		apartamento.setModel(tbapartamento);
-		apartamento.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		tablavi.setViewportView(apartamento);
 		
 		

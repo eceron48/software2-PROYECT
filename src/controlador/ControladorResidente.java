@@ -45,6 +45,9 @@ public class ControladorResidente implements ActionListener  {
 			fabricabuilder.construirPersona();
 			
 			Residente persona=fabricabuilder.getpersona();
+		System.out.println("vivenda "+	persona.getVivienda().getId());
+		System.out.println("casa "+	persona.getVivienda().getIdvivienda());
+		System.out.println("parqueadero "+	persona.getVivienda().getParqueadero().getCodigo());
 			
 				DAOResidente dr=new DAOResidente();
 			try {
@@ -74,49 +77,53 @@ public class ControladorResidente implements ActionListener  {
 			ArrayList<Apartamento>apartamento=new ArrayList<>();
 			List<Residente> lista= new ArrayList<>();
 			ArrayList<Parqueadero>parqueadero=new ArrayList<>();
-             
-            for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
-                this.vr.tbResidentes.removeRow(i-1);
-            }
-            
-            for(int i=this.vr.tbapartamento.getRowCount(); i>0; i--){
-                this.vr.tbapartamento.removeRow(i-1);
-            }
             DAOResidente  dao = new DAOResidente();
-        
-           
-            	
-               {
+         
+            parqueadero=dao.llenarComboParqueadero();
+            apartamento=dao.tablaApartamento();
+               
                  try {
-                	 apartamento=dao.tablaApartamento();
-                	 parqueadero=dao.llenarComboParqueadero();
+          
                 	 casa=dao.llenarComboCasa();  
                 	 lista=dao.mostrarTodoResidente();
-                   
+                	 for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
+                         this.vr.tbResidentes.removeRow(i-1);
+                     }
+                     
+                     for(int i=this.vr.tbapartamento.getRowCount(); i>0; i--){
+                         this.vr.tbapartamento.removeRow(i-1);
+                     }
+                	   for(int i=0;i<parqueadero.size();i++) {
+                  	 	 vr.comboBoxparqueadero.addItem(parqueadero.get(i));
+              	 
+                 	  }
+                     	   for(int i=0;i<casa.size();i++) {
+                      	 	 vr.comboBoxvivienda.addItem(casa.get(i));
+                     	   }
+                     	 
+              
+                 	 for(Residente pe : lista){
+                 		 
+                 		System.out.println("ide "+pe.getId()); 
+                 		System.out.println("nombre "+pe.getNombre()); 
+                 		
+                 	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getParqueadero().getCodigo()});
+                 	 }
+                 	  
+                 	 for(Apartamento ap : apartamento){
+                 		System.out.println("idev "+ap.getId()); 
+                 		System.out.println("nombrve "+ap.getIdvivienda()); 
+                    	  this.vr.tbapartamento.addRow(new Object[]{ap.getId(),ap.getIdvivienda(),ap.getBloque(),ap.getPiso()});
+                    	 }
                    
                     
                  } catch (SQLException ex) {
                      Logger.getLogger( ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
                  }
-             }
+             
           
 
-           	   for(int i=0;i<parqueadero.size();i++) {
-            	 	 vr.comboBoxparqueadero.addItem(parqueadero.get(i));
-        	 
-           	  }
-               	   for(int i=0;i<casa.size();i++) {
-                	 	 vr.comboBoxvivienda.addItem(casa.get(i));
-            	 
-               	  }
-        
-           	 for(Residente pe : lista){
-           	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getIdvivienda(),pe.getVivienda().getParqueadero().getCodigo()});
-           	 }
-           	 
-           	 for(Apartamento ap : apartamento){
-              	  this.vr.tbapartamento.addRow(new Object[]{ap.getId(),ap.getIdApartamento(),ap.getBloque(),ap.getPiso()});
-              	 }
+           	
            	 
 			break;
 		case"eliminar":
