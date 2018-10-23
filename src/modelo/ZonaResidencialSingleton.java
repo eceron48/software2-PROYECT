@@ -29,7 +29,6 @@ public class ZonaResidencialSingleton {
 	}
 
 	private ZonaResidencialSingleton() {
-	//modificar aqui
 		DAOZonaResidencial zona=new DAOZonaResidencial();
 		
 	}

@@ -8,11 +8,11 @@ import modelo.Residente;
 import vista.VistaResidentes;
 
 public class ResidenteBuilder extends PersonaBuilder{
-	private final VistaResidentes v;
+	//private final VistaResidentes v;
 	
 	
-	public ResidenteBuilder(VistaResidentes v) {
-		this.v=v;
+	public ResidenteBuilder(/*VistaResidentes v*/) {
+		//this.v=v;
 		super.persona = new Persona();
 	
 
@@ -24,7 +24,7 @@ public class ResidenteBuilder extends PersonaBuilder{
 		
 	
 	
-		persona.setNombre(v.txtNombre.getText().toString());
+
 	
 	}
 
@@ -32,7 +32,6 @@ public class ResidenteBuilder extends PersonaBuilder{
 	@Override
 	public void construirTelefono() {
 
-		persona.setTelefono(v.txtTelefono.getText().toString());
 		
 
 	}
@@ -40,15 +39,14 @@ public class ResidenteBuilder extends PersonaBuilder{
 	@Override
 	public void construirCedula() {
 
-		persona.setCedula(v.txtCedula.getText().toString());
+		
 	
 
 	}
 
 	@Override
 	public void construirFechaEntrada() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -57,17 +55,7 @@ public class ResidenteBuilder extends PersonaBuilder{
 
 	}
 
-	@Override
-	public void construirapartamento() {
-			
-	}
-
-	@Override
-	public void construirparqueadero() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 
 	
 

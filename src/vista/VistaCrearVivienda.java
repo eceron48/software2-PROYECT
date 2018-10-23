@@ -17,13 +17,18 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
+import controlador.ControladorVivienda;
+
 public class VistaCrearVivienda extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtBloque;
-	private JTextField txtApto;
-	private JTextField txtPiso;
-	private JTextField txtCasa;
+	public JTextField txtBloque;
+	public  JTextField txtApto;
+	public  JTextField txtPiso;
+	public JTextField txtCasa;
+	public  JComboBox cbVivienda;
+	public JButton btnCrear;
+	public JButton btnCancelar;
 
 	/**
 	 * Launch the application.
@@ -47,7 +52,7 @@ public class VistaCrearVivienda extends JFrame {
 	public VistaCrearVivienda() {
 		setTitle("VIVIENDAS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 422, 336);
+		setBounds(100, 100, 445, 336);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,7 +62,7 @@ public class VistaCrearVivienda extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 255, 204));
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(10, 11, 390, 280);
+		panel.setBounds(10, 11, 409, 280);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -66,18 +71,18 @@ public class VistaCrearVivienda extends JFrame {
 		lblNewLabel.setBounds(139, 23, 119, 14);
 		panel.add(lblNewLabel);
 		
-		JComboBox cbVivienda = new JComboBox();
+		cbVivienda = new JComboBox();
+		cbVivienda.setModel(new DefaultComboBoxModel(new String[] {"seleccione tipo de vivienda", "casa", "apartamento"}));
 		cbVivienda.setBackground(Color.WHITE);
-		cbVivienda.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar Vivienda:", "Apartamentos", "Casas"}));
-		cbVivienda.setBounds(10, 85, 144, 20);
+		cbVivienda.setBounds(10, 85, 156, 20);
 		panel.add(cbVivienda);
 		
 		JLabel Bloque = new JLabel("Bloque:");
-		Bloque.setBounds(173, 88, 46, 14);
+		Bloque.setBounds(201, 88, 46, 14);
 		panel.add(Bloque);
 		
 		txtBloque = new JTextField();
-		txtBloque.setBounds(260, 85, 107, 20);
+		txtBloque.setBounds(288, 85, 107, 20);
 		panel.add(txtBloque);
 		txtBloque.setColumns(10);
 		
@@ -87,46 +92,50 @@ public class VistaCrearVivienda extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JLabel Apto = new JLabel("N\u00B0 Apto:");
-		Apto.setBounds(173, 113, 59, 14);
+		Apto.setBounds(201, 113, 59, 14);
 		panel.add(Apto);
 		
 		txtApto = new JTextField();
 		txtApto.setColumns(10);
-		txtApto.setBounds(260, 110, 107, 20);
+		txtApto.setBounds(288, 110, 107, 20);
 		panel.add(txtApto);
 		
 		JLabel Piso = new JLabel("Piso:");
-		Piso.setBounds(173, 138, 46, 14);
+		Piso.setBounds(201, 138, 46, 14);
 		panel.add(Piso);
 		
 		txtPiso = new JTextField();
 		txtPiso.setColumns(10);
-		txtPiso.setBounds(260, 135, 107, 20);
+		txtPiso.setBounds(288, 135, 107, 20);
 		panel.add(txtPiso);
 		
 		JLabel Casa = new JLabel("N\u00B0 Casa:");
-		Casa.setBounds(173, 165, 66, 14);
+		Casa.setBounds(201, 165, 66, 14);
 		panel.add(Casa);
 		
 		txtCasa = new JTextField();
 		txtCasa.setColumns(10);
-		txtCasa.setBounds(260, 162, 107, 20);
+		txtCasa.setBounds(288, 162, 107, 20);
 		panel.add(txtCasa);
 		
-		JButton btnCrear = new JButton("crear");
+		btnCrear = new JButton("crear");
 		btnCrear.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnCrear.setBackground(Color.WHITE);
 		btnCrear.setToolTipText("");
 		btnCrear.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Crear.png")));
-		btnCrear.setBounds(53, 208, 127, 57);
+		btnCrear.addActionListener(new ControladorVivienda(this));
+		btnCrear.setBounds(92, 208, 127, 57);
 		panel.add(btnCrear);
 		
-		JButton btnCancelar = new JButton("cancelar");
+		btnCancelar = new JButton("cancelar");
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setToolTipText("");
 		btnCancelar.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnCancelar.setBounds(190, 208, 127, 57);
+		btnCancelar.setBounds(240, 209, 127, 57);
 		panel.add(btnCancelar);
 	}
+	
+
+	
 }

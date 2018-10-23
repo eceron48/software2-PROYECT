@@ -12,7 +12,7 @@ public class Apartamento extends Vivienda{
 	}
 	
 	
-	Apartamento(){
+	public Apartamento(){
 		
 	}
 	

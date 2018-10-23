@@ -47,6 +47,7 @@ public class DAORegistrarCuota {
 	}
 
 	public CuotaAdministracion mostrarCuota() throws SQLException{
+		
 		Connection connection = dbAdapter.getConnection();
 		CuotaAdministracion c=new CuotaAdministracion();
 		try {
