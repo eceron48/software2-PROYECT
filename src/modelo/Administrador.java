@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.DAO.DAOApartamento;
+import modelo.DAO.DAOCasa;
 import modelo.DAO.DAORegistrarCuota;
 
 public class Administrador {
@@ -66,6 +67,10 @@ public class Administrador {
 		modelo.DAO.DAOApartamento dvv=new modelo.DAO.DAOApartamento();
 		return dvv;
 	}
-	
+	public DAOCasa DAORegistrarCasa() {
+		DAOCasa casa=new DAOCasa();
+		return casa;
+		
+	}
 
 }

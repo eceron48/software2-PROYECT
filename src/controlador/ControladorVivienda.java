@@ -58,7 +58,6 @@ public class ControladorVivienda implements ActionListener {
 			vivienda.setVrol(aptmto);
 			
 			Administrador adm =new Administrador();
-			DAOApartamento dao=new DAOApartamento();
 		
 		
 		
@@ -82,10 +81,11 @@ public class ControladorVivienda implements ActionListener {
 			vv.txtPiso.setText("");
 			Casa casa=new Casa();
 			casa.setIdvivienda(vv.txtCasa.getText().toString());
-			DAOCasa dao=new DAOCasa();
 			vv.txtCasa.setText("");
+			Administrador adm =new Administrador();
 			try {
-				dao.RegistrarCasa(casa);
+				adm.DAORegistrarCasa().RegistrarCasa(casa);
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
