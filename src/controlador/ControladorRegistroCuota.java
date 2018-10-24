@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import modelo.CuotaAdministracion;
-import modelo.DAORegistrarCuota;
+import modelo.DAO.DAORegistrarCuota;
 import vista.VistaRegistrarCuota;
-import vista.VistaResidentes;
+
+
 
 public class ControladorRegistroCuota implements ActionListener {
 	

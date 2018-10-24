@@ -1,4 +1,4 @@
-package modelo;
+package modelo.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import modelo.CuotaAdministracion;
 import modelo.factorymethod.DBFactory;
 import modelo.factorymethod.IDBAdapter;
 

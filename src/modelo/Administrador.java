@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.DAO.DAOApartamento;
+import modelo.DAO.DAORegistrarCuota;
+
 public class Administrador {
 	private String usuario;
 	private String pass;
@@ -25,6 +28,8 @@ public class Administrador {
 	}
 
 	public void DAOResidente() {
+		
+		
 
 	}
 
@@ -52,12 +57,15 @@ public class Administrador {
 
 	}
 
-	public void registrarCuotaAdministracion() {
-
+	public DAORegistrarCuota registrarCuotaAdministracion() {
+			DAORegistrarCuota dcuota=new DAORegistrarCuota();
+			return dcuota;
 	}
 
-	public void DAOVivienda() {
-
+	public DAOApartamento DaoApartamento() {
+		modelo.DAO.DAOApartamento dvv=new modelo.DAO.DAOApartamento();
+		return dvv;
 	}
+	
 
 }

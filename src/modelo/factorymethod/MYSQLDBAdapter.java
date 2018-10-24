@@ -61,7 +61,7 @@ public class MYSQLDBAdapter implements IDBAdapter {
 
 		String password = prop.getProperty(DB_PASSWORD_PROP);
 
-		String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + db+ " ?useTimezone=true&serverTimezone=UTC" + " &user=" + user + "&password=" + password;
+		String connectionString = "jdbc:mysql://" + host + ":" + port + "/" + db+ " ?useTimezone=true&serverTimezone=UTC" + " &user=" + user + "&password=" + password+"&useSSL=false";
 		//System.out.println("ConnectionString ==> " + connectionString);
 		return connectionString;
 	}

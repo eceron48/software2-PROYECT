@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import modelo.DAOResidente;
+
 import modelo.Parqueadero;
 import modelo.Persona;
 import modelo.Residente;

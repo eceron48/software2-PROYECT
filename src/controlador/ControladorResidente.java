@@ -14,11 +14,9 @@ import javax.swing.table.DefaultTableModel;
 
 import modelo.Apartamento;
 import modelo.Casa;
-import modelo.DAOResidente;
 import modelo.Parqueadero;
-import modelo.Persona;
 import modelo.Residente;
-import modelo.Vivienda;
+import modelo.DAO.DAOResidente;
 import modelo.residente.builder.FabricaBuilder;
 import modelo.residente.builder.PersonaBuilder;
 import modelo.residente.builder.ResidenteBuilder;

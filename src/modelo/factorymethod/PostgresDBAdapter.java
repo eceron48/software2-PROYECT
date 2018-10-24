@@ -34,7 +34,7 @@ public class PostgresDBAdapter implements IDBAdapter {
 		try {
 			String connectionString = createConnectionString();
 			Connection connection = DriverManager.getConnection(connectionString);
-			System.out.println("Connection class ==> " + connection.getClass().getName());
+		//	System.out.println("Connection class ==> " + connection.getClass().getName());
 			return connection;
 		} catch (SQLDataException e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -61,7 +61,7 @@ public class PostgresDBAdapter implements IDBAdapter {
 		String connectionString = "jdbc:postgresql://" + host + ":" + port + "/" + db + "?user=" + user + "&password="
 				+ password;
 
-		System.out.println("ConnectionString ==> " + connectionString);
+		//System.out.println("ConnectionString ==> " + connectionString);
 		return connectionString;
 	}
 

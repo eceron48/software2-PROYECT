@@ -1,4 +1,4 @@
-package modelo;
+package modelo.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,11 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import modelo.Apartamento;
+import modelo.Casa;
+import modelo.Parqueadero;
+import modelo.Residente;
+import modelo.Vivienda;
 import modelo.factorymethod.DBFactory;
 import modelo.factorymethod.IDBAdapter;
 

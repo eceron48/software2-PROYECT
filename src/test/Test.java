@@ -2,7 +2,6 @@ package test;
 
 import java.sql.SQLException;
 
-import modelo.DAOResidente;
 import modelo.Persona;
 import modelo.builder.FabricaBuilder;
 import modelo.builder.PersonaBuilder;

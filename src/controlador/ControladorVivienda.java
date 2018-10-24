@@ -8,12 +8,15 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import modelo.Administrador;
 import modelo.Apartamento;
 import modelo.Casa;
-import modelo.DAOApartamento;
-import modelo.DAOCasa;
-import modelo.Vivienda;
+import modelo.DAO.DAOApartamento;
+import modelo.DAO.DAOCasa;
 import vista.VistaCrearVivienda;
+
+
+
 
 public class ControladorVivienda implements ActionListener {
 	private static VistaCrearVivienda vv;
@@ -23,11 +26,11 @@ public class ControladorVivienda implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent use) {
-	vv.txtApto.setEditable(false);
+	/*vv.txtApto.setEditable(false);
 	vv.txtBloque.setEditable(false);
 	vv.txtCasa.setEditable(false);
 	vv.txtPiso.setEditable(false);
-		
+		*/
 	if(use.getSource()==vv.btnCrear) {
 		
 		if(vv.txtApto.getText().isEmpty() && vv.txtBloque.getText().isEmpty() && vv.txtCasa.getText().isEmpty() ) {
@@ -40,7 +43,7 @@ public class ControladorVivienda implements ActionListener {
 		dato=vv.cbVivienda.getSelectedItem().toString();
 		 String c="casa";
 		String aptmto="apartamento";
-	//	System.out.println(" apartamento "+dato);
+		Apartamento vivienda=new Apartamento();
 		if(dato.equals(aptmto)) {
 			vv.txtApto.setEnabled(true);
 			vv.txtBloque.setEnabled(true);
@@ -48,14 +51,20 @@ public class ControladorVivienda implements ActionListener {
 			vv.txtCasa.setEnabled(true);
 			vv.txtCasa.setText("");
 			
-			Apartamento vivienda=new Apartamento();
+		
 			vivienda.setBloque(vv.txtBloque.getText().toString());
 			vivienda.setPiso(Integer.parseInt(vv.txtPiso.getText()));
 			vivienda.setIdApartamento(vv.txtApto.getText().toString());	
-	
-			DAOApartamento apartamento=new DAOApartamento();
+			vivienda.setVrol(aptmto);
+			
+			Administrador adm =new Administrador();
+			DAOApartamento dao=new DAOApartamento();
+		
+		
+		
 			try {
-				apartamento.RegistrarApartamento(vivienda);
+				adm.DaoApartamento().RegistrarApartamento(vivienda);
+				//apartamento.RegistrarApartamento(vivienda);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

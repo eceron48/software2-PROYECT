@@ -3,6 +3,8 @@ package modelo;
 import java.util.List;
 import java.util.Properties;
 
+import modelo.DAO.DAOZonaResidencial;
+
 
 
 public class ZonaResidencialSingleton {
