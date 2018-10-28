@@ -16,6 +16,7 @@ import modelo.Apartamento;
 import modelo.Casa;
 import modelo.Parqueadero;
 import modelo.Residente;
+import modelo.Vivienda;
 import modelo.DAO.DAOResidente;
 import modelo.residente.builder.FabricaBuilder;
 import modelo.residente.builder.PersonaBuilder;
@@ -52,14 +53,12 @@ public class ControladorResidente implements ActionListener  {
 				dr.insertar(persona);
 				
 				
-				vr.txtCedula.setText("");
-				vr.txtNombre.setText("");
-				vr.txtTelefono.setText(null);
+			
 			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-				
+			
 			
 			break;
 			
@@ -70,7 +69,7 @@ public class ControladorResidente implements ActionListener  {
 			
 		case"buscar todos":
 			
-		
+
 			ArrayList<Casa>casa=new ArrayList<>();
 			ArrayList<Apartamento>apartamento=new ArrayList<>();
 			List<Residente> lista= new ArrayList<>();
@@ -81,8 +80,9 @@ public class ControladorResidente implements ActionListener  {
             apartamento=dao.tablaApartamento();
                
                  try {
-          
+ 
                 	 casa=dao.llenarComboCasa();  
+                	
                 	 lista=dao.mostrarTodoResidente();
                 	 for(int i=this.vr.tbResidentes.getRowCount(); i>0; i--){
                          this.vr.tbResidentes.removeRow(i-1);
@@ -91,21 +91,23 @@ public class ControladorResidente implements ActionListener  {
                      for(int i=this.vr.tbapartamento.getRowCount(); i>0; i--){
                          this.vr.tbapartamento.removeRow(i-1);
                      }
+                     /*
                 	   for(int i=0;i<parqueadero.size();i++) {
-                  	 	 vr.comboBoxparqueadero.addItem(parqueadero.get(i));
+                  	 	// vr.comboBoxparqueadero.addItem(parqueadero.get(i));
               	 
                  	  }
+                	  
                      	   for(int i=0;i<casa.size();i++) {
                       	 	 vr.comboBoxvivienda.addItem(casa.get(i));
                      	   }
-                     	 
+                     	 */
               
                  	 for(Residente pe : lista){
                  		 
                  		System.out.println("ide "+pe.getId()); 
                  		System.out.println("nombre "+pe.getNombre()); 
                  		
-                 	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono(),pe.getVivienda().getVrol(),pe.getVivienda().getParqueadero().getCodigo()});
+                 	  this.vr.tbResidentes.addRow(new Object[]{pe.getId(),pe.getNombre(),pe.getCedula(),pe.getTelefono()});
                  	 }
                  	  
                  	 for(Apartamento ap : apartamento){
@@ -141,23 +143,23 @@ public class ControladorResidente implements ActionListener  {
 			
 			break;
 		case"modificar":
-			/*
+			
 			 int fila1=this.vr.residente.getSelectedRow();
              if(fila1>=0){
-            	 
-                 String nombre=(String) this.vr.tbResidentes.getValueAt(fila1, 0);
-                 String cedula= (String) this.vr.tbResidentes.getValueAt(fila1, 1);
-                 String telefono= (String) this.vr.tbResidentes.getValueAt(fila1, 2);
-                 String vivienda=(String) this.vr.tbResidentes.getValueAt(fila1, 3);
-                 String idvivienda=(String) this.vr.tbResidentes.getValueAt(fila1, 4);
-                 String parqueadero =(String) this.vr.tbResidentes.getValueAt(fila1, 5);
+            	 int id=(int) this.vr.tbResidentes.getValueAt(fila1, 0);
+                 String nombre=(String) this.vr.tbResidentes.getValueAt(fila1, 1);
+                 String cedula= (String) this.vr.tbResidentes.getValueAt(fila1, 2);
+                 String telefono= (String) this.vr.tbResidentes.getValueAt(fila1, 3);
+                 String vivienda=(String) this.vr.tbResidentes.getValueAt(fila1, 4);
+                 String idvivienda=(String) this.vr.tbResidentes.getValueAt(fila1, 5);
+                 String parqueaderoU =(String) this.vr.tbResidentes.getValueAt(fila1, 6);
                  
                  
                  Vivienda v=new Vivienda();
                  Parqueadero estacionamiento=new Parqueadero();
                  v.setVrol(vivienda);
                  v.setIdvivienda(idvivienda);
-                 estacionamiento.setCodigo(parqueadero);
+                 estacionamiento.setCodigo(parqueaderoU);
                  v.setParqueadero(estacionamiento);
                  
                  Residente r= new Residente();
@@ -174,7 +176,7 @@ public class ControladorResidente implements ActionListener  {
              }
 			
 			break;
-			*/
+			
 		case"limpiar":
 			
 			
