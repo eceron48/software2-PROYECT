@@ -82,7 +82,7 @@ public class VistaResidentes extends JFrame {
 		panel.setLayout(null);
 		
 		txtGuardarNombre = new JTextField();
-		txtGuardarNombre.setBounds(75, 47, 139, 20);
+		txtGuardarNombre.setBounds(92, 47, 139, 20);
 		panel.add(txtGuardarNombre);
 		txtGuardarNombre.setColumns(10);
 		
@@ -111,25 +111,25 @@ public class VistaResidentes extends JFrame {
 		panel.add(comboRol);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(19, 50, 46, 14);
+		lblNombre.setBounds(19, 50, 63, 14);
 		panel.add(lblNombre);
 		
 		JLabel lblCedula = new JLabel("Cedula:");
-		lblCedula.setBounds(19, 80, 46, 14);
+		lblCedula.setBounds(19, 80, 63, 14);
 		panel.add(lblCedula);
 		
 		txtGuardarCedula = new JTextField();
 		txtGuardarCedula.setColumns(10);
-		txtGuardarCedula.setBounds(75, 78, 139, 20);
+		txtGuardarCedula.setBounds(92, 78, 139, 20);
 		panel.add(txtGuardarCedula);
 		
 		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setBounds(19, 112, 46, 14);
+		lblTelefono.setBounds(19, 112, 63, 14);
 		panel.add(lblTelefono);
 		
 		txtGuardarTelefono = new JTextField();
 		txtGuardarTelefono.setColumns(10);
-		txtGuardarTelefono.setBounds(75, 109, 139, 20);
+		txtGuardarTelefono.setBounds(92, 109, 139, 20);
 		panel.add(txtGuardarTelefono);
 		
 		scrollPaneResidentes = new JScrollPane();
