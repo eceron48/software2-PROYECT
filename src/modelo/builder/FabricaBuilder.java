@@ -17,6 +17,7 @@ public class FabricaBuilder {
 	    	personabuilder.construirCedula();
 	    	personabuilder.construirNombre();
 	    	personabuilder.construirTelefono();
+	    	personabuilder .construirRol();
 	      }
 
 }

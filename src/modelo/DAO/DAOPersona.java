@@ -46,6 +46,7 @@ public class DAOPersona {
 				p.setNombre(results.getString(2));
 				p.setCedula(results.getString(3));
 				p.setTelefono(results.getString(4));
+				p.setRol(results.getString(5));
 				listaresidente.add(p);
 				
 

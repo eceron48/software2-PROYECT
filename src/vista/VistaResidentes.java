@@ -35,7 +35,6 @@ public class VistaResidentes extends JFrame {
 	public JPanel contentPane;
 	public JTextField txtGuardarNombre;
 	public DefaultTableModel tbResidentes;
-	public DefaultTableModel tbapartamento;
 	public JTable  residente;
 	public JScrollPane scrollPaneResidentes;
 	  public Object[][] datos;
@@ -87,7 +86,6 @@ public class VistaResidentes extends JFrame {
 		txtGuardarNombre.setColumns(10);
 		
 		btnGuardar = new JButton("guardar");
-		btnGuardar.addActionListener(new ControladorResidente(this));
 		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar32.png")));
 		btnGuardar.addActionListener(new ControladorResidente(this));
 		btnGuardar.setBounds(66, 148, 129, 46);
@@ -96,7 +94,6 @@ public class VistaResidentes extends JFrame {
 		JButton btnMostrarTodos = new JButton("mostrar todos");
 		btnMostrarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
 		btnMostrarTodos.setBounds(606, 148, 152, 46);
-		btnMostrarTodos.addActionListener(new ControladorResidente(this));
 		btnMostrarTodos.addActionListener(new ControladorResidente(this));
 		panel.add(btnMostrarTodos);
 		
@@ -141,7 +138,8 @@ public class VistaResidentes extends JFrame {
 		
 		residente= new JTable();
 		residente.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		residente.setModel(new DefaultTableModel(
+	
+		tbResidentes=(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
 			},
@@ -156,6 +154,7 @@ public class VistaResidentes extends JFrame {
 				return columnEditables[column];
 			}
 		});
+		residente.setModel(tbResidentes);
 		scrollPaneResidentes.setViewportView(residente);
 		
 		btnBuscar = new JButton("buscar");
@@ -169,24 +168,7 @@ public class VistaResidentes extends JFrame {
 		btnModificar.setBounds(407, 151, 129, 40);
 		btnModificar.addActionListener(new ControladorResidente(this));
 		panel.add(btnModificar);
-		tbResidentes = new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null},
-				
-			},
-			new String[] {
-				"IDResidente","Nombre", "Cedula", "Telefono", "Casa / Apto", "Num Vivienda", "ID Parqueadero"
-			}
-		);
-		tbapartamento = new DefaultTableModel(
-			new Object[][] {
-				{"", "", "", null},
-			
-			},
-			new String[] {
-				"IDApartamento", "Apartamento", "Bloque", "Piso"
-			}
-		);
+	
 		
 		
 	}

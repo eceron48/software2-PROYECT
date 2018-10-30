@@ -49,14 +49,11 @@ public class ResidenteBuilder extends PersonaBuilder {
 	public void construirRol() {
 		
 		int id = v.comboRol.getSelectedIndex();
-		if (id == -1) {			
-			JOptionPane.showMessageDialog(null, "No ha seleccionado nigun dato");
-		}else {
-			
+		if (id>0) {
 			String rol = v.comboRol.getSelectedItem().toString();
 			persona.setRol(rol);
-			
-			}
+		
+		}
 	
 		}	
 
