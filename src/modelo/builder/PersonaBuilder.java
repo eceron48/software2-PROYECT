@@ -17,6 +17,10 @@ protected Persona persona;
 	public abstract void construirCedula();
 	public abstract void construirFechaEntrada();
 	public abstract void construirFechaSalida();
+	
+	public abstract void construirRol();
+		
+	
 
 
 	

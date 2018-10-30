@@ -2,6 +2,7 @@ package modelo;
 
 import modelo.DAO.DAOApartamento;
 import modelo.DAO.DAOCasa;
+import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
 
 public class Administrador {
@@ -38,8 +39,12 @@ public class Administrador {
 
 	}
 
-	public void DAOVijilancia() {
+	public void DAOVigilancia() {
 
+	}
+	public DAOPersona gestionarPersona () {
+		 DAOPersona dao =  new DAOPersona ();
+		 return dao;
 	}
 
 	public void DAOASEO() {

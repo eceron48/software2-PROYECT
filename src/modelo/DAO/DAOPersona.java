@@ -13,23 +13,23 @@ import javax.swing.JOptionPane;
 import modelo.Apartamento;
 import modelo.Casa;
 import modelo.Parqueadero;
-import modelo.Residente;
+import modelo.Persona;
 import modelo.Vivienda;
 import modelo.factorymethod.DBFactory;
 import modelo.factorymethod.IDBAdapter;
 
-public class DAOResidente {
+public class DAOPersona {
 
 	private IDBAdapter dbAdapter;
 	public String rol = "residente";
 
-	public DAOResidente() {
+	public DAOPersona() {
 		dbAdapter = DBFactory.getDefaultDBAdapter();
 	}
 
-	public List<Residente> mostrarTodoResidente() throws SQLException {
+	public List<Persona> mostrarTodoPersonas() throws SQLException {
 		Connection connection = dbAdapter.getConnection();
-		List<Residente> listaresidente = new ArrayList<>();
+		List<Persona> listaresidente = new ArrayList<>();
 		
 		try {
 			
@@ -39,7 +39,7 @@ public class DAOResidente {
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
 				
-				Residente p = new Residente();
+				Persona p = new Persona();
 
 				
 				p.setId(results.getInt(1));
@@ -68,7 +68,7 @@ public class DAOResidente {
 
 	}
 
-	public boolean insertar(Residente persona) throws SQLException {
+	public boolean insertar(Persona persona) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
 	
 		try {
@@ -80,7 +80,7 @@ public class DAOResidente {
 			statement.setString(1, persona.getCedula());
 			statement.setString(2, persona.getNombre());
 			statement.setString(3, persona.getTelefono());
-			statement.setString(4, "residente");
+			statement.setString(4, persona.getRol());
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
 			
@@ -104,9 +104,9 @@ public class DAOResidente {
 	}
 
 //-----------------------------borrar----------------------------------------------------------//
-	public void delete(String ide) {
+	public void eliminarPersona (int ide) {
 
-		String delete = "DELETE FROM persona WHERE idcedula='" + rol + "'";
+		String delete = "DELETE FROM persona WHERE idpersona='" + ide + "'";
 
 		try {
 			Connection connection = dbAdapter.getConnection();
@@ -122,7 +122,7 @@ public class DAOResidente {
 
 	}
 
-	public void modificarResidente(Residente r) {
+	public void modificarPersona(Persona r) {
 
 	
 	  String actualizar="UPDATE Persona set pnombre='"+r.getNombre()
@@ -180,7 +180,7 @@ public class DAOResidente {
 		}
 		return parqueadero;
 }
-	
+	/*
 public ArrayList<Apartamento>tablaApartamento(){
 	ArrayList<Apartamento> aparatamento = new ArrayList<>();
 	Apartamento ap=new Apartamento(); 
@@ -208,7 +208,7 @@ public ArrayList<Apartamento>tablaApartamento(){
 	}
 	return aparatamento ;
 }
-	
+	*/
 	
 }	
 	
