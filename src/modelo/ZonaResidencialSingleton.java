@@ -1,5 +1,7 @@
 package modelo;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -14,7 +16,7 @@ public class ZonaResidencialSingleton {
 	private SAdministrador sadministrador;
 	private List<Vivienda> vivienda;
 
-	private static ZonaResidencialSingleton singleton;	
+	private static ZonaResidencialSingleton singleton=null;	
 	
 	public int getId() {
 		return id;
@@ -28,11 +30,11 @@ public class ZonaResidencialSingleton {
 		return direccion;
 	}
 
-	private ZonaResidencialSingleton(String direccion, String nombre) {
-		DAOZonaResidencial zona = new DAOZonaResidencial();
-		this.direccion = direccion;
-		this.nombre = nombre;
+	private ZonaResidencialSingleton() {
+		//DAOZonaResidencial zona = new DAOZonaResidencial();
 		
+		
+	
 	}
 
 	private static synchronized void createInstance() {
@@ -40,6 +42,7 @@ public class ZonaResidencialSingleton {
 			singleton = new ZonaResidencialSingleton();
 		}
 	}
+	
 
 	public static ZonaResidencialSingleton getInstance() {
 		if (singleton == null) {

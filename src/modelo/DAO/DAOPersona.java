@@ -21,8 +21,6 @@ import modelo.factorymethod.IDBAdapter;
 public class DAOPersona {
 
 	private IDBAdapter dbAdapter;
-	public String rol = "residente";
-
 	public DAOPersona() {
 		dbAdapter = DBFactory.getDefaultDBAdapter();
 	}

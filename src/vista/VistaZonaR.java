@@ -60,7 +60,7 @@ public class VistaZonaR extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(26, 41, 46, 14);
+		lblNombre.setBounds(10, 41, 62, 14);
 		panel.add(lblNombre);
 		
 		txtNombreZona = new JTextField();
@@ -69,7 +69,7 @@ public class VistaZonaR extends JFrame {
 		txtNombreZona.setColumns(10);
 		
 		JLabel lblDireccion = new JLabel("Direccion:");
-		lblDireccion.setBounds(26, 79, 64, 14);
+		lblDireccion.setBounds(10, 79, 64, 14);
 		panel.add(lblDireccion);
 		
 		txtDireccionZona = new JTextField();
