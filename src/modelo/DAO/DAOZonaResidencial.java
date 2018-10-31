@@ -31,9 +31,7 @@ public class DAOZonaResidencial {
 		
 	}
 	
-	
-	
-	
+
 	public  ZonaResidencialSingleton mostrarZona() throws SQLException {
 		
 		 ZonaResidencialSingleton c= ZonaResidencialSingleton.getInstance();
@@ -42,23 +40,11 @@ public class DAOZonaResidencial {
 		PreparedStatement statement = connection.prepareStatement("select * from zonaresidencial WHERE idzonaresidencial='"+1+"'");
 		
 		ResultSet results = statement.executeQuery();
-		while (results.next()) {
-			
-			
-			
-					
+		while (results.next()) {				
 			c.setDireccion(results.getString(2));
 			c.setNombre(results.getString(3));
-			
-		
-
 		}		
 		
-		return c;	
-	
-			
+		return c;			
 	}	
-
-	
-
 }

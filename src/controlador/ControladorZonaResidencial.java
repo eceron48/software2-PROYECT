@@ -34,10 +34,15 @@ public class ControladorZonaResidencial implements ActionListener {
 		}
 		
 		
+		if(llamar.getSource()==zonar.btnModificar){
+			
+			
+		
+		
 		
 	}
 	
 	
 	
-
+	}
 }
