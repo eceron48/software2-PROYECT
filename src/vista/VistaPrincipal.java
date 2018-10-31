@@ -130,11 +130,11 @@ public class VistaPrincipal extends JFrame {
 		ZonasResidenciales.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Vivienda.png")));
 		menuBar.add(ZonasResidenciales);
 		
-		JButton btnCrearVivienda = new JButton("     Crear Vivienda");
+		JButton btnCrearVivienda = new JButton("Crear Zona Residencial");
 		btnCrearVivienda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VistaCrearVivienda crearVivienda = new VistaCrearVivienda();
-				crearVivienda.setVisible(true);
+				VistaZonaR crearZona = new VistaZonaR();
+				crearZona.setVisible(true);
 			}
 		}); 
 		btnCrearVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Home.png")));

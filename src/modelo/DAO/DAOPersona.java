@@ -30,32 +30,28 @@ public class DAOPersona {
 	public List<Persona> mostrarTodoPersonas() throws SQLException {
 		Connection connection = dbAdapter.getConnection();
 		List<Persona> listaresidente = new ArrayList<>();
-		
+
 		try {
-			
-			PreparedStatement statement = connection.prepareStatement(
-					"select * from persona");
-			
+
+			PreparedStatement statement = connection.prepareStatement("select * from persona");
+
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {
-				
+
 				Persona p = new Persona();
 
-				
 				p.setId(results.getInt(1));
 				p.setNombre(results.getString(2));
 				p.setCedula(results.getString(3));
 				p.setTelefono(results.getString(4));
 				p.setRol(results.getString(5));
 				listaresidente.add(p);
-				
 
 			}
-			
+
 			return listaresidente;
 
 		} catch (Exception e) {
-			
 
 			return null;
 		} finally {
@@ -71,12 +67,11 @@ public class DAOPersona {
 
 	public boolean insertar(Persona persona) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
-	
+
 		try {
 			PreparedStatement statement = connection.
 
-					prepareStatement("INSERT INTO persona(pcedula,pnombre, ptelefono,prol)"
-							+ "VALUES (?,?,?,?)");
+					prepareStatement("INSERT INTO persona(pcedula,pnombre, ptelefono,prol)" + "VALUES (?,?,?,?)");
 
 			statement.setString(1, persona.getCedula());
 			statement.setString(2, persona.getNombre());
@@ -84,9 +79,7 @@ public class DAOPersona {
 			statement.setString(4, persona.getRol());
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
-			
-			
-			
+
 			return true;
 		} catch (Exception e) {
 
@@ -101,11 +94,11 @@ public class DAOPersona {
 			}
 
 		}
-		
+
 	}
 
 //-----------------------------borrar----------------------------------------------------------//
-	public void eliminarPersona (int ide) {
+	public void eliminarPersona(int ide) {
 
 		String delete = "DELETE FROM persona WHERE idpersona='" + ide + "'";
 
@@ -125,20 +118,18 @@ public class DAOPersona {
 
 	public void modificarPersona(Persona r) {
 
-	
-	  String actualizar="UPDATE Persona set pnombre='"+r.getNombre()
-	  +"', pcedula='"+r.getCedula()+"', ptelefono='"+r.getTelefono()+"',prol='"+r.getRol()+"' where idpersona='"+r.getId()+"'";
-	  try {
-		  Connection connection =
-		  dbAdapter.getConnection(); PreparedStatement statement =
-		  connection.prepareStatement(actualizar); statement.executeUpdate();
-		  JOptionPane.showMessageDialog(null,"Registro modificado"); 
+		String actualizar = "UPDATE Persona set pnombre='" + r.getNombre() + "', pcedula='" + r.getCedula()
+				+ "', ptelefono='" + r.getTelefono() + "',prol='" + r.getRol() + "' where idpersona='" + r.getId()
+				+ "'";
+		try {
+			Connection connection = dbAdapter.getConnection();
+			PreparedStatement statement = connection.prepareStatement(actualizar);
+			statement.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Registro modificado");
+		} catch (SQLException e) {
 		}
-	  catch (SQLException e) {
-	  }
 
-	  }
-	 
+	}
 
 	public ArrayList<Casa> llenarComboCasa() {
 		ArrayList<Casa> casalista = new ArrayList<>();
@@ -153,13 +144,47 @@ public class DAOPersona {
 				Casa c = new Casa();
 				c.setIdvivienda(results.getString(2));
 				casalista.add(c);
-					
+
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return casalista;
+	}
+
+	public Persona buscarPersona(String cedula) throws SQLException {
+		Connection connection = dbAdapter.getConnection();
+		Persona p = new Persona ();
+		
+		try {			
+			
+			PreparedStatement statement = connection.prepareStatement("select * from persona WHERE pcedula='"+cedula+"'");
+			ResultSet results = statement.executeQuery();
+			while (results.next()) {				
+
+				p.setId(results.getInt(1));
+				p.setNombre(results.getString(2));
+				p.setCedula(results.getString(3));
+				p.setTelefono(results.getString(4));
+				p.setRol(results.getString(5));				
+
+			}
+
+			return p;
+
+		} catch (Exception e) {
+
+			return null;
+		} finally {
+
+			try {
+				connection.close();
+
+			} catch (Exception e) {
+			}
+		}
+
 	}
 
 	public ArrayList<Parqueadero> llenarComboParqueadero() {
@@ -180,36 +205,26 @@ public class DAOPersona {
 			e.printStackTrace();
 		}
 		return parqueadero;
-}
-	/*
-public ArrayList<Apartamento>tablaApartamento(){
-	ArrayList<Apartamento> aparatamento = new ArrayList<>();
-	Apartamento ap=new Apartamento(); 
-	String rol = "apartamento";
-	String SELECT="select idvivienda,vnombre,vpiso,vbloque from vivienda where vivienda.vrol='" + rol + "'order by vnombre";
-	
-	try {
-		Connection connection = dbAdapter.getConnection();
-		PreparedStatement statement = connection.prepareStatement(SELECT);
-		ResultSet results = statement.executeQuery();
-		while (results.next()) {
-			ap.setId(results.getInt(1));
-			ap.setIdvivienda(results.getString(2));
-			ap.setPiso(results.getInt(3));
-			ap.setBloque(results.getString(4));
-			System.out.println("id "+ap.getId());
-			System.out.println("viviendanumero "+ap.getIdvivienda());
-			System.out.println("piso "+ap.getPiso());
-			aparatamento.add(ap);
-					
-		}
-
-	} catch (SQLException e) {
-		e.printStackTrace();
 	}
-	return aparatamento ;
+	/*
+	 * public ArrayList<Apartamento>tablaApartamento(){ ArrayList<Apartamento>
+	 * aparatamento = new ArrayList<>(); Apartamento ap=new Apartamento(); String
+	 * rol = "apartamento"; String
+	 * SELECT="select idvivienda,vnombre,vpiso,vbloque from vivienda where vivienda.vrol='"
+	 * + rol + "'order by vnombre";
+	 * 
+	 * try { Connection connection = dbAdapter.getConnection(); PreparedStatement
+	 * statement = connection.prepareStatement(SELECT); ResultSet results =
+	 * statement.executeQuery(); while (results.next()) {
+	 * ap.setId(results.getInt(1)); ap.setIdvivienda(results.getString(2));
+	 * ap.setPiso(results.getInt(3)); ap.setBloque(results.getString(4));
+	 * System.out.println("id "+ap.getId());
+	 * System.out.println("viviendanumero "+ap.getIdvivienda());
+	 * System.out.println("piso "+ap.getPiso()); aparatamento.add(ap);
+	 * 
+	 * }
+	 * 
+	 * } catch (SQLException e) { e.printStackTrace(); } return aparatamento ; }
+	 */
+
 }
-	*/
-	
-}	
-	

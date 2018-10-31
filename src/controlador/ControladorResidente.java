@@ -31,56 +31,53 @@ public class ControladorResidente implements ActionListener {
 	public ControladorResidente(VistaResidentes vr) {
 		this.vr = vr;
 	}
+	
 
 	@Override
 	public void actionPerformed(ActionEvent llamar) {
 		switch (llamar.getActionCommand()) {
 
 		case "guardar":
-			
-			
+
 			FabricaBuilder fabricabuilder = new FabricaBuilder();
 			PersonaBuilder residentebuilder = new ResidenteBuilder(vr);
 			fabricabuilder.setpersonabuilder(residentebuilder);
 			fabricabuilder.construirPersona();
 
 			Persona persona = fabricabuilder.getpersona();
-			if(vr.comboRol.getSelectedIndex()==0 ||persona.getCedula().isEmpty()|| persona.getNombre().isEmpty() ||persona.getTelefono().isEmpty() ){
-				JOptionPane.showMessageDialog(null, "los datos rol cedula nombre telefono son de caracter obligatorio", null, 0);
-				
-			}else {
-			
-			Administrador admin = new Administrador();
+			if (vr.comboRol.getSelectedIndex() == 0 || persona.getCedula().isEmpty() || persona.getNombre().isEmpty()
+					|| persona.getTelefono().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "los datos rol cedula nombre telefono son de caracter obligatorio",
+						null, 0);
 
-			try {
-				admin.gestionarPersona().insertar(persona);
-				vr.txtGuardarCedula.setText("");
-				vr.txtGuardarNombre.setText("");
-				vr.txtGuardarTelefono.setText("");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			} else {
+
+				Administrador admin = new Administrador();
+
+				try {
+					admin.gestionarPersona().insertar(persona);
+					vr.txtGuardarCedula.setText("");
+					vr.txtGuardarNombre.setText("");
+					vr.txtGuardarTelefono.setText("");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 			break;
 
 		case "buscar":
 
-			List<Persona> listaBuscar = new ArrayList<>();
-
+			Persona p = new Persona();
 			Administrador adminiBuscar = new Administrador();
 
 			try {
-
-				listaBuscar = adminiBuscar.gestionarPersona().mostrarTodoPersonas();
+				p = adminiBuscar.gestionarPersona().buscarPersona(vr.txtGuardarCedula.getText().toString());
 				for (int i = this.vr.tbResidentes.getRowCount(); i > 0; i--) {
 					this.vr.tbResidentes.removeRow(i - 1);
 				}
 
-				for (Persona pe : listaBuscar) {
-
-					this.vr.tbResidentes.addRow(
-							new Object[] { pe.getId(), pe.getNombre(), pe.getCedula(), pe.getTelefono(), pe.getRol() });
-				}
+				this.vr.tbResidentes
+						.addRow(new Object[] { p.getId(), p.getNombre(), p.getCedula(), p.getTelefono(), p.getRol() });
 
 			} catch (SQLException ex) {
 				Logger.getLogger(ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
@@ -103,7 +100,6 @@ public class ControladorResidente implements ActionListener {
 
 				for (Persona pe : lista) {
 
-
 					this.vr.tbResidentes.addRow(
 							new Object[] { pe.getId(), pe.getNombre(), pe.getCedula(), pe.getTelefono(), pe.getRol() });
 				}
@@ -113,6 +109,7 @@ public class ControladorResidente implements ActionListener {
 			}
 
 			break;
+
 		case "eliminar":
 			// ------------------------------------------------------------------------eliminar--------------------------------------------------------------------------------------------------------------
 			int fila = this.vr.residente.getSelectedRow();
@@ -164,5 +161,4 @@ public class ControladorResidente implements ActionListener {
 		}
 
 	}
-
 }

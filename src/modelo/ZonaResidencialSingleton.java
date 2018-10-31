@@ -14,9 +14,7 @@ public class ZonaResidencialSingleton {
 	private SAdministrador sadministrador;
 	private List<Vivienda> vivienda;
 
-	private static ZonaResidencialSingleton singleton;
-
-	
+	private static ZonaResidencialSingleton singleton;	
 	
 	public int getId() {
 		return id;
@@ -30,8 +28,10 @@ public class ZonaResidencialSingleton {
 		return direccion;
 	}
 
-	private ZonaResidencialSingleton() {
-		DAOZonaResidencial zona=new DAOZonaResidencial();
+	private ZonaResidencialSingleton(String direccion, String nombre) {
+		DAOZonaResidencial zona = new DAOZonaResidencial();
+		this.direccion = direccion;
+		this.nombre = nombre;
 		
 	}
 
@@ -55,10 +55,6 @@ public class ZonaResidencialSingleton {
 	public static void setSingleton(ZonaResidencialSingleton singleton) {
 		ZonaResidencialSingleton.singleton = singleton;
 	}
-
-
-	
-
 	
 
 	public void setDireccion(String direccion) {
