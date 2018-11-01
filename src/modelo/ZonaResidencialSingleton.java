@@ -16,7 +16,7 @@ public class ZonaResidencialSingleton {
 	private SAdministrador sadministrador;
 	private List<Vivienda> vivienda;
 
-	private static ZonaResidencialSingleton singleton=null;	
+	private static ZonaResidencialSingleton singleton;	
 	
 	public int getId() {
 		return id;
@@ -30,14 +30,13 @@ public class ZonaResidencialSingleton {
 		return direccion;
 	}
 
-	private ZonaResidencialSingleton() {
-		//DAOZonaResidencial zona = new DAOZonaResidencial();
-		
+	private ZonaResidencialSingleton()  {
+	
 		
 	
 	}
 
-	private static synchronized void createInstance() {
+	private static synchronized void createInstance()  {
 		if (singleton == null) {
 			singleton = new ZonaResidencialSingleton();
 		}

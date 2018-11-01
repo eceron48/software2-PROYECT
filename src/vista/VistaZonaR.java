@@ -79,6 +79,7 @@ public class VistaZonaR extends JFrame {
 		
 		btnModificar = new JButton("modificar");
 		btnModificar.setIcon(new ImageIcon(VistaZonaR.class.getResource("/iconos/Registrar.png")));
+		btnModificar.addActionListener(new ControladorZonaResidencial(this));
 		btnModificar.setBounds(220, 131, 143, 50);
 		panel.add(btnModificar);
 		
