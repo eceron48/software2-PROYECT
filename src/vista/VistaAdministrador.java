@@ -55,7 +55,7 @@ public class VistaAdministrador extends JFrame {
 	public VistaAdministrador() {
 		setTitle("GESTIONAR ADMINISTRADOR");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 634, 420);
+		setBounds(100, 100, 634, 452);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -182,7 +182,7 @@ public class VistaAdministrador extends JFrame {
 		panel_1.add(btnMostrarTodos);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 282, 601, 80);
+		scrollPane.setBounds(10, 282, 601, 108);
 		contentPane.add(scrollPane);
 		
 		tbGestionarAdmin = new JTable();

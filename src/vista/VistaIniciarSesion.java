@@ -11,6 +11,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class VistaIniciarSesion extends JFrame {
 
@@ -42,7 +44,7 @@ public class VistaIniciarSesion extends JFrame {
 	public VistaIniciarSesion() {
 		setTitle("INICIAR SESION");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 363, 231);
+		setBounds(100, 100, 501, 231);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -79,6 +81,10 @@ public class VistaIniciarSesion extends JFrame {
 		btnCancelar.setIcon(new ImageIcon(VistaIniciarSesion.class.getResource("/iconos/Cancel32.png")));
 		btnCancelar.setBounds(182, 122, 113, 41);
 		contentPane.add(btnCancelar);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"ingresar como", "super administrador", "administrador"}));
+		comboBox.setBounds(343, 21, 113, 22);
+		contentPane.add(comboBox);
 	}
-	
 }

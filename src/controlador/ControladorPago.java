@@ -17,8 +17,28 @@ public class ControladorPago implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+	switch(e.getActionCommand()) {
+	
+	case"buscar":
 		
-	}
+		break;
+	case"mostrar pagos"	:
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/* switch*/	}
+	
+	
+	
+
+	
+/* evento */	}
 	
 	
 
