@@ -15,6 +15,15 @@ import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
 public class VistaPagoAdministracion extends JFrame {
 
@@ -22,6 +31,10 @@ public class VistaPagoAdministracion extends JFrame {
 	public JTextField txtCedula;
 	public JTextField txtNombre;
 	public JTextField txtTotal;
+	public JComboBox comboBox;
+	public JButton btnGuardar;
+	public JButton btnRegistrar;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -45,7 +58,7 @@ public class VistaPagoAdministracion extends JFrame {
 	public VistaPagoAdministracion() {
 		setTitle("PAGO DE CUOTA ADMINISTRACION");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 504, 294);
+		setBounds(100, 100, 710, 419);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(204, 204, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,7 +68,7 @@ public class VistaPagoAdministracion extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 204, 255));
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Datos del Residente", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 51, 0)));
-		panel.setBounds(10, 11, 472, 162);
+		panel.setBounds(10, 11, 667, 178);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -64,7 +77,7 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(Cedula);
 		
 		JLabel Nombre = new JLabel("Nombre:");
-		Nombre.setBounds(10, 51, 80, 14);
+		Nombre.setBounds(10, 69, 80, 14);
 		panel.add(Nombre);
 		
 		txtCedula = new JTextField();
@@ -73,49 +86,62 @@ public class VistaPagoAdministracion extends JFrame {
 		txtCedula.setColumns(10);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(67, 48, 136, 20);
+		txtNombre.setBounds(67, 66, 136, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_1.setBounds(10, 116, 454, 35);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		
-		JLabel MedioDePago = new JLabel("Medio de Pago:");
-		MedioDePago.setBounds(10, 11, 99, 14);
-		panel_1.add(MedioDePago);
-		
-		JRadioButton rbEfectivo = new JRadioButton("Efectivo");
-		rbEfectivo.setBounds(125, 7, 83, 23);
-		panel_1.add(rbEfectivo);
-		
-		JRadioButton rbDebito = new JRadioButton("Tarjeta Debito");
-		rbDebito.setBounds(216, 7, 109, 23);
-		panel_1.add(rbDebito);
-		
-		JRadioButton rbCredito = new JRadioButton("Tarjeta Credito");
-		rbCredito.setBounds(327, 7, 109, 23);
-		panel_1.add(rbCredito);
-		
-		JButton btnGuardar = new JButton("buscar");
+		btnGuardar = new JButton("buscar");
 		btnGuardar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Buscar32.png")));
-		btnGuardar.setBounds(253, 38, 117, 45);
+		btnGuardar.setBounds(365, 107, 136, 50);
 		panel.add(btnGuardar);
 		
 		JLabel Total = new JLabel("Total:");
-		Total.setBounds(10, 76, 80, 14);
+		Total.setBounds(10, 111, 80, 14);
 		panel.add(Total);
 		
 		txtTotal = new JTextField();
-		txtTotal.setBounds(67, 76, 136, 20);
+		txtTotal.setBounds(67, 108, 136, 20);
 		panel.add(txtTotal);
 		txtTotal.setColumns(10);
 		
-		JButton btnRegistrar = new JButton("registrar");
+		comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Medio De Pago:", "Efectivo", "Debito", "Credito"}));
+		comboBox.setBounds(235, 23, 157, 20);
+		panel.add(comboBox);
+		
+		btnRegistrar = new JButton("registrar");
+		btnRegistrar.setBounds(518, 107, 139, 50);
+		panel.add(btnRegistrar);
 		btnRegistrar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Registrar.png")));
-		btnRegistrar.setBounds(164, 184, 139, 50);
-		contentPane.add(btnRegistrar);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(175, 238, 238));
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Mostrar Pagos", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		panel_1.setBounds(10, 200, 667, 169);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(new LineBorder(new Color(0, 0, 0)));
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(23, 29, 426, 118);
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+			},
+			new String[] {
+				"Cedula", "Nombre", "Total", "Estado"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
+		JButton btnNewButton = new JButton("mostrar pagos");
+		btnNewButton.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
+		btnNewButton.setBounds(459, 90, 188, 57);
+		panel_1.add(btnNewButton);
 	}
 }
