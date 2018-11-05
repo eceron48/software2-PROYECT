@@ -37,6 +37,8 @@ public class VistaPagoAdministracion extends JFrame {
 	public JButton btnRegistrar;
 	private JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	public JRadioButton rbtdebito;
+	public JRadioButton rdbcredito;
 
 	/**
 	 * Launch the application.
@@ -116,12 +118,12 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(btnRegistrar);
 		btnRegistrar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Registrar.png")));
 		
-		JRadioButton rbtdebito = new JRadioButton("credito");
+		rbtdebito = new JRadioButton("credito");
 		buttonGroup.add(rbtdebito);
 		rbtdebito.setBounds(409, 22, 109, 23);
 		panel.add(rbtdebito);
 		
-		JRadioButton rdbcredito = new JRadioButton("debito");
+		rdbcredito = new JRadioButton("debito");
 		buttonGroup.add(rdbcredito);
 		rdbcredito.setBounds(535, 22, 109, 23);
 		panel.add(rdbcredito);
@@ -157,4 +159,5 @@ public class VistaPagoAdministracion extends JFrame {
 		btnNewButton.setBounds(770, 135, 185, 57);
 		panel_1.add(btnNewButton);
 	}
+	
 }
