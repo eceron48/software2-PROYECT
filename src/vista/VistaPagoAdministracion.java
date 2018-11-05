@@ -39,6 +39,7 @@ public class VistaPagoAdministracion extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	public JRadioButton rbtdebito;
 	public JRadioButton rdbcredito;
+	public JRadioButton rdbtnEfectivo;
 
 	/**
 	 * Launch the application.
@@ -120,13 +121,18 @@ public class VistaPagoAdministracion extends JFrame {
 		
 		rbtdebito = new JRadioButton("credito");
 		buttonGroup.add(rbtdebito);
-		rbtdebito.setBounds(409, 22, 109, 23);
+		rbtdebito.setBounds(409, 22, 65, 23);
 		panel.add(rbtdebito);
 		
 		rdbcredito = new JRadioButton("debito");
 		buttonGroup.add(rdbcredito);
-		rdbcredito.setBounds(535, 22, 109, 23);
+		rdbcredito.setBounds(476, 22, 55, 23);
 		panel.add(rdbcredito);
+		
+		rdbtnEfectivo = new JRadioButton("efectivo");
+		buttonGroup.add(rdbtnEfectivo);
+		rdbtnEfectivo.setBounds(533, 22, 65, 23);
+		panel.add(rdbtnEfectivo);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(175, 238, 238));
@@ -159,5 +165,6 @@ public class VistaPagoAdministracion extends JFrame {
 		btnNewButton.setBounds(770, 135, 185, 57);
 		panel_1.add(btnNewButton);
 	}
+	
 	
 }
