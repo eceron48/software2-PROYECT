@@ -24,6 +24,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
+import javax.swing.ButtonGroup;
 
 public class VistaPagoAdministracion extends JFrame {
 
@@ -35,6 +36,7 @@ public class VistaPagoAdministracion extends JFrame {
 	public JButton btnBuscar;
 	public JButton btnRegistrar;
 	private JTable table;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -113,6 +115,16 @@ public class VistaPagoAdministracion extends JFrame {
 		btnRegistrar.setBounds(232, 117, 139, 50);
 		panel.add(btnRegistrar);
 		btnRegistrar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Registrar.png")));
+		
+		JRadioButton rbtdebito = new JRadioButton("credito");
+		buttonGroup.add(rbtdebito);
+		rbtdebito.setBounds(409, 22, 109, 23);
+		panel.add(rbtdebito);
+		
+		JRadioButton rdbcredito = new JRadioButton("debito");
+		buttonGroup.add(rdbcredito);
+		rdbcredito.setBounds(535, 22, 109, 23);
+		panel.add(rdbcredito);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(175, 238, 238));
