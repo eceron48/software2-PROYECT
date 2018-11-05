@@ -31,8 +31,8 @@ public class VistaPagoAdministracion extends JFrame {
 	public JPanel contentPane;
 	public JTextField txtCedula;
 	public JTextField txtNombre;
+	public DefaultTableModel tbpersonas;
 	public JTextField txtTotal;
-	public JComboBox comboBox;
 	public JButton btnBuscar;
 	public JButton btnRegistrar;
 	private JTable table;
@@ -91,6 +91,7 @@ public class VistaPagoAdministracion extends JFrame {
 		txtCedula.setColumns(10);
 		
 		txtNombre = new JTextField();
+		txtNombre.setEditable(false);
 		txtNombre.setBounds(67, 66, 136, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
@@ -105,14 +106,10 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(Total);
 		
 		txtTotal = new JTextField();
+		txtTotal.setEditable(false);
 		txtTotal.setBounds(67, 108, 136, 20);
 		panel.add(txtTotal);
 		txtTotal.setColumns(10);
-		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Medio De Pago:", "Efectivo", "Debito", "Credito"}));
-		comboBox.setBounds(235, 23, 157, 20);
-		panel.add(comboBox);
 		
 		btnRegistrar = new JButton("registrar");
 		btnRegistrar.setBounds(232, 117, 139, 50);
@@ -121,17 +118,17 @@ public class VistaPagoAdministracion extends JFrame {
 		
 		rbtdebito = new JRadioButton("credito");
 		buttonGroup.add(rbtdebito);
-		rbtdebito.setBounds(409, 22, 65, 23);
+		rbtdebito.setBounds(235, 22, 65, 23);
 		panel.add(rbtdebito);
 		
 		rdbcredito = new JRadioButton("debito");
 		buttonGroup.add(rdbcredito);
-		rdbcredito.setBounds(476, 22, 55, 23);
+		rdbcredito.setBounds(302, 22, 55, 23);
 		panel.add(rdbcredito);
 		
 		rdbtnEfectivo = new JRadioButton("efectivo");
 		buttonGroup.add(rdbtnEfectivo);
-		rdbtnEfectivo.setBounds(533, 22, 65, 23);
+		rdbtnEfectivo.setBounds(359, 22, 65, 23);
 		panel.add(rdbtnEfectivo);
 		
 		JPanel panel_1 = new JPanel();
@@ -149,15 +146,15 @@ public class VistaPagoAdministracion extends JFrame {
 		panel_1.add(scrollPane);
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tbpersonas=new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, "", null},
 			},
 			new String[] {
 				"Cedula", "Nombre", "Total", "ultimo pago", "Estado", "observaciones"
 			}
-		));
-		table.getColumnModel().getColumn(5).setPreferredWidth(109);
+		);
+		table.setModel(tbpersonas);
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton = new JButton("mostrar pagos");
