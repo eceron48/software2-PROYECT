@@ -3,11 +3,29 @@ package modelo;
 public class CuotaAdministracion {
 	private Double cuota;
 	private Double total;
+	private String ultimoPago;
+	private String observacion;
 	private Double porcentaje;
 	private int idcuota;
 	
 	
 	
+
+	public String getUltimoPago() {
+		return ultimoPago;
+	}
+
+	public void setUltimoPago(String ultimoPago) {
+		this.ultimoPago = ultimoPago;
+	}
+
+	public String getObservacion() {
+		return observacion;
+	}
+
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
 
 	public int getIdcuota() {
 		return idcuota;
