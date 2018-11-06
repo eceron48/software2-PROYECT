@@ -83,7 +83,7 @@ public class DAOPagos {
 				Residente p=new Residente();
 				CuotaAdministracion  cuota=new CuotaAdministracion() ;
 				
-			
+				p.setId(results.getInt(1));
 				p.setNombre(results.getString(2));
 				p.setCedula(results.getString(3));
 		
@@ -120,15 +120,17 @@ public class DAOPagos {
 	
 	public void registrarPagoEfectivo(Residente r) {
 
-		String actualizar = "UPDATE Persona set pnombre='" + r.getNombre() + "', pcedula='" + r.getCedula()
-				+ "', ptelefono='" + r.getTelefono() + "',prol='" + r.getRol() + "' where idpersona='" + r.getId()
+		String actualizar = "UPDATE cuota,persona set cuota.observacion='"+r.getCuota().getObservacion()
+				+ "' where cuota.persona_idpersona='" + r.getId()+"'and persona.pcedula='"+r.getCedula()
 				+ "'";
 		try {
 			Connection connection = dbAdapter.getConnection();
 			PreparedStatement statement = connection.prepareStatement(actualizar);
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "registrado");
-		} catch (SQLException e) {
+		} catch (Exception e) {
+			
+			JOptionPane.showMessageDialog(null, "error", actualizar, 2);
 		}
 
 	}

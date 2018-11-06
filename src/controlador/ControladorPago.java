@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import modelo.Administrador;
 import modelo.Persona;
 import modelo.Residente;
+import modelo.adapter.ConstruirPago;
 import vista.VistaPagoAdministracion;
 import vista.VistaResidentes;
 
@@ -49,9 +50,9 @@ public class ControladorPago implements ActionListener {
 				for(Residente pe:lista) {
 
 				this.vistaPago.tbpersonas
-						.addRow(new Object[] { pe.getCedula(), pe.getNombre(),pe.getCuota().getTotal() ,pe.getCuota().getUltimoPago(),pe.getCuota().getObservacion() });
+						.addRow(new Object[] { pe.getId(),pe.getCedula(), pe.getNombre(),pe.getCuota().getTotal() ,pe.getCuota().getUltimoPago(),pe.getCuota().getObservacion() });
 				suma=suma+pe.getCuota().getTotal();
-
+				vistaPago.txtNombre.setText(pe.getNombre());
 				}
 			}
 				
@@ -62,6 +63,7 @@ public class ControladorPago implements ActionListener {
 			JOptionPane.showMessageDialog(null, "el documento ingresado no fue encontrado intente de nuevo ",null, 3);
 		}
 		vistaPago.txtTotal.setText(suma.toString());
+	
 		}else {
 			JOptionPane.showMessageDialog(null, "por favor ingrese una cedula para comenzar la busqueda ", null, 2);
 		}
@@ -88,7 +90,7 @@ public class ControladorPago implements ActionListener {
 			for(Residente p:listado) {
 
 			this.vistaPago.tbpersonas
-					.addRow(new Object[] { p.getCedula(), p.getNombre(),p.getCuota().getTotal() ,p.getCuota().getUltimoPago(),p.getCuota().getObservacion() });
+					.addRow(new Object[] { p.getId(),p.getCedula(), p.getNombre(),p.getCuota().getTotal() ,p.getCuota().getUltimoPago(),p.getCuota().getObservacion() });
 
 			}
 		}
@@ -102,10 +104,28 @@ public class ControladorPago implements ActionListener {
 		break;
 	
 	case"registrar":
+		if(vistaPago.rdbEfectivo.isSelected()) {
+			ConstruirPago pago=new ConstruirPago(vistaPago);
+			pago.pagarEfectivo();
+			vistaPago.txtCedula.setText("");
+			vistaPago.txtNombre.setText("");
+			vistaPago.txtTotal.setText("");
+			
+	
+		}
+		if(vistaPago.rdbDebito.isSelected()) {
+			
+			
+		}
+		
+		if(vistaPago.rbtCredito.isSelected()) {
+			
+			
+		}
 		
 		
 		
-		
+	
 		
 		
 		break;

@@ -177,10 +177,16 @@ public class VistaPagoAdministracion extends JFrame {
 				{null, null, null, null, "", null},
 			},
 			new String[] {
-				"Cedula", "Nombre", "Total", "ultimo pago", "observaciones"
-			}
-		);
-	
+				"ID","Cedula", "Nombre", "Total", "ultimo pago", "observaciones"
+			}	
+		){
+			boolean[] columnEditables = new boolean[] {
+					false, false, false, false, false, true
+				};
+				public boolean isCellEditable(int row, int column) {
+					return columnEditables[column];
+				}
+			};
 		table.setModel(tbpersonas);
 		scrollPane.setViewportView(table);
 		
@@ -192,4 +198,6 @@ public class VistaPagoAdministracion extends JFrame {
 		panel_1.add(btnmostrartodo );
 	}
 	
+
+
 }

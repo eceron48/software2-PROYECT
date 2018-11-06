@@ -1,10 +1,19 @@
 package modelo.adapter;
 
+import vista.VistaPagoAdministracion;
+
 public class ConstruirPago {
 	
-	public void pagarEfectivo() {
-		
+	private final VistaPagoAdministracion vistaPago;
+
+	public ConstruirPago (VistaPagoAdministracion vistaPago) {
+		this.vistaPago = vistaPago;
 	}
+	public void pagarEfectivo() {
+		MedioDePago efectivo=new Efectivo(vistaPago);
+				efectivo.pagar();
+		
+			}
 	
 	public void pagarDebito() {
 		
