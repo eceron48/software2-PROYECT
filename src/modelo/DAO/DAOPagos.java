@@ -23,17 +23,17 @@ public class DAOPagos {
 	}
 	
 	
-	public Residente buscarPersona(String cedula) throws SQLException {
+	public ArrayList<Residente> buscarPersona(String cedula) throws SQLException {
 		Connection connection = dbAdapter.getConnection();
-		Residente p = new Residente ();
-		CuotaAdministracion  cuota=new CuotaAdministracion() ;
+		ArrayList<Residente> lista = new ArrayList<Residente> ();
 		
 		try {			
 			
 			PreparedStatement statement = connection.prepareStatement("select * from persona,cuota where persona.pcedula='"+cedula+"' and persona.idpersona=cuota.persona_idpersona");
 			ResultSet results = statement.executeQuery();
 			while (results.next()) {				
-
+				Residente p=new Residente();
+				CuotaAdministracion  cuota=new CuotaAdministracion() ;
 				p.setId(results.getInt(1));
 				p.setNombre(results.getString(2));
 				p.setCedula(results.getString(3));
@@ -46,10 +46,10 @@ public class DAOPagos {
 				cuota.setTotal(cuota.calcularCuota(cuota.getCuota(), cuota.getPorcentaje()));
 				p.setCuota(cuota);
 		
-
+				lista.add(p);
 			}
 
-			return p;
+			return lista;
 
 		} catch (Exception e) {
 

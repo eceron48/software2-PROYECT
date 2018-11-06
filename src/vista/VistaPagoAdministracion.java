@@ -20,6 +20,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorPago;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
@@ -32,9 +35,10 @@ public class VistaPagoAdministracion extends JFrame {
 	public JTextField txtCedula;
 	public JTextField txtNombre;
 	public JTextField txtTotal;
+	public DefaultTableModel tbpersonas;
 	public JButton btnBuscar;
 	public JButton btnRegistrar;
-	private JTable table;
+	public JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	public JRadioButton rbtCredito;
 	public JRadioButton rdbDebito;
@@ -90,12 +94,14 @@ public class VistaPagoAdministracion extends JFrame {
 		txtCedula.setColumns(10);
 		
 		txtNombre = new JTextField();
+		txtNombre.setEditable(false);
 		txtNombre.setBounds(67, 66, 136, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		btnBuscar = new JButton("buscar");
 		btnBuscar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Buscar32.png")));
+		btnBuscar.addActionListener(new ControladorPago(this));
 		btnBuscar.setBounds(222, 111, 136, 50);
 		panel.add(btnBuscar);
 		
@@ -104,6 +110,7 @@ public class VistaPagoAdministracion extends JFrame {
 		panel.add(Total);
 		
 		txtTotal = new JTextField();
+		txtTotal.setEditable(false);
 		txtTotal.setBounds(67, 108, 136, 20);
 		panel.add(txtTotal);
 		txtTotal.setColumns(10);
@@ -111,6 +118,7 @@ public class VistaPagoAdministracion extends JFrame {
 		btnRegistrar = new JButton("registrar");
 		btnRegistrar.setBounds(368, 111, 139, 50);
 		panel.add(btnRegistrar);
+		btnRegistrar.addActionListener(new ControladorPago(this));
 		btnRegistrar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Registrar.png")));
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -164,20 +172,24 @@ public class VistaPagoAdministracion extends JFrame {
 		panel_1.add(scrollPane);
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tbpersonas=new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, "", null},
 			},
 			new String[] {
-				"Cedula", "Nombre", "Total", "ultimo pago", "Estado", "observaciones"
+				"Cedula", "Nombre", "Total", "ultimo pago", "observaciones"
 			}
-		));
-		table.getColumnModel().getColumn(5).setPreferredWidth(109);
+		);
+	
+		table.setModel(tbpersonas);
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton = new JButton("mostrar pagos");
-		btnNewButton.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
-		btnNewButton.setBounds(673, 135, 185, 57);
-		panel_1.add(btnNewButton);
+		JButton btnmostrartodo = new JButton("mostrar pagos");
+		btnmostrartodo .setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
+		btnmostrartodo .addActionListener(new ControladorPago(this));
+		btnmostrartodo .setBounds(673, 135, 185, 57);
+		
+		panel_1.add(btnmostrartodo );
 	}
+	
 }

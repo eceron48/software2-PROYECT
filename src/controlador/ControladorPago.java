@@ -32,29 +32,30 @@ public class ControladorPago implements ActionListener {
 		Double suma = 0.0;
 	
 		if(!vistaPago.txtCedula.getText().isEmpty()) {
-			Residente p = new Residente();	
 			Administrador adminiBuscar = new Administrador();
-			
+			ArrayList<Residente>lista=new ArrayList<Residente>();	
 
-		try {
-			
-			p = adminiBuscar.registrarPagos().buscarPersona(vistaPago.txtCedula.getText().toString());
-			
-			
-			vistaPago.txtNombre.setText(p.getNombre());
-			vistaPago.txtCedula.setText(p.getCedula());
-		
-		
-	
-			for (int i = this.vistaPago.tbpersonas.getRowCount(); i > 0; i--) {
-				this.vistaPago.tbpersonas.removeRow(i - 1);
+			try {
+				
+				lista = adminiBuscar.registrarPagos().buscarPersona(vistaPago.txtCedula.getText().toString());
+				
+				
+				
+							//borrar tabla//
+				for (int i = this.vistaPago.tbpersonas.getRowCount(); i > 0; i--) {
+					this.vistaPago.tbpersonas.removeRow(i - 1);
+				}
+							//crear tabla//
+				for(Residente pe:lista) {
+
+				this.vistaPago.tbpersonas
+						.addRow(new Object[] { pe.getCedula(), pe.getNombre(),pe.getCuota().getTotal() ,pe.getCuota().getUltimoPago(),pe.getCuota().getObservacion() });
+				suma=suma+pe.getCuota().getTotal();
+
+				}
 			}
-
-			this.vistaPago.tbpersonas
-					.addRow(new Object[] { p.getCedula(), p.getNombre(),p.getCuota().getTotal() ,p.getCuota().getUltimoPago(),p.getCuota().getObservacion() });
-			suma=suma+p.getCuota().getTotal();
-			
-		}
+				
+		
 		
 			catch (Exception ex) {
 				
