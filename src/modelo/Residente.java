@@ -7,6 +7,15 @@ public class Residente extends Persona {
 	public Residente() {
 
 	}
+	
+	
+
+	
+
+
+
+
+
 
 	public Vivienda getVivienda() {
 		return vivienda;

@@ -20,6 +20,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorPago;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
@@ -35,11 +38,12 @@ public class VistaPagoAdministracion extends JFrame {
 	public JTextField txtTotal;
 	public JButton btnBuscar;
 	public JButton btnRegistrar;
-	private JTable table;
+	public JTable table;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	public JRadioButton rbtdebito;
 	public JRadioButton rdbcredito;
 	public JRadioButton rdbtnEfectivo;
+	public JButton btnmostrarTodo;
 
 	/**
 	 * Launch the application.
@@ -99,6 +103,7 @@ public class VistaPagoAdministracion extends JFrame {
 		btnBuscar = new JButton("buscar");
 		btnBuscar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Buscar32.png")));
 		btnBuscar.setBounds(235, 51, 136, 50);
+		btnBuscar.addActionListener(new ControladorPago(this));
 		panel.add(btnBuscar);
 		
 		JLabel Total = new JLabel("Total:");
@@ -114,21 +119,22 @@ public class VistaPagoAdministracion extends JFrame {
 		btnRegistrar = new JButton("registrar");
 		btnRegistrar.setBounds(232, 117, 139, 50);
 		panel.add(btnRegistrar);
+		btnRegistrar.addActionListener(new ControladorPago(this));
 		btnRegistrar.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Registrar.png")));
 		
 		rbtdebito = new JRadioButton("credito");
 		buttonGroup.add(rbtdebito);
-		rbtdebito.setBounds(235, 22, 65, 23);
+		rbtdebito.setBounds(235, 22, 79, 23);
 		panel.add(rbtdebito);
 		
 		rdbcredito = new JRadioButton("debito");
 		buttonGroup.add(rdbcredito);
-		rdbcredito.setBounds(302, 22, 55, 23);
+		rdbcredito.setBounds(316, 22, 69, 23);
 		panel.add(rdbcredito);
 		
 		rdbtnEfectivo = new JRadioButton("efectivo");
 		buttonGroup.add(rdbtnEfectivo);
-		rdbtnEfectivo.setBounds(359, 22, 65, 23);
+		rdbtnEfectivo.setBounds(387, 22, 80, 23);
 		panel.add(rdbtnEfectivo);
 		
 		JPanel panel_1 = new JPanel();
@@ -151,17 +157,20 @@ public class VistaPagoAdministracion extends JFrame {
 				{null, null, null, null, "", null},
 			},
 			new String[] {
-				"Cedula", "Nombre", "Total", "ultimo pago", "Estado", "observaciones"
+				"Cedula", "Nombre", "Total", "       ultimo pago      ", "       observaciones   "
 			}
 		);
 		table.setModel(tbpersonas);
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton = new JButton("mostrar pagos");
-		btnNewButton.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
-		btnNewButton.setBounds(770, 135, 185, 57);
-		panel_1.add(btnNewButton);
+		btnmostrarTodo = new JButton("mostrar pagos");
+		btnmostrarTodo.setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
+		btnmostrarTodo.addActionListener(new ControladorPago(this));
+		btnmostrarTodo.setBounds(729, 29, 185, 57);
+		
+		panel_1.add(btnmostrarTodo);
 	}
+	
 	
 	
 }

@@ -2,6 +2,7 @@ package modelo;
 
 import modelo.DAO.DAOApartamento;
 import modelo.DAO.DAOCasa;
+import modelo.DAO.DAOPagos;
 import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
 
@@ -61,6 +62,12 @@ public class Administrador {
 
 	public void DAOParqueadero() {
 
+	}
+	
+	
+	public DAOPagos registrarPagos() {
+		DAOPagos pago=new DAOPagos();
+		return pago;
 	}
 
 	public DAORegistrarCuota registrarCuotaAdministracion() {
