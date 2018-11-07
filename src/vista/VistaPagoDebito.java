@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+
+import controlador.ControladorPagoDebito;
+
 import java.awt.Color;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -17,8 +20,9 @@ import javax.swing.ImageIcon;
 public class VistaPagoDebito extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtTarjetaDebito;
-	private JPasswordField passClaveDebito;
+	public JTextField txtTarjetaDebito;
+	public JPasswordField passClaveDebito;
+	public JButton btnPagarDebito;
 
 	/**
 	 * Launch the application.
@@ -73,9 +77,11 @@ public class VistaPagoDebito extends JFrame {
 		passClaveDebito.setBounds(130, 71, 168, 20);
 		panel.add(passClaveDebito);
 		
-		JButton btnPagarDebito = new JButton("pagar");
+		btnPagarDebito = new JButton("pagar");
 		btnPagarDebito.setIcon(new ImageIcon(VistaPagoDebito.class.getResource("/iconos/Pago.png")));
 		btnPagarDebito.setBounds(356, 74, 151, 52);
+		btnPagarDebito.addActionListener(new ControladorPagoDebito(this));
 		panel.add(btnPagarDebito);
 	}
+	
 }

@@ -33,12 +33,12 @@ public class ControladorPago implements ActionListener {
 		Double suma = 0.0;
 	
 		if(!vistaPago.txtCedula.getText().isEmpty()) {
-			Administrador adminiBuscar = new Administrador();
-			ArrayList<Residente>lista=new ArrayList<Residente>();	
+			Administrador adminiBus = new Administrador();
+			ArrayList<Residente>listas=new ArrayList<Residente>();	
 
 			try {
 				
-				lista = adminiBuscar.registrarPagos().buscarPersona(vistaPago.txtCedula.getText().toString());
+				listas = adminiBus.registrarPagos().buscarPersona(vistaPago.txtCedula.getText().toString());
 				
 				
 				
@@ -47,7 +47,7 @@ public class ControladorPago implements ActionListener {
 					this.vistaPago.tbpersonas.removeRow(i - 1);
 				}
 							//crear tabla//
-				for(Residente pe:lista) {
+				for(Residente pe:listas) {
 
 				this.vistaPago.tbpersonas
 						.addRow(new Object[] { pe.getId(),pe.getCedula(), pe.getNombre(),pe.getCuota().getTotal() ,pe.getCuota().getUltimoPago(),pe.getCuota().getObservacion() });
@@ -106,7 +106,9 @@ public class ControladorPago implements ActionListener {
 	case"registrar":
 		if(vistaPago.rdbEfectivo.isSelected()) {
 			ConstruirPago pago=new ConstruirPago(vistaPago);
+			
 			pago.pagarEfectivo();
+			
 			vistaPago.txtCedula.setText("");
 			vistaPago.txtNombre.setText("");
 			vistaPago.txtTotal.setText("");
@@ -114,13 +116,23 @@ public class ControladorPago implements ActionListener {
 	
 		}
 		if(vistaPago.rdbDebito.isSelected()) {
+		ConstruirPago credito=new ConstruirPago(vistaPago);
 			
+			credito.pagarDebito();
+			
+			vistaPago.txtCedula.setText("");
+			vistaPago.txtNombre.setText("");
+			vistaPago.txtTotal.setText("");
 			
 		}
 		
 		if(vistaPago.rbtCredito.isSelected()) {
 			
-			
+			ConstruirPago debito=new ConstruirPago(vistaPago);
+			debito.pagarCredito();
+			vistaPago.txtCedula.setText("");
+			vistaPago.txtNombre.setText("");
+			vistaPago.txtTotal.setText("");
 		}
 		
 		

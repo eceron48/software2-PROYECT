@@ -1,19 +1,26 @@
 package modelo.adapter;
 
+import vista.VistaPagoAdministracion;
+import vista.VistaPagoCredito;
+
 public class CreditoAdapter extends MedioDePago {
 	
-private CreditoAdapter creditoAdapter = new CreditoAdapter();
+	private final VistaPagoAdministracion vistapagoadm;
+private CreditoAdaptee creditoAdapter;
 	
-	public CreditoAdapter() {
+	
+	public CreditoAdapter(VistaPagoAdministracion vistapagoadm) {
 		super();
-		this.creditoAdapter = new CreditoAdapter();
-		System.out.println("Creando con tarjeta credito adapter");	
+	this.vistapagoadm=vistapagoadm;
+	this.creditoAdapter=new CreditoAdaptee(vistapagoadm);
+
 	}
 
 	@Override
 	public void pagar() {
-		// TODO Auto-generated method stub
-		
+		this.creditoAdapter.realizarTransaccion();
+		this.creditoAdapter.pagar();
+	
 	}
 	
 

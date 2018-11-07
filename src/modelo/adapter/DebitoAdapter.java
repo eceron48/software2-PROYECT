@@ -1,20 +1,27 @@
 package modelo.adapter;
 
+import vista.VistaPagoAdministracion;
+
 public class DebitoAdapter extends MedioDePago {
+
+	private final VistaPagoAdministracion vistapagoadm;
+	private DebitoAdaptee debitoAdapter;
 	
-	private DebitoAdapter debitoAdapter = new DebitoAdapter();
-	
-	public DebitoAdapter() {
+
+	public DebitoAdapter(VistaPagoAdministracion vistapagoadm) {
 		super();
-		this.debitoAdapter = new DebitoAdapter();
-		System.out.println("Creando con tarjeta debito adapter");	
+		this.debitoAdapter = new DebitoAdaptee(vistapagoadm);
+		this.vistapagoadm=vistapagoadm;
 	}
+
 
 	@Override
 	public void pagar() {
-		// TODO Auto-generated method stub
+		this.debitoAdapter.pagar();
+		this.debitoAdapter.realizarTransaccion();
 		
 	}
-	
+
+
 
 }

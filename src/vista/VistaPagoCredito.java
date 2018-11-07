@@ -7,12 +7,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import controlador.ControladorPagoCredito;
+import modelo.adapter.CreditoAdaptee;
+
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VistaPagoCredito extends JFrame {
 
@@ -57,7 +64,7 @@ public class VistaPagoCredito extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lblNumeroDeTarjeta = new JLabel("Numero de Tarjeta:");
-		lblNumeroDeTarjeta.setBounds(36, 27, 106, 14);
+		lblNumeroDeTarjeta.setBounds(25, 27, 117, 14);
 		panel.add(lblNumeroDeTarjeta);
 		
 		JLabel lblClave = new JLabel("Clave:");
@@ -76,8 +83,12 @@ public class VistaPagoCredito extends JFrame {
 		btnPagarCredito = new JButton("pagar");
 		btnPagarCredito.setIcon(new ImageIcon(VistaPagoCredito.class.getResource("/iconos/Moneda (2).png")));
 		btnPagarCredito.setBounds(365, 72, 153, 41);
+		btnPagarCredito.addActionListener(new ControladorPagoCredito(this));
 		panel.add(btnPagarCredito);
 	}
 
+	
+
+	
 	
 }

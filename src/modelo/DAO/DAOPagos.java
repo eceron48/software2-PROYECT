@@ -127,7 +127,7 @@ public class DAOPagos {
 			Connection connection = dbAdapter.getConnection();
 			PreparedStatement statement = connection.prepareStatement(actualizar);
 			statement.executeUpdate();
-			JOptionPane.showMessageDialog(null, "registrado");
+		     
 		} catch (Exception e) {
 			
 			JOptionPane.showMessageDialog(null, "error", actualizar, 2);
