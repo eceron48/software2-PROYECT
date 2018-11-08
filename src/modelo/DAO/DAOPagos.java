@@ -53,8 +53,7 @@ public class DAOPagos {
 
 		} catch (Exception e) {
 
-			
-	
+			JOptionPane.showMessageDialog(null, "el documento ingresado no fue encontrado intente de nuevo ",null, 3);
 			return null;
 		} finally {
 
@@ -127,6 +126,7 @@ public class DAOPagos {
 			Connection connection = dbAdapter.getConnection();
 			PreparedStatement statement = connection.prepareStatement(actualizar);
 			statement.executeUpdate();
+			JOptionPane.showMessageDialog(null, "registrado");
 		     
 		} catch (Exception e) {
 			

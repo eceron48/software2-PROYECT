@@ -17,8 +17,15 @@ public class DebitoAdapter extends MedioDePago {
 
 	@Override
 	public void pagar() {
+		
+		try {this.debitoAdapter.realizarTransaccion();
+			Thread.sleep(800);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.debitoAdapter.pagar();
-		this.debitoAdapter.realizarTransaccion();
+
 		
 	}
 

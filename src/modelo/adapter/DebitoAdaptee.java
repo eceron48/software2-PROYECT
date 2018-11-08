@@ -1,25 +1,32 @@
 package modelo.adapter;
 
+import javax.swing.JOptionPane;
+
 import modelo.Administrador;
 import modelo.CuotaAdministracion;
 import modelo.Residente;
 import vista.VistaPagoAdministracion;
-import vista.VistaPagoCredito;
-import vista.VistaPagoDebito;
+
 
 public class DebitoAdaptee {
 	
-	private  VistaPagoDebito debito;
+
 	private final VistaPagoAdministracion vistapagoadm;
 	
 	public DebitoAdaptee(VistaPagoAdministracion vistapagoadm) {
 	
-		this.debito= new VistaPagoDebito();
+		
 		this.vistapagoadm=vistapagoadm;
 	}
+	private boolean aprobar=false;
 	private Residente persona1 = new Residente();
 	
-	
+	public void realizarTransaccion() {
+		//debito.setVisible(true);
+		this.aprobar=true;
+		JOptionPane.showMessageDialog(null, "solicitud debito aprobada",null, 1);
+		}
+		
 	public void pagar() {
 		vistapagoadm.txtCedula.getText().toString();
 		int fila1 = this.vistapagoadm.table.getSelectedRow();
@@ -44,10 +51,7 @@ public class DebitoAdaptee {
 
 	}
 	
-	public void realizarTransaccion() {
-		debito.setVisible(true);
-		}
-		
+
 
 
 }

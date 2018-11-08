@@ -1,7 +1,7 @@
 package modelo.adapter;
 
 import vista.VistaPagoAdministracion;
-import vista.VistaPagoCredito;
+
 
 public class CreditoAdapter extends MedioDePago {
 	
@@ -18,10 +18,16 @@ private CreditoAdaptee creditoAdapter;
 
 	@Override
 	public void pagar() {
-		this.creditoAdapter.realizarTransaccion();
+	
+		try {this.creditoAdapter.realizarTransaccion();
+			Thread.sleep(800);
+			
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.creditoAdapter.pagar();
-	
+		
 	}
-	
-
 }

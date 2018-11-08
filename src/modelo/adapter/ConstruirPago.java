@@ -1,7 +1,7 @@
 package modelo.adapter;
 
 import vista.VistaPagoAdministracion;
-import vista.VistaPagoCredito;
+
 
 public class ConstruirPago {
 	

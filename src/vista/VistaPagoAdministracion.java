@@ -39,10 +39,11 @@ public class VistaPagoAdministracion extends JFrame {
 	public JButton btnBuscar;
 	public JButton btnRegistrar;
 	public JTable table;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	public final ButtonGroup buttonGroup = new ButtonGroup();
 	public JRadioButton rbtCredito;
 	public JRadioButton rdbDebito;
 	public JRadioButton rdbEfectivo;
+	public JPanel panel_2;
 
 	/**
 	 * Launch the application.
@@ -136,7 +137,7 @@ public class VistaPagoAdministracion extends JFrame {
 		lblNewLabel_2.setBounds(791, 26, 65, 60);
 		panel.add(lblNewLabel_2);
 		
-		JPanel panel_2 = new JPanel();
+		panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Seleccione medio de pago:", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
 		panel_2.setBounds(222, 19, 285, 50);
 		panel.add(panel_2);
@@ -200,4 +201,5 @@ public class VistaPagoAdministracion extends JFrame {
 	
 
 
+	
 }

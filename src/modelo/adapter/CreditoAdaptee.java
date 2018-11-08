@@ -9,20 +9,25 @@ import modelo.Administrador;
 import modelo.CuotaAdministracion;
 import modelo.Residente;
 import vista.VistaPagoAdministracion;
-import vista.VistaPagoCredito;
+
 
 public class CreditoAdaptee {
-	private  VistaPagoCredito credito;
 	private final VistaPagoAdministracion vistapagoadm;
 	
 	public  CreditoAdaptee(VistaPagoAdministracion vistapagoadm) {
-		this.credito= new VistaPagoCredito();
 		this.vistapagoadm=vistapagoadm;
 	}
 	
 	private Residente persona1 = new Residente();
 
+	private boolean aprobar=false;
 	
+
+	public void realizarTransaccion () {
+	this.aprobar=true;
+		//credito.setVisible(true);
+	JOptionPane.showMessageDialog(null, "solicitud debito aprobada",null, 1);
+		}
 	
 	public void pagar() {
 		vistapagoadm.txtCedula.getText().toString();
@@ -48,9 +53,6 @@ public class CreditoAdaptee {
 
 	}
 	
-	public void realizarTransaccion () {
-		credito.setVisible(true);
-		}
 		
 	
 
