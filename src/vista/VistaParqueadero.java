@@ -15,6 +15,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorParqueadero;
+
 import javax.swing.ImageIcon;
 
 public class VistaParqueadero extends JFrame {
@@ -25,6 +28,7 @@ public class VistaParqueadero extends JFrame {
 	public JButton btnModificarPark;
 	public JButton btnMostrarPark;
 	public JButton btnRegistrarPark;
+	public DefaultTableModel parqueadero;
 
 	/**
 	 * Launch the application.
@@ -67,6 +71,7 @@ public class VistaParqueadero extends JFrame {
 		btnRegistrarPark = new JButton("registrar");
 		btnRegistrarPark.setIcon(new ImageIcon(VistaParqueadero.class.getResource("/iconos/Guardar32.png")));
 		btnRegistrarPark.setBounds(464, 11, 135, 41);
+		btnRegistrarPark.addActionListener(new ControladorParqueadero(this));
 		contentPane.add(btnRegistrarPark);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -77,27 +82,34 @@ public class VistaParqueadero extends JFrame {
 		contentPane.add(scrollPane);
 		
 		tbPark = new JTable();
-		tbPark.setModel(new DefaultTableModel(
+		parqueadero=new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
 			},
 			new String[] {
 				"ID Parqueadero", "Nombre Parqueadero", "Estado"
 			}
-		));
-		tbPark.getColumnModel().getColumn(0).setPreferredWidth(117);
-		tbPark.getColumnModel().getColumn(1).setPreferredWidth(156);
-		tbPark.getColumnModel().getColumn(2).setPreferredWidth(110);
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, true, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		};
+		tbPark.setModel(parqueadero);
 		scrollPane.setViewportView(tbPark);
 		
 		btnModificarPark = new JButton("modificar");
 		btnModificarPark.setIcon(new ImageIcon(VistaParqueadero.class.getResource("/iconos/Modificar32.png")));
 		btnModificarPark.setBounds(257, 187, 142, 41);
+		btnModificarPark.addActionListener(new ControladorParqueadero(this));
 		contentPane.add(btnModificarPark);
 		
 		btnMostrarPark = new JButton("mostrar todos");
 		btnMostrarPark.setIcon(new ImageIcon(VistaParqueadero.class.getResource("/iconos/BuscarTodo.png")));
 		btnMostrarPark.setBounds(431, 187, 168, 41);
+		btnMostrarPark.addActionListener(new ControladorParqueadero(this));
 		contentPane.add(btnMostrarPark);
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -106,4 +118,5 @@ public class VistaParqueadero extends JFrame {
 		contentPane.add(lblNewLabel);
 	}
 	
+
 }
