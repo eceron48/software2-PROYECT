@@ -48,7 +48,7 @@ public class VistaPagoCredito extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaPagoCredito() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 593, 198);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 140, 0));

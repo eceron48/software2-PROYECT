@@ -18,6 +18,8 @@ import javax.swing.JButton;
 import javax.swing.border.LineBorder;
 
 import controlador.ControladorVivienda;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
 
 public class VistaCrearVivienda extends JFrame {
 
@@ -29,6 +31,9 @@ public class VistaCrearVivienda extends JFrame {
 	public  JComboBox cbVivienda;
 	public JButton btnCrear;
 	public JButton btnCancelar;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -52,37 +57,32 @@ public class VistaCrearVivienda extends JFrame {
 	public VistaCrearVivienda() {
 		setTitle("VIVIENDAS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 445, 336);
+		setBounds(100, 100, 708, 485);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBackground(new Color(240, 248, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(153, 255, 204));
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBounds(10, 11, 409, 280);
+		panel.setBorder(new TitledBorder(null, "Crear Vivienda", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		panel.setBounds(10, 11, 670, 166);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
-		JLabel lblNewLabel = new JLabel("Crear Vivienda");
-		lblNewLabel.setFont(new Font("Century Gothic", Font.PLAIN, 15));
-		lblNewLabel.setBounds(139, 23, 119, 14);
-		panel.add(lblNewLabel);
 		
 		cbVivienda = new JComboBox();
 		cbVivienda.setModel(new DefaultComboBoxModel(new String[] {"seleccione tipo de vivienda", "casa", "apartamento"}));
 		cbVivienda.setBackground(Color.WHITE);
-		cbVivienda.setBounds(10, 85, 156, 20);
+		cbVivienda.setBounds(110, 28, 156, 20);
 		panel.add(cbVivienda);
 		
 		JLabel Bloque = new JLabel("Bloque:");
-		Bloque.setBounds(201, 88, 46, 14);
+		Bloque.setBounds(276, 31, 46, 14);
 		panel.add(Bloque);
 		
 		txtBloque = new JTextField();
-		txtBloque.setBounds(288, 85, 107, 20);
+		txtBloque.setBounds(363, 28, 107, 20);
 		panel.add(txtBloque);
 		txtBloque.setColumns(10);
 		
@@ -91,31 +91,31 @@ public class VistaCrearVivienda extends JFrame {
 		lblNewLabel_1.setBounds(22, 0, 78, 74);
 		panel.add(lblNewLabel_1);
 		
-		JLabel Apto = new JLabel("N\u00B0 Apto:");
-		Apto.setBounds(201, 113, 59, 14);
+		JLabel Apto = new JLabel("ID Apto:");
+		Apto.setBounds(276, 59, 59, 14);
 		panel.add(Apto);
 		
 		txtApto = new JTextField();
 		txtApto.setColumns(10);
-		txtApto.setBounds(288, 110, 107, 20);
+		txtApto.setBounds(363, 56, 107, 20);
 		panel.add(txtApto);
 		
 		JLabel Piso = new JLabel("Piso:");
-		Piso.setBounds(201, 138, 46, 14);
+		Piso.setBounds(276, 84, 46, 14);
 		panel.add(Piso);
 		
 		txtPiso = new JTextField();
 		txtPiso.setColumns(10);
-		txtPiso.setBounds(288, 135, 107, 20);
+		txtPiso.setBounds(363, 81, 107, 20);
 		panel.add(txtPiso);
 		
-		JLabel Casa = new JLabel("N\u00B0 Casa:");
-		Casa.setBounds(201, 165, 66, 14);
+		JLabel Casa = new JLabel("ID Casa:");
+		Casa.setBounds(276, 111, 66, 14);
 		panel.add(Casa);
 		
 		txtCasa = new JTextField();
 		txtCasa.setColumns(10);
-		txtCasa.setBounds(288, 162, 107, 20);
+		txtCasa.setBounds(363, 108, 107, 20);
 		panel.add(txtCasa);
 		
 		btnCrear = new JButton("crear");
@@ -124,7 +124,7 @@ public class VistaCrearVivienda extends JFrame {
 		btnCrear.setToolTipText("");
 		btnCrear.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Crear.png")));
 		btnCrear.addActionListener(new ControladorVivienda(this));
-		btnCrear.setBounds(92, 208, 127, 57);
+		btnCrear.setBounds(486, 17, 127, 57);
 		panel.add(btnCrear);
 		
 		btnCancelar = new JButton("cancelar");
@@ -132,10 +132,44 @@ public class VistaCrearVivienda extends JFrame {
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setToolTipText("");
 		btnCancelar.setIcon(new ImageIcon(VistaCrearVivienda.class.getResource("/iconos/Cancelar.png")));
-		btnCancelar.setBounds(240, 209, 127, 57);
+		btnCancelar.setBounds(486, 84, 127, 57);
 		panel.add(btnCancelar);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Asignar Vivienda a Personas", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		panel_1.setBounds(10, 188, 670, 231);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblCedula = new JLabel("Cedula:");
+		lblCedula.setBounds(37, 38, 46, 14);
+		panel_1.add(lblCedula);
+		
+		textField = new JTextField();
+		textField.setBounds(105, 35, 105, 20);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(37, 70, 46, 14);
+		panel_1.add(lblNombre);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(105, 67, 105, 20);
+		panel_1.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnBuscar = new JButton("buscar");
+		btnBuscar.setBounds(237, 34, 89, 23);
+		panel_1.add(btnBuscar);
+		
+		JLabel lblNewLabel = new JLabel("ID Vivienda:");
+		lblNewLabel.setBounds(37, 103, 73, 14);
+		panel_1.add(lblNewLabel);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(105, 98, 105, 20);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
 	}
-	
-
-	
 }

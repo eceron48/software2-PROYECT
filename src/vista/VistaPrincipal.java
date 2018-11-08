@@ -42,7 +42,7 @@ public class VistaPrincipal extends JFrame {
 	public VistaPrincipal() {
 		setTitle("ZONAS RESIDENCIALES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 766, 479);
+		setBounds(100, 100, 809, 479);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBackground(new Color(255, 255, 255));
@@ -100,7 +100,7 @@ public class VistaPrincipal extends JFrame {
 		GestionarPersonas.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Personas.png")));
 		menuBar.add(GestionarPersonas);		
 		
-		JButton btnResidentes = new JButton("Residentes");		
+		JButton btnResidentes = new JButton("Personas");		
 		btnResidentes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VistaResidentes residente = new VistaResidentes();
@@ -110,19 +110,17 @@ public class VistaPrincipal extends JFrame {
 		btnResidentes.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Casa.png")));
 		GestionarPersonas.add(btnResidentes);
 		
-		JButton btnVisitantes = new JButton("  Visitantes");
-		btnVisitantes.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Visitantes.png")));
-		GestionarPersonas.add(btnVisitantes);
-		
-		JButton btnEmpleados = new JButton(" Empleados");
-		btnEmpleados.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Empleado.png")));
-		GestionarPersonas.add(btnEmpleados);
-		
 		JMenu Parqueadero = new JMenu("Parqueadero");
 		Parqueadero.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Parqueadero.png")));
 		menuBar.add(Parqueadero);
 		
 		JButton btnGestionarParqueadero = new JButton("Gestionar Parqueadero");
+		btnGestionarParqueadero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VistaParqueadero park = new VistaParqueadero();
+				park.setVisible(true);
+			}
+		});
 		btnGestionarParqueadero.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Carro.png")));
 		Parqueadero.add(btnGestionarParqueadero);
 		
@@ -140,11 +138,11 @@ public class VistaPrincipal extends JFrame {
 		btnCrearVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Home.png")));
 		ZonasResidenciales.add(btnCrearVivienda);
 		
-		JButton btnModificarVivienda = new JButton("Modificar Vivienda");
+		JButton btnModificarVivienda = new JButton("      Gestionar  Vivienda");
 		btnModificarVivienda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VistaModificarVivienda modificarVivienda = new VistaModificarVivienda();
-				modificarVivienda.setVisible(true);
+				VistaCrearVivienda crearVivienda = new VistaCrearVivienda();
+				crearVivienda.setVisible(true);
 			}
 		});
 		btnModificarVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Herramienta.png")));
@@ -160,7 +158,7 @@ public class VistaPrincipal extends JFrame {
 		
 		JLabel ImageApto = new JLabel("");
 		ImageApto.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Apartamentos.jpg")));
-		ImageApto.setBounds(0, 0, 738, 379);
+		ImageApto.setBounds(0, 0, 773, 379);
 		panel.add(ImageApto);
 	}
 
