@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="mysql-connector-java-8.0.12.jar"/>
+	<classpathentry kind="lib" path="M:/Mis Documentos/Universidad/7 SEMESTRE/Ingenieria de Software II/Proyecto/aws-java-sdk-1.11.445/lib/aws-java-sdk-1.11.445.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

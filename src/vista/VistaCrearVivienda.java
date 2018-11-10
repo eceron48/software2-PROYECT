@@ -20,6 +20,10 @@ import javax.swing.border.LineBorder;
 import controlador.ControladorVivienda;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ScrollPaneConstants;
 
 public class VistaCrearVivienda extends JFrame {
 
@@ -31,9 +35,8 @@ public class VistaCrearVivienda extends JFrame {
 	public  JComboBox cbVivienda;
 	public JButton btnCrear;
 	public JButton btnCancelar;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JScrollPane scrollPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -136,40 +139,28 @@ public class VistaCrearVivienda extends JFrame {
 		panel.add(btnCancelar);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Asignar Vivienda a Personas", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 255)));
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Mostrar Vivienda", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 255)));
 		panel_1.setBounds(10, 188, 670, 231);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblCedula = new JLabel("Cedula:");
-		lblCedula.setBounds(37, 38, 46, 14);
-		panel_1.add(lblCedula);
+		scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(33, 42, 591, 156);
+		panel_1.add(scrollPane);
 		
-		textField = new JTextField();
-		textField.setBounds(105, 35, 105, 20);
-		panel_1.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(37, 70, 46, 14);
-		panel_1.add(lblNombre);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(105, 67, 105, 20);
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JButton btnBuscar = new JButton("buscar");
-		btnBuscar.setBounds(237, 34, 89, 23);
-		panel_1.add(btnBuscar);
-		
-		JLabel lblNewLabel = new JLabel("ID Vivienda:");
-		lblNewLabel.setBounds(37, 103, 73, 14);
-		panel_1.add(lblNewLabel);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(105, 98, 105, 20);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+				{null, null, null},
+				{null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
 	}
 }

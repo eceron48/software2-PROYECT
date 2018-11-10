@@ -3,10 +3,11 @@ package modelo;
 import modelo.DAO.DAOApartamento;
 import modelo.DAO.DAOCasa;
 import modelo.DAO.DAOPagos;
+import modelo.DAO.DAOParqueadero;
 import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
 
-public class Administrador {
+public class Administrador extends Persona {
 	private String usuario;
 	private String pass;
 
@@ -60,8 +61,9 @@ public class Administrador {
 
 	}
 
-	public void DAOParqueadero() {
-
+	public DAOParqueadero DAOGestionarParqueadero() {
+			DAOParqueadero parqueadero=new DAOParqueadero();
+			return parqueadero;
 	}
 	
 	

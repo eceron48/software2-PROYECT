@@ -59,7 +59,7 @@ public class VistaParqueadero extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNombreParqueadero = new JLabel("Nombre Parqueadero:");
+		JLabel lblNombreParqueadero = new JLabel("N\u00FAmero Parqueadero:");
 		lblNombreParqueadero.setBounds(90, 24, 148, 14);
 		contentPane.add(lblNombreParqueadero);
 		
@@ -87,7 +87,7 @@ public class VistaParqueadero extends JFrame {
 				{null, null, null},
 			},
 			new String[] {
-				"ID Parqueadero", "Nombre Parqueadero", "Estado"
+				"ID Parqueadero", "Nombre Parqueadero"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {

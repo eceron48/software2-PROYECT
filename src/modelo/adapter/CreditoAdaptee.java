@@ -26,7 +26,7 @@ public class CreditoAdaptee {
 	public void realizarTransaccion () {
 	this.aprobar=true;
 		//credito.setVisible(true);
-	JOptionPane.showMessageDialog(null, "solicitud debito aprobada",null, 1);
+	JOptionPane.showMessageDialog(null, "solicitud credito aprobada",null, 1);
 		}
 	
 	public void pagar() {

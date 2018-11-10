@@ -124,6 +124,7 @@ public class DAOPersona {
 			PreparedStatement statement = connection.prepareStatement(actualizar);
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "Registro modificado");
+			
 		} catch (SQLException e) {
 		}
 

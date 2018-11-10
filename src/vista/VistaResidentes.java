@@ -47,6 +47,7 @@ public class VistaResidentes extends JFrame {
 	public JButton btnGuardar;
 	public JButton btnBuscar;
 	public JButton btnModificar;
+	public JButton btnMostrarTodos;
 
 	/**
 	 * Launch the application.
@@ -95,7 +96,7 @@ public class VistaResidentes extends JFrame {
 		btnGuardar.setBounds(66, 148, 129, 46);
 		panel.add(btnGuardar);
 
-		JButton btnMostrarTodos = new JButton("mostrar todos");
+		btnMostrarTodos = new JButton("mostrar todos");
 		btnMostrarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
 		btnMostrarTodos.setBounds(606, 148, 152, 46);
 		btnMostrarTodos.addActionListener(new ControladorResidente(this));
@@ -179,4 +180,5 @@ public class VistaResidentes extends JFrame {
 
 	}
 
+	
 }

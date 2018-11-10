@@ -11,8 +11,8 @@ public class DBFactory {
 
 		case MYSQL:
 			return new MYSQLDBAdapter();
-		case Postgres:
-			return new PostgresDBAdapter();
+		case Amazon:
+			return (IDBAdapter) new GenerateRDSAuthToken();
 
 		default:
 			throw new IllegalArgumentException("No soportado");

@@ -44,6 +44,7 @@ public class VistaPagoAdministracion extends JFrame {
 	public JRadioButton rdbDebito;
 	public JRadioButton rdbEfectivo;
 	public JPanel panel_2;
+	public JButton btnmostrartodo;
 
 	/**
 	 * Launch the application.
@@ -191,7 +192,7 @@ public class VistaPagoAdministracion extends JFrame {
 		table.setModel(tbpersonas);
 		scrollPane.setViewportView(table);
 		
-		JButton btnmostrartodo = new JButton("mostrar pagos");
+		btnmostrartodo = new JButton("mostrar pagos");
 		btnmostrartodo .setIcon(new ImageIcon(VistaPagoAdministracion.class.getResource("/iconos/Pago.png")));
 		btnmostrartodo .addActionListener(new ControladorPago(this));
 		btnmostrartodo .setBounds(673, 135, 185, 57);
@@ -201,5 +202,6 @@ public class VistaPagoAdministracion extends JFrame {
 	
 
 
+	
 	
 }

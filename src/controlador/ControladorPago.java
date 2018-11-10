@@ -131,7 +131,7 @@ public class ControladorPago implements ActionListener {
 					vistaPago.buttonGroup.clearSelection();
 				}
 			}
-
+			vistaPago.btnmostrartodo.doClick();
 			break;
 
 		default:

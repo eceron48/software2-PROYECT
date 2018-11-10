@@ -31,7 +31,6 @@ public class ControladorResidente implements ActionListener {
 	public ControladorResidente(VistaResidentes vr) {
 		this.vr = vr;
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent llamar) {
@@ -59,9 +58,11 @@ public class ControladorResidente implements ActionListener {
 					vr.txtGuardarCedula.setText("");
 					vr.txtGuardarNombre.setText("");
 					vr.txtGuardarTelefono.setText("");
+					vr.btnMostrarTodos.doClick();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+
 			}
 			break;
 
@@ -69,18 +70,22 @@ public class ControladorResidente implements ActionListener {
 
 			Persona p = new Persona();
 			Administrador adminiBuscar = new Administrador();
+			if (!vr.txtGuardarCedula.getText().isEmpty()) {
 
-			try {
-				p = adminiBuscar.gestionarPersona().buscarPersona(vr.txtGuardarCedula.getText().toString());
-				for (int i = this.vr.tbResidentes.getRowCount(); i > 0; i--) {
-					this.vr.tbResidentes.removeRow(i - 1);
+				try {
+					p = adminiBuscar.gestionarPersona().buscarPersona(vr.txtGuardarCedula.getText().toString());
+					for (int i = this.vr.tbResidentes.getRowCount(); i > 0; i--) {
+						this.vr.tbResidentes.removeRow(i - 1);
+					}
+
+					this.vr.tbResidentes.addRow(
+							new Object[] { p.getId(), p.getNombre(), p.getCedula(), p.getTelefono(), p.getRol() });
+
+				} catch (SQLException ex) {
+					Logger.getLogger(ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
 				}
-
-				this.vr.tbResidentes
-						.addRow(new Object[] { p.getId(), p.getNombre(), p.getCedula(), p.getTelefono(), p.getRol() });
-
-			} catch (SQLException ex) {
-				Logger.getLogger(ControladorResidente.class.getName()).log(Level.SEVERE, null, ex);
+			} else {
+				JOptionPane.showMessageDialog(null, "debe ingresar una cedula para realizar la busqueda", null, 2);
 			}
 
 			break;
@@ -137,7 +142,7 @@ public class ControladorResidente implements ActionListener {
 
 				Persona persona1 = new Persona();
 				Administrador adminModificar = new Administrador();
-
+				persona1.setId(id);
 				persona1.setCedula(cedula);
 				persona1.setNombre(nombre1);
 				persona1.setTelefono(telefono);
@@ -146,7 +151,7 @@ public class ControladorResidente implements ActionListener {
 				for (int i = this.vr.tbResidentes.getRowCount(); i > 0; i--) {
 					this.vr.tbResidentes.removeRow(i - 1);
 				}
-
+				vr.btnMostrarTodos.doClick();
 			}
 
 			break;
