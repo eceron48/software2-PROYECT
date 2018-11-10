@@ -49,7 +49,7 @@ private final VistaRegistrarCuota vr;
 			}
 			}
 			else{
-				JOptionPane.showMessageDialog(null, "debe ingresar un porcentage y una cuota valida", null, 2);
+				JOptionPane.showMessageDialog(null, "debe ingresar un porcentaje y una cuota valida", null, 2);
 			}
 			break;
 		case"ver cuota":

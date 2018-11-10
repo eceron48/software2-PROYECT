@@ -6,6 +6,7 @@ import modelo.DAO.DAOPagos;
 import modelo.DAO.DAOParqueadero;
 import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
+import modelo.DAO.DAOVivienda;
 
 public class Administrador extends Persona {
 	private String usuario;
@@ -32,8 +33,6 @@ public class Administrador extends Persona {
 	}
 
 	public void DAOResidente() {
-		
-		
 
 	}
 
@@ -44,9 +43,10 @@ public class Administrador extends Persona {
 	public void DAOVigilancia() {
 
 	}
-	public DAOPersona gestionarPersona () {
-		 DAOPersona dao =  new DAOPersona ();
-		 return dao;
+
+	public DAOPersona gestionarPersona() {
+		DAOPersona dao = new DAOPersona();
+		return dao;
 	}
 
 	public void DAOASEO() {
@@ -62,28 +62,34 @@ public class Administrador extends Persona {
 	}
 
 	public DAOParqueadero DAOGestionarParqueadero() {
-			DAOParqueadero parqueadero=new DAOParqueadero();
-			return parqueadero;
+		DAOParqueadero parqueadero = new DAOParqueadero();
+		return parqueadero;
 	}
-	
-	
+
 	public DAOPagos registrarPagos() {
-		DAOPagos pago=new DAOPagos();
+		DAOPagos pago = new DAOPagos();
 		return pago;
 	}
 
 	public DAORegistrarCuota registrarCuotaAdministracion() {
-			DAORegistrarCuota dcuota=new DAORegistrarCuota();
-			return dcuota;
+		DAORegistrarCuota dcuota = new DAORegistrarCuota();
+		return dcuota;
 	}
 
 	public DAOApartamento DaoApartamento() {
-		modelo.DAO.DAOApartamento dvv=new modelo.DAO.DAOApartamento();
+		modelo.DAO.DAOApartamento dvv = new modelo.DAO.DAOApartamento();
 		return dvv;
 	}
+
 	public DAOCasa DAORegistrarCasa() {
-		DAOCasa casa=new DAOCasa();
+		DAOCasa casa = new DAOCasa();
 		return casa;
+
+	}
+	
+	public DAOVivienda DAOMostrarVivienda () {
+		DAOVivienda vivienda = new DAOVivienda();
+		return vivienda;
 		
 	}
 

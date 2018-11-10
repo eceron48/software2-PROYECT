@@ -53,7 +53,7 @@ public class DAORegistrarCuota {
 		CuotaAdministracion c=new CuotaAdministracion();
 		try {
 			PreparedStatement statement = connection.
-			prepareStatement("select idcuota,porcentaje, precio from cuota where persona_idpersona='"+1+"'");
+			prepareStatement("select idcuota,porcentaje, precio from cuota where idcuota='"+1+"'");
 			ResultSet results = statement.executeQuery();  while(results.next()){
 			c.setIdcuota(results.getInt(1));
 			c.setPorcentaje(results.getDouble(2));

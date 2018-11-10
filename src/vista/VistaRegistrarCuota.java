@@ -119,18 +119,10 @@ public class VistaRegistrarCuota extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JButton btnGuardar = new JButton("eliminar");
-		btnGuardar.setBackground(Color.LIGHT_GRAY);
-		btnGuardar.setToolTipText("");
-		btnGuardar.setBounds(287, 11, 116, 41);
-		panel_1.add(btnGuardar);
-		btnGuardar.addActionListener(new ControladorRegistroCuota(this));
-		btnGuardar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Guardar32.png")));
-		
 		JButton btnModificar = new JButton("modificar");
 		btnModificar.setBackground(Color.LIGHT_GRAY);
 		btnModificar.setToolTipText("");
-		btnModificar.setBounds(150, 11, 130, 41);
+		btnModificar.setBounds(250, 11, 130, 41);
 		panel_1.add(btnModificar);
 		btnModificar.addActionListener(new ControladorRegistroCuota(this));
 		btnModificar.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Modificar32.png")));
@@ -138,7 +130,7 @@ public class VistaRegistrarCuota extends JFrame {
 		JButton btnNewButton = new JButton("ver cuota");
 		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setToolTipText("");
-		btnNewButton.setBounds(10, 11, 130, 41);
+		btnNewButton.setBounds(24, 11, 130, 41);
 		btnNewButton.addActionListener(new ControladorRegistroCuota(this));
 		panel_1.add(btnNewButton);
 		btnNewButton.setIcon(new ImageIcon(VistaRegistrarCuota.class.getResource("/iconos/Ver32.png")));
