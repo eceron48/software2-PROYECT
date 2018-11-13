@@ -18,8 +18,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorAdministrador;
+
 import javax.swing.JPasswordField;
 import java.awt.Label;
+import javax.swing.ButtonGroup;
+import javax.swing.ScrollPaneConstants;
 
 public class VistaAdministrador extends JFrame {
 
@@ -27,11 +32,19 @@ public class VistaAdministrador extends JFrame {
 	public JTextField txtNombre;
 	public JTextField txtCedula;
 	public JTextField txtTelefono;
-	public JTextField txtDireccion;
 	public JTextField txtUsuario;
-	public JTextField textField_6;
+	public JTextField txtBuscar;
 	public JTable tbGestionarAdmin;
 	public JPasswordField passContrasena;
+	public JButton btnGuardar;
+	public JButton btnModificar;
+	public JButton btnEliminar;
+	public JButton btnBuscarAdmin;
+	public JButton btnMostrarTodos;
+	public JRadioButton rbNombre;
+	public JRadioButton rbCedula;
+	public DefaultTableModel tbadmin;
+	public final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -61,141 +74,139 @@ public class VistaAdministrador extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Crear Administrador", TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Crear Administrador",
+				TitledBorder.CENTER, TitledBorder.TOP, null, Color.BLUE));
 		panel.setBounds(10, 11, 601, 173);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(10, 25, 69, 14);
 		panel.add(lblNombre);
-		
+
 		txtNombre = new JTextField();
 		txtNombre.setBounds(76, 22, 122, 20);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
-		
+
 		JLabel lblCedula = new JLabel("Cedula:");
 		lblCedula.setBounds(10, 53, 46, 14);
 		panel.add(lblCedula);
-		
+
 		txtCedula = new JTextField();
 		txtCedula.setBounds(76, 50, 122, 20);
 		panel.add(txtCedula);
 		txtCedula.setColumns(10);
-		
+
 		JLabel lblNewLabel = new JLabel("Telefono:");
 		lblNewLabel.setBounds(10, 84, 69, 14);
 		panel.add(lblNewLabel);
-		
+
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBounds(76, 81, 122, 20);
 		panel.add(txtTelefono);
-		
-		JLabel lblNewLabel_1 = new JLabel("Direccion:");
-		lblNewLabel_1.setBounds(239, 25, 69, 14);
-		panel.add(lblNewLabel_1);
-		
-		txtDireccion = new JTextField();
-		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(331, 22, 122, 20);
-		panel.add(txtDireccion);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Usuario:");
-		lblNewLabel_2.setBounds(239, 53, 82, 14);
+		lblNewLabel_2.setBounds(242, 25, 82, 14);
 		panel.add(lblNewLabel_2);
-		
+
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(331, 50, 122, 20);
+		txtUsuario.setBounds(331, 22, 122, 20);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Contrase\u00F1a:");
-		lblNewLabel_3.setBounds(239, 84, 69, 14);
+		lblNewLabel_3.setBounds(242, 53, 69, 14);
 		panel.add(lblNewLabel_3);
-		
-		JButton btnGuardar = new JButton("guardar");
+
+		btnGuardar = new JButton("guardar");
 		btnGuardar.setBackground(Color.LIGHT_GRAY);
+		btnGuardar.addActionListener(new ControladorAdministrador(this));
 		btnGuardar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Guardar32.png")));
 		btnGuardar.setBounds(10, 122, 130, 41);
 		panel.add(btnGuardar);
-		
-		JButton btnModificar = new JButton("modificar");
+
+		btnModificar = new JButton("modificar");
 		btnModificar.setBackground(Color.LIGHT_GRAY);
+		btnModificar.addActionListener(new ControladorAdministrador(this));
 		btnModificar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Modificar32.png")));
-		btnModificar.setBounds(161, 122, 124, 40);
+		btnModificar.setBounds(200, 122, 124, 40);
 		panel.add(btnModificar);
-		
-		JButton btnEliminar = new JButton("eliminar");
+
+		btnEliminar = new JButton("eliminar");
 		btnEliminar.setBackground(Color.LIGHT_GRAY);
+		btnEliminar.addActionListener(new ControladorAdministrador(this));
 		btnEliminar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Eliminar32.png")));
-		btnEliminar.setBounds(313, 124, 122, 37);
+		btnEliminar.setBounds(369, 124, 122, 37);
 		panel.add(btnEliminar);
-		
-		JButton btnLimpiar = new JButton("limpiar");
-		btnLimpiar.setBackground(Color.LIGHT_GRAY);
-		btnLimpiar.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Limpiar32.png")));
-		btnLimpiar.setBounds(459, 124, 114, 37);
-		panel.add(btnLimpiar);
-		
+
 		passContrasena = new JPasswordField();
-		passContrasena.setBounds(331, 81, 122, 20);
+		passContrasena.setBounds(331, 50, 122, 20);
 		panel.add(passContrasena);
-		
+
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Hombre64.png")));
 		label.setBounds(492, 22, 64, 76);
 		panel.add(label);
-		
+
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(null, "Buscar por:", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 51, 255)));
+		panel_1.setBorder(new TitledBorder(null, "Buscar por:", TitledBorder.CENTER, TitledBorder.TOP, null,
+				new Color(0, 51, 255)));
 		panel_1.setBounds(10, 195, 601, 80);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
-		
-		JRadioButton rbCedula = new JRadioButton("Cedula");
+
+		rbCedula = new JRadioButton("Cedula");
+		rbCedula.addActionListener(new ControladorAdministrador(this));
+		buttonGroup.add(rbCedula);
 		rbCedula.setBounds(17, 18, 69, 23);
 		panel_1.add(rbCedula);
-		
-		JRadioButton rbNombre = new JRadioButton("Nombre");
-		rbNombre.setBounds(97, 18, 94, 23);
+
+		rbNombre = new JRadioButton("Nombre");
+		rbNombre.addActionListener(new ControladorAdministrador(this));
+		buttonGroup.add(rbNombre);
+		rbNombre.setBounds(100, 18, 94, 23);
 		panel_1.add(rbNombre);
-		
-		textField_6 = new JTextField();
-		textField_6.setBounds(17, 48, 187, 20);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
-		
-		JButton btnBuscarAdmin = new JButton("buscar");
+
+		txtBuscar = new JTextField();
+		txtBuscar.setBounds(17, 48, 187, 20);
+		panel_1.add(txtBuscar);
+		txtBuscar.setColumns(10);
+
+		btnBuscarAdmin = new JButton("buscar");
 		btnBuscarAdmin.setBackground(Color.LIGHT_GRAY);
+		btnBuscarAdmin.addActionListener(new ControladorAdministrador(this));
 		btnBuscarAdmin.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/Buscar32.png")));
 		btnBuscarAdmin.setBounds(290, 35, 121, 34);
 		panel_1.add(btnBuscarAdmin);
-		
-		JButton btnMostrarTodos = new JButton("mostrar todos");
+
+		btnMostrarTodos = new JButton("mostrar todos");
 		btnMostrarTodos.setBackground(Color.LIGHT_GRAY);
+		btnMostrarTodos.addActionListener(new ControladorAdministrador(this));
 		btnMostrarTodos.setIcon(new ImageIcon(VistaAdministrador.class.getResource("/iconos/BuscarTodo.png")));
 		btnMostrarTodos.setBounds(421, 35, 159, 34);
 		panel_1.add(btnMostrarTodos);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(10, 282, 601, 108);
 		contentPane.add(scrollPane);
-		
+
 		tbGestionarAdmin = new JTable();
-		tbGestionarAdmin.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-				{null, null, null, null, null, null},
-			},
-			new String[] {
-				"IDResidente", "Cedula", "Telefono", "Direccion", "Usuario", "Contrase\u00F1a"
+		tbadmin = new DefaultTableModel(new Object[][] { { null, null, null, null, null, null }, },
+				new String[] { "IDResidente", "Cedula", "nombre", "Telefono", "Usuario", "Contrase\u00F1a" }) {
+			boolean[] columnEditables = new boolean[] { false, true, true, true, true, true };
+
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
 			}
-		));
+		};
+		tbGestionarAdmin.setModel(tbadmin);
 		scrollPane.setViewportView(tbGestionarAdmin);
 	}
+
 }

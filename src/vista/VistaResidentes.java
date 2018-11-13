@@ -71,7 +71,7 @@ public class VistaResidentes extends JFrame {
 	public VistaResidentes() {
 		setTitle("Gestionar Residentes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 811, 276);
+		setBounds(100, 100, 872, 346);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,7 +81,7 @@ public class VistaResidentes extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Buscar Por:", TitledBorder.CENTER,
 				TitledBorder.TOP, null, new Color(0, 0, 255)));
-		panel.setBounds(10, 11, 779, 205);
+		panel.setBounds(10, 11, 836, 277);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
@@ -93,18 +93,18 @@ public class VistaResidentes extends JFrame {
 		btnGuardar = new JButton("guardar");
 		btnGuardar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Guardar32.png")));
 		btnGuardar.addActionListener(new ControladorResidente(this));
-		btnGuardar.setBounds(66, 148, 129, 46);
+		btnGuardar.setBounds(61, 203, 129, 46);
 		panel.add(btnGuardar);
 
 		btnMostrarTodos = new JButton("mostrar todos");
 		btnMostrarTodos.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/BuscarTodo.png")));
-		btnMostrarTodos.setBounds(606, 148, 152, 46);
+		btnMostrarTodos.setBounds(615, 203, 152, 46);
 		btnMostrarTodos.addActionListener(new ControladorResidente(this));
 		panel.add(btnMostrarTodos);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Persona48.png")));
-		lblNewLabel.setBounds(692, 16, 64, 83);
+		lblNewLabel.setBounds(762, 16, 64, 83);
 		panel.add(lblNewLabel);
 
 		comboRol = new JComboBox();
@@ -146,7 +146,7 @@ public class VistaResidentes extends JFrame {
 		panel.add(txtGuardarTelefono);
 
 		scrollPaneResidentes = new JScrollPane();
-		scrollPaneResidentes.setBounds(256, 29, 426, 108);
+		scrollPaneResidentes.setBounds(241, 29, 511, 147);
 		panel.add(scrollPaneResidentes);
 		scrollPaneResidentes.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPaneResidentes.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -168,13 +168,13 @@ public class VistaResidentes extends JFrame {
 
 		btnBuscar = new JButton("buscar");
 		btnBuscar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Buscar32.png")));
-		btnBuscar.setBounds(242, 148, 129, 46);
+		btnBuscar.setBounds(245, 203, 129, 46);
 		btnBuscar.addActionListener(new ControladorResidente(this));
 		panel.add(btnBuscar);
 
 		btnModificar = new JButton("modificar");
 		btnModificar.setIcon(new ImageIcon(VistaResidentes.class.getResource("/iconos/Modificar32.png")));
-		btnModificar.setBounds(407, 151, 129, 40);
+		btnModificar.setBounds(434, 205, 129, 43);
 		btnModificar.addActionListener(new ControladorResidente(this));
 		panel.add(btnModificar);
 

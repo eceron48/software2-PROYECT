@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.DAO.DAOAdministrador;
+
 public class SAdministrador extends Persona {
 
 	private String usuario;
@@ -22,8 +24,8 @@ public class SAdministrador extends Persona {
 	}
 
 //------------------gestiona administradores -----//
-	public void DAOAdministrador() {
-
+	public DAOAdministrador gestionarAdministrador() {
+		DAOAdministrador dao = new DAOAdministrador();
+		return dao;
 	}
-
 }

@@ -56,6 +56,8 @@ public class VistaPrincipal extends JFrame {
 		JButton btnGestionarSuperadmin = new JButton("  Gestionar  SuperAdmin");
 		btnGestionarSuperadmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VistaSuperAdministrador vistaSAdmin = new VistaSuperAdministrador ();
+				vistaSAdmin.setVisible(true);
 			}
 		});
 		btnGestionarSuperadmin.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/SuperAdmin.png")));
@@ -107,7 +109,7 @@ public class VistaPrincipal extends JFrame {
 				residente.setVisible(true);				
 			}
 		});
-		btnResidentes.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Casa.png")));
+		btnResidentes.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/personas48.png")));
 		GestionarPersonas.add(btnResidentes);
 		
 		JMenu Parqueadero = new JMenu("Parqueadero");
