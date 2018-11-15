@@ -18,7 +18,8 @@ import javax.swing.JLabel;
 
 public class VistaPrincipal extends JFrame {
 
-	private JPanel contentPane;
+	public JPanel contentPane;
+	public JMenu Administracion;
 
 	/**
 	 * Launch the application.
@@ -49,7 +50,7 @@ public class VistaPrincipal extends JFrame {
 		menuBar.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 153), null, null, null));
 		setJMenuBar(menuBar);
 		
-		JMenu Administracion = new JMenu("Administracion");
+		Administracion = new JMenu("Administracion");
 		Administracion.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Candado1.png")));
 		menuBar.add(Administracion);
 		
@@ -149,6 +150,20 @@ public class VistaPrincipal extends JFrame {
 		});
 		btnModificarVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Herramienta.png")));
 		ZonasResidenciales.add(btnModificarVivienda);
+		
+		JMenu mnGestionarVivienda = new JMenu("Gestionar Vivienda");
+		mnGestionarVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/Casa.png")));
+		menuBar.add(mnGestionarVivienda);
+		
+		JButton btnAsignarVivienda = new JButton("Asignar Vivienda");
+		btnAsignarVivienda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VistaAsignar asignar = new VistaAsignar ();
+				asignar.setVisible(true);
+			}
+		});
+		btnAsignarVivienda.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/iconos/vivienda48.png")));
+		mnGestionarVivienda.add(btnAsignarVivienda);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -163,5 +178,4 @@ public class VistaPrincipal extends JFrame {
 		ImageApto.setBounds(0, 0, 773, 379);
 		panel.add(ImageApto);
 	}
-
 }

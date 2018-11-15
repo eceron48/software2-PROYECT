@@ -57,7 +57,7 @@ public class ControladorVivienda implements ActionListener {
 					Administrador adm = new Administrador();
 
 					try {
-						adm.DaoApartamento().RegistrarApartamento(vivienda);
+						adm.registrarVivienda().RegistrarApartamento(vivienda);
 
 					} catch (SQLException e) {
 
@@ -130,7 +130,7 @@ public class ControladorVivienda implements ActionListener {
 				String rol = (String) this.vv.tbVivienda.getValueAt(fila1, 1);
 				String bloque = (String) this.vv.tbVivienda.getValueAt(fila1, 2);
 				String numeroVivienda = (String) this.vv.tbVivienda.getValueAt(fila1, 3);
-				int piso = Integer.valueOf((String) this.vv.tbVivienda.getValueAt(fila1, 4));
+				int piso = (int) this.vv.tbVivienda.getValueAt(fila1, 4);
 
 				Apartamento apto = new Apartamento();
 				Administrador adminModificar = new Administrador();

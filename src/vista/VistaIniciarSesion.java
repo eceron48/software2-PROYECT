@@ -16,6 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class VistaIniciarSesion extends JFrame {
 
@@ -23,7 +24,6 @@ public class VistaIniciarSesion extends JFrame {
 	public JTextField txtUsuario;
 	public JPasswordField txtPassword;
 	public JButton btnAceptar;
-	public JButton btnCancelar;
 	public JComboBox cbxLogin;
 
 	/**
@@ -48,14 +48,15 @@ public class VistaIniciarSesion extends JFrame {
 	public VistaIniciarSesion() {
 		setTitle("INICIAR SESION");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 501, 231);
+		setBounds(100, 100, 503, 209);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(VistaIniciarSesion.class.getResource("/iconos/InciarSesion64.png")));
+		lblNewLabel.setIcon(new ImageIcon(VistaIniciarSesion.class.getResource("/iconos/Hombre64.png")));
 		lblNewLabel.setBounds(41, 21, 64, 64);
 		contentPane.add(lblNewLabel);
 		
@@ -77,21 +78,16 @@ public class VistaIniciarSesion extends JFrame {
 		contentPane.add(txtPassword);
 		
 		btnAceptar = new JButton("aceptar");
-		btnAceptar.addActionListener(new ControladorLogin(this));
+		btnAceptar.addActionListener(new ControladorLogin(this)); 
 		btnAceptar.setIcon(new ImageIcon(VistaIniciarSesion.class.getResource("/iconos/Aceptar32.png")));
-		btnAceptar.setBounds(66, 122, 141, 41);
+		btnAceptar.setBounds(185, 118, 141, 41);
 		contentPane.add(btnAceptar);
-		
-		btnCancelar = new JButton("cancelar");
-		btnCancelar.addActionListener(new ControladorLogin(this));
-		btnCancelar.setIcon(new ImageIcon(VistaIniciarSesion.class.getResource("/iconos/Cancel32.png")));
-		btnCancelar.setBounds(259, 122, 157, 41);
-		contentPane.add(btnCancelar);
 		
 		cbxLogin = new JComboBox();
 		cbxLogin.setModel(new DefaultComboBoxModel(new String[] {"ingresar como", "SAdmin", "Administrador"}));
-		cbxLogin.setBounds(343, 21, 113, 22);
+		cbxLogin.setBounds(350, 21, 113, 22);
 		contentPane.add(cbxLogin);
 	}
 	
 }
+

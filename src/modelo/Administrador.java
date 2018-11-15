@@ -7,6 +7,7 @@ import modelo.DAO.DAOParqueadero;
 import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
 import modelo.DAO.DAOVivienda;
+import modelo.residente.implementar.AsignarViviendaResidente;
 
 public class Administrador extends Persona {
 	private String usuario;
@@ -76,10 +77,6 @@ public class Administrador extends Persona {
 		return dcuota;
 	}
 
-	public DAOApartamento DaoApartamento() {
-		modelo.DAO.DAOApartamento dvv = new modelo.DAO.DAOApartamento();
-		return dvv;
-	}
 
 	public DAOCasa DAORegistrarCasa() {
 		DAOCasa casa = new DAOCasa();
@@ -91,6 +88,16 @@ public class Administrador extends Persona {
 		DAOVivienda vivienda = new DAOVivienda();
 		return vivienda;
 		
+	}
+	
+	public  DAOApartamento registrarVivienda () {
+		 DAOApartamento daoapto = new  DAOApartamento ();
+		return daoapto;
+	}
+	
+	public AsignarViviendaResidente asignarTodoAResidente() {
+		AsignarViviendaResidente DAO = new AsignarViviendaResidente();
+		return DAO;
 	}
 
 }

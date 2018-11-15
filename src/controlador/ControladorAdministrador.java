@@ -17,101 +17,92 @@ import vista.VistaAdministrador;
 
 public class ControladorAdministrador implements ActionListener {
 	private final VistaAdministrador vadmin;
-
-	public ControladorAdministrador(VistaAdministrador vadmin) {
-		this.vadmin = vadmin;
+	public ControladorAdministrador(VistaAdministrador vadmin){
+		this.vadmin=vadmin;
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent bus) {
-
-		switch (bus.getActionCommand()) {
-
+	
+	
+		switch(bus.getActionCommand()) {
+		
 		case "buscar":
+			
+			if(!vadmin.txtBuscar.getText().isEmpty() && (vadmin.rbCedula.isSelected()||vadmin.rbNombre.isSelected())) {
+				
+			Administrador p = new Administrador();
+			SAdministrador adminiBuscar = new SAdministrador();
+			if (vadmin.rbCedula.isSelected()) {
+				vadmin.txtBuscar.getText().toString();
 
-			if (!vadmin.txtBuscar.getText().isEmpty()
-					&& (vadmin.rbCedula.isSelected() || vadmin.rbNombre.isSelected())) {
+				if (!vadmin.txtBuscar.getText().isEmpty()) {
 
-				Administrador p = new Administrador();
-				SAdministrador adminiBuscar = new SAdministrador();
-				if (vadmin.rbCedula.isSelected()) {
+					try {
+						p = adminiBuscar.gestionarAdministrador()
+								.buscarAdminPorCedula(vadmin.txtBuscar.getText().toString());
+						for (int i = this.vadmin.tbadmin.getRowCount(); i > 0; i--) {
+							this.vadmin.tbadmin.removeRow(i - 1);
+						}
+
+						this.vadmin.tbadmin.addRow(new Object[] { p.getId(), p.getCedula(), p.getNombre(),
+								p.getTelefono(), p.getUsuario(), p.getPass() });
+						vadmin.txtBuscar.setText("");
+						vadmin.buttonGroup.clearSelection();
+
+					} catch (NullPointerException | SQLException ex) {
+						JOptionPane.showMessageDialog(null, "la cedula N° \" "+vadmin.txtBuscar.getText().toString()+" \" no se ha encontrado", null, 3);
+						vadmin.txtBuscar.setText("");
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "debe ingresar una cedula para realizar la busqueda", null, 2);
+				}
+						/*fragmento de codigo que controla   el modo de busqueda 
+						 * 
+						 * 
+						 * 
+						 * */
+			} else {
+				if (vadmin.rbNombre.isSelected()) {
+
 					vadmin.txtBuscar.getText().toString();
-
 					if (!vadmin.txtBuscar.getText().isEmpty()) {
 
 						try {
 							p = adminiBuscar.gestionarAdministrador()
-									.buscarAdminPorCedula(vadmin.txtBuscar.getText().toString());
+							.buscarAdminPorNombre(vadmin.txtBuscar.getText().toString());
+							
 							for (int i = this.vadmin.tbadmin.getRowCount(); i > 0; i--) {
 								this.vadmin.tbadmin.removeRow(i - 1);
 							}
 
 							this.vadmin.tbadmin.addRow(new Object[] { p.getId(), p.getCedula(), p.getNombre(),
 									p.getTelefono(), p.getUsuario(), p.getPass() });
-							vadmin.txtBuscar.setText("");
-							vadmin.buttonGroup.clearSelection();
-
-						} catch (NullPointerException | SQLException ex) {
-							JOptionPane.showMessageDialog(null, "la cedula N° \" "
-									+ vadmin.txtBuscar.getText().toString() + " \" no se ha encontrado", null, 3);
-							vadmin.txtBuscar.setText("");
-						}
-					} else {
-						JOptionPane.showMessageDialog(null, "debe ingresar una cedula para realizar la busqueda", null,
-								2);
-					}
-					/*
-					 * fragmento de codigo que controla el modo de busqueda
-					 * 
-					 * 
-					 * 
-					 */
-				} else {
-					if (vadmin.rbNombre.isSelected()) {
-
-						vadmin.txtBuscar.getText().toString();
-						if (!vadmin.txtBuscar.getText().isEmpty()) {
-
-							try {
-								p = adminiBuscar.gestionarAdministrador()
-										.buscarAdminPorNombre(vadmin.txtBuscar.getText().toString());
-
-								for (int i = this.vadmin.tbadmin.getRowCount(); i > 0; i--) {
-									this.vadmin.tbadmin.removeRow(i - 1);
-								}
-
-								this.vadmin.tbadmin.addRow(new Object[] { p.getId(), p.getCedula(), p.getNombre(),
-										p.getTelefono(), p.getUsuario(), p.getPass() });
 								vadmin.txtBuscar.setText("");
 								vadmin.buttonGroup.clearSelection();
-							} catch (NullPointerException | SQLException ex) {
-								JOptionPane.showMessageDialog(null, "el nombre \" "
-										+ vadmin.txtBuscar.getText().toString() + " \"  no se ha encontrado", null, 3);
-								vadmin.txtBuscar.setText("");
+						} catch (NullPointerException|SQLException ex) {
+							JOptionPane.showMessageDialog(null,"el nombre \" "+vadmin.txtBuscar.getText().toString()+" \"  no se ha encontrado", null, 3);
+							vadmin.txtBuscar.setText("");
 							}
-						} else {
-							JOptionPane.showMessageDialog(null, "debe ingresar un nombre para realizar la busqueda",
-									null, 2);
-						}
+					} else {
+						JOptionPane.showMessageDialog(null, "debe ingresar un nombre para realizar la busqueda", null,2);
 					}
 				}
-			} else {
-				JOptionPane.showMessageDialog(null,
-						"debe ingresar una cc o un nombre  y seleccionar un tipo de busqueda", null, 2);
+			}
+			}else {
+				JOptionPane.showMessageDialog(null, "debe ingresar una cc o un nombre  y seleccionar un tipo de busqueda", null, 2);
 			}
 			break;
 
 		case "guardar":
-			Administrador administrador = new Administrador();
-			administrador.setNombre(vadmin.txtNombre.getText().toString());
-			administrador.setCedula(vadmin.txtCedula.getText().toString());
-			administrador.setTelefono(vadmin.txtTelefono.getText().toString());
-			administrador.setRol("administrador");
-			administrador.setUsuario(vadmin.txtUsuario.getText().toString());
-			administrador.setPass(vadmin.passContrasena.getText().toString());
-
-			if (vadmin.txtCedula.getText().isEmpty() || vadmin.txtNombre.getText().isEmpty()
-					|| vadmin.passContrasena.getText().isEmpty() || vadmin.txtUsuario.getText().isEmpty()) {
+				Administrador administrador=new Administrador();
+				administrador.setNombre(vadmin.txtNombre.getText().toString());
+				administrador.setCedula(vadmin.txtCedula.getText().toString());
+				administrador.setTelefono(vadmin.txtTelefono.getText().toString());
+				administrador.setRol("administrador");
+				administrador.setUsuario(vadmin.txtUsuario.getText().toString());
+				administrador.setPass(vadmin.passContrasena.getText().toString());
+			
+			if (vadmin.txtCedula.getText().isEmpty() || vadmin.txtNombre.getText().isEmpty()  || vadmin.passContrasena.getText().isEmpty()||vadmin.txtUsuario.getText().isEmpty())  {
 				JOptionPane.showMessageDialog(null, "los datos usuario,cedula, usuario y contraseña son obligatorios ",
 						null, 0);
 
@@ -124,7 +115,7 @@ public class ControladorAdministrador implements ActionListener {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
+				
 				vadmin.txtCedula.setText("");
 				vadmin.txtBuscar.setText("");
 				vadmin.txtNombre.setText("");
@@ -133,10 +124,10 @@ public class ControladorAdministrador implements ActionListener {
 				vadmin.txtTelefono.setText("");
 				vadmin.btnMostrarTodos.doClick();
 			}
-
+			
 			break;
-		case "mostrar todos":
-
+		case"mostrar todos":
+				
 			List<Administrador> lista = new ArrayList<>();
 
 			SAdministrador admini = new SAdministrador();
@@ -150,27 +141,31 @@ public class ControladorAdministrador implements ActionListener {
 
 				for (Administrador admin0 : lista) {
 
-					this.vadmin.tbadmin.addRow(new Object[] { admin0.getId(), admin0.getCedula(), admin0.getNombre(),
-							admin0.getTelefono(), admin0.getUsuario(), admin0.getPass() });
+					this.vadmin.tbadmin.addRow(
+							new Object[] { admin0.getId(), admin0.getCedula(),admin0.getNombre(), admin0.getTelefono(),admin0.getUsuario(),admin0.getPass() });
 				}
 
 			} catch (SQLException ex) {
 				Logger.getLogger(ControladorAdministrador.class.getName()).log(Level.SEVERE, null, ex);
 			}
 
+			
+				
+			
 			break;
-
-		case "modificar":
-
+			
+		case"modificar":
+		
 			int fila1 = this.vadmin.tbGestionarAdmin.getSelectedRow();
 			if (fila1 >= 0) {
 				int id = (int) this.vadmin.tbadmin.getValueAt(fila1, 0);
 				String cedula = (String) this.vadmin.tbadmin.getValueAt(fila1, 1);
 				String nombre1 = (String) this.vadmin.tbadmin.getValueAt(fila1, 2);
 				String telefono = (String) this.vadmin.tbadmin.getValueAt(fila1, 3);
-
+			
 				String usuario = (String) this.vadmin.tbadmin.getValueAt(fila1, 4);
 				String pass = (String) this.vadmin.tbadmin.getValueAt(fila1, 5);
+				
 
 				Administrador administrador1 = new Administrador();
 				SAdministrador sadminModificar = new SAdministrador();
@@ -180,35 +175,44 @@ public class ControladorAdministrador implements ActionListener {
 				administrador1.setTelefono(telefono);
 				administrador1.setPass(pass);
 				administrador1.setUsuario(usuario);
-
+				
 				sadminModificar.gestionarAdministrador().modificarAdministrador(administrador1);
 				for (int i = this.vadmin.tbadmin.getRowCount(); i > 0; i--) {
 					this.vadmin.tbadmin.removeRow(i - 1);
 				}
 				vadmin.btnMostrarTodos.doClick();
 			}
-
+		
 			break;
-
-		case "eliminar":
+			
+		case"eliminar":
+			
 
 			int fila = this.vadmin.tbGestionarAdmin.getSelectedRow();
 			if (fila >= 0) {
 				int id = (int) this.vadmin.tbadmin.getValueAt(fila, 0);
-
+				
 				SAdministrador sadminModificar = new SAdministrador();
-
+		
+			
+				
 				sadminModificar.gestionarAdministrador().eliminarAdministrador(id);
 				for (int i = this.vadmin.tbadmin.getRowCount(); i > 0; i--) {
 					this.vadmin.tbadmin.removeRow(i - 1);
 				}
 				vadmin.btnMostrarTodos.doClick();
 			}
-
+			
 			break;
-
+			
+		
+		
 		}
-
+		
+			
+			
+			
+		
 	}
 
 }

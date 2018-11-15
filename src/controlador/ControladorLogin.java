@@ -3,10 +3,13 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
 import modelo.Administrador;
+import modelo.SAdministrador;
 import modelo.DAO.DAOIniciarSesion;
 import modelo.DAO.DAOSuperAdministrador;
 import vista.VistaIniciarSesion;
@@ -25,47 +28,90 @@ public class ControladorLogin implements ActionListener {
 
 		if (e.getSource() == vlogin.btnAceptar) {
 
-			if (vlogin.cbxLogin.getSelectedItem().toString() == "SAdmin") {
+			boolean res = true;
 
-				Administrador sadmin = new Administrador();
-				sadmin.setUsuario(vlogin.txtUsuario.getText().toString());
-				sadmin.setPass(vlogin.txtPassword.getPassword().toString());
+			if (!vlogin.txtUsuario.getText().toString().isEmpty() && !vlogin.txtPassword.getText().toString().isEmpty()
+					|| vlogin.cbxLogin.getSelectedItem().toString() != "ingresar como") {
 
-				DAOSuperAdministrador daoSuper = new DAOSuperAdministrador();
+				if (vlogin.cbxLogin.getSelectedItem().toString() == "SAdmin") {
 
-				try {
-					sadmin = daoSuper.mostrarAdministrador();
-					
+					Administrador sadmin = new Administrador();
+					sadmin.setUsuario(vlogin.txtUsuario.getText().toString());
+					sadmin.setPass(vlogin.txtPassword.getPassword().toString());
 
-					if (sadmin.getUsuario().equals(vlogin.txtUsuario.getText().toString())
-							&& sadmin.getPass().equals(vlogin.txtPassword.getText().toString())) {
+					DAOSuperAdministrador daoSuper = new DAOSuperAdministrador();
 
-						JOptionPane.showMessageDialog(null, "Bienvenido al sistema de Zonas Residenciales", null, 1);
-						
-						VistaPrincipal principal = new VistaPrincipal ();
-						principal.setVisible(true);
-					
-					} else {
+					try {
+						sadmin = daoSuper.mostrarAdministrador();
 
-						JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
+						if (sadmin.getUsuario().equals(vlogin.txtUsuario.getText().toString())
+								&& sadmin.getPass().equals(vlogin.txtPassword.getText().toString())) {
+
+							JOptionPane.showMessageDialog(null, "Bienvenido al sistema de Zonas Residenciales", null,
+									1);
+
+							VistaPrincipal principal = new VistaPrincipal();
+							principal.setVisible(true);
+							vlogin.dispose();
+
+						} else {
+
+							JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
+
+						}
+
+					} catch (Exception e1) {
+
+						e1.printStackTrace();
 
 					}
 
-				} catch (Exception e1) {
+				}
 
-					e1.printStackTrace();				
+				if (vlogin.cbxLogin.getSelectedItem().toString() == "Administrador") {
 
-				}			
+					List<Administrador> listaAdmin = new ArrayList<>();
+					SAdministrador admin = new SAdministrador();
+
+					try {
+						listaAdmin = admin.gestionarAdministrador().mostrarTodos();
+
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					for (Administrador adm : listaAdmin) {
+
+						if (adm.getUsuario().equals(vlogin.txtUsuario.getText().toString())
+								&& adm.getPass().equals(vlogin.txtPassword.getText().toString())) {
+
+							JOptionPane.showMessageDialog(null, "Bienvenido al sistema de Zonas Residenciales", null,
+									1);
+
+							VistaPrincipal principal = new VistaPrincipal();
+							principal.setVisible(true);
+							principal.Administracion.setEnabled(false);
+							res = false;
+							vlogin.dispose();
+
+						}
+
+					}
+
+					if (res == true) {
+						JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
+					}
+
+				}
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Debe ingresar los datos completos", null, 2);
 
 			}
-
-		}	
-		
+		}
 
 	}
-	
-	
-		
-	
 
 }
+

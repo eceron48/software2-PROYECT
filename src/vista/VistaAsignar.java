@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,6 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.ControladorAsignarVivienda;
+import modelo.residente.implementar.AsignarViviendaResidente;
+
 import javax.swing.border.TitledBorder;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -33,6 +38,7 @@ public class VistaAsignar extends JFrame {
 	public DefaultTableModel tablaAsignarPersonas;
 	public DefaultTableModel tablaAsignarViviendas;
 	public DefaultTableModel tablaAsignarPark;
+	public JTextField textporcentaje;
 
 	/**
 	 * Launch the application.
@@ -54,7 +60,7 @@ public class VistaAsignar extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAsignar() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 792, 609);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
@@ -67,13 +73,15 @@ public class VistaAsignar extends JFrame {
 		contentPane.add(lblValorCuota);
 		
 		txtValorCuota = new JTextField();
+		txtValorCuota.setEditable(false);
 		txtValorCuota.setBounds(114, 29, 153, 20);
 		contentPane.add(txtValorCuota);
 		txtValorCuota.setColumns(10);
 		
 		btnMostrarValor = new JButton("mostrar");
 		btnMostrarValor.setIcon(new ImageIcon(VistaAsignar.class.getResource("/iconos/Ver32.png")));
-		btnMostrarValor.setBounds(311, 11, 124, 40);
+		btnMostrarValor.setBounds(431, 11, 124, 40);
+		btnMostrarValor.addActionListener(new ControladorAsignarVivienda(this));
 		contentPane.add(btnMostrarValor);
 		
 		JPanel panel = new JPanel();
@@ -111,7 +119,8 @@ public class VistaAsignar extends JFrame {
 		
 		btnMostrarPersonas = new JButton("mostrar personas");
 		btnMostrarPersonas.setIcon(new ImageIcon(VistaAsignar.class.getResource("/iconos/Personas.png")));
-		btnMostrarPersonas.setBounds(511, 65, 189, 50);
+		btnMostrarPersonas.addActionListener(new ControladorAsignarVivienda(this));
+		btnMostrarPersonas.setBounds(534, 72, 189, 50);
 		panel.add(btnMostrarPersonas);
 		
 		JPanel panel_1 = new JPanel();
@@ -145,13 +154,14 @@ public class VistaAsignar extends JFrame {
 		
 		btnMostrarViviendas = new JButton("mostrar viviendas");
 		btnMostrarViviendas.setIcon(new ImageIcon(VistaAsignar.class.getResource("/iconos/Vivienda.png")));
-		btnMostrarViviendas.setBounds(528, 51, 195, 57);
+		btnMostrarViviendas.addActionListener(new ControladorAsignarVivienda(this));
+		btnMostrarViviendas.setBounds(534, 35, 195, 57);
 		panel_1.add(btnMostrarViviendas);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(216, 191, 216));
 		panel_2.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Parqueaderos", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_2.setBounds(27, 345, 726, 130);
+		panel_2.setBounds(20, 345, 726, 130);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
@@ -183,13 +193,27 @@ public class VistaAsignar extends JFrame {
 		
 		btnMostrarParqueaderos = new JButton("mostrar parqueaderos");
 		btnMostrarParqueaderos.setIcon(new ImageIcon(VistaAsignar.class.getResource("/iconos/Parqueadero.png")));
-		btnMostrarParqueaderos.setBounds(449, 47, 235, 57);
+		btnMostrarParqueaderos.addActionListener(new ControladorAsignarVivienda(this));
+		btnMostrarParqueaderos.setBounds(481, 42, 235, 57);
 		panel_2.add(btnMostrarParqueaderos);
 		
 		btnAsignarPersonas = new JButton("asignar");
 		btnAsignarPersonas.setIcon(new ImageIcon(VistaAsignar.class.getResource("/iconos/Registrar.png")));
+		btnAsignarPersonas.addActionListener(new ControladorAsignarVivienda(this));
 		btnAsignarPersonas.setBounds(322, 489, 145, 49);
 		contentPane.add(btnAsignarPersonas);
+		
+		JLabel lblNewLabel = new JLabel("porcentaje");
+		lblNewLabel.setBounds(277, 32, 70, 14);
+		contentPane.add(lblNewLabel);
+		
+		textporcentaje = new JTextField();
+		textporcentaje.setEditable(false);
+		textporcentaje.setBounds(347, 29, 37, 20);
+		contentPane.add(textporcentaje);
+		textporcentaje.setColumns(10);
 	}
 
+
 }
+
