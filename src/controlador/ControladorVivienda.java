@@ -52,6 +52,7 @@ public class ControladorVivienda implements ActionListener {
 					vivienda.setBloque(vv.txtBloque.getText().toString());
 					vivienda.setPiso(Integer.parseInt(vv.txtPiso.getText()));
 					vivienda.setIdApartamento(vv.txtApto.getText().toString());
+					System.out.println(vivienda.getIdApartamento());
 					vivienda.setVrol(aptmto);
 
 					Administrador adm = new Administrador();

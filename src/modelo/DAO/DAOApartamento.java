@@ -25,7 +25,8 @@ public class DAOApartamento {
 		
 		try {
 			PreparedStatement statement = connection.prepareStatement("INSERT INTO vivienda(vnombre,vrol,vpiso,vbloque)"+"VALUES(?,?,?,?)");
-			statement.setString(1, casa.getIdvivienda());
+			statement.setString(1, casa.getIdApartamento());
+			System.out.println(casa.getIdvivienda());
 			statement.setString(2, "apartamento");
 			statement.setInt(3, casa.getPiso());
 			statement.setString(4, casa.getBloque());
