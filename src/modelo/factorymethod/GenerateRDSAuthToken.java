@@ -1,13 +1,9 @@
 package modelo.factorymethod;
 
-import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
-import com.amazonaws.services.rds.auth.GetIamAuthTokenRequest;
-import com.amazonaws.services.rds.auth.RdsIamAuthTokenGenerator;
-
 public class GenerateRDSAuthToken {
 
     public static void main(String[] args) {
-
+/*
 	    String region = "us-east-1";
 	    String hostname = "zonas.cbkftzn8geuh.us-east-1.rds.amazonaws.com";
 	    String port = "3306";
@@ -33,4 +29,6 @@ public class GenerateRDSAuthToken {
 	    return authToken;
     }
 
+*/
+}
 }
