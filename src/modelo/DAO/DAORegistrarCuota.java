@@ -27,12 +27,14 @@ public class DAORegistrarCuota {
 		Connection connection = dbAdapter.getConnection();
 		
 		try {
-			PreparedStatement statement = connection.prepareStatement("INSERT INTO cuota(porcentaje,precio)"+"VALUES(?,?)");
-			statement.setDouble(1, cuota.getPorcentaje());
-			statement.setDouble(2, cuota.getCuota());
+			PreparedStatement statement = connection.prepareStatement("INSERT INTO cuota(idcuota,porcentage,precio)"+"VALUES(?,?,?)");
+			statement.setInt(1, 1);
+			statement.setDouble(2, cuota.getPorcentaje());
+			statement.setDouble(3, cuota.getCuota());
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
 		} catch (Exception e) {
+			
 			
 		}
 		 finally {
@@ -53,7 +55,7 @@ public class DAORegistrarCuota {
 		CuotaAdministracion c=new CuotaAdministracion();
 		try {
 			PreparedStatement statement = connection.
-			prepareStatement("select idcuota,porcentaje, precio from cuota where idcuota='"+1+"'");
+			prepareStatement("select *  from cuota where idcuota='"+1+"'");
 			ResultSet results = statement.executeQuery();  while(results.next()){
 			c.setIdcuota(results.getInt(1));
 			c.setPorcentaje(results.getDouble(2));
@@ -79,7 +81,7 @@ public class DAORegistrarCuota {
 		Statement stm;
 		
 		
-String sql="UPDATE cuota SET porcentaje='"+modificar.getPorcentaje()+"', precio='"+modificar.getCuota()+"'"+" WHERE idcuota="+modificar.getIdcuota();
+String sql="UPDATE cuota SET porcentage='"+modificar.getPorcentaje()+"', precio='"+modificar.getCuota()+"'"+" WHERE idcuota="+modificar.getIdcuota();
 try {
 	
                 
