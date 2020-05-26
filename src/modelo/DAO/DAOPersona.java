@@ -69,12 +69,13 @@ public class DAOPersona {
 		try {
 			PreparedStatement statement = connection.
 
-					prepareStatement("INSERT INTO persona(pcedula,pnombre, ptelefono,prol)" + "VALUES (?,?,?,?)");
+					prepareStatement("INSERT INTO persona(pcedula,pnombre, ptelefono,prol,pestado)" + "VALUES (?,?,?,?,?)");
 
 			statement.setString(1, persona.getCedula());
 			statement.setString(2, persona.getNombre());
 			statement.setString(3, persona.getTelefono());
 			statement.setString(4, persona.getRol());
+			statement.setString(5, "libre");
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
 

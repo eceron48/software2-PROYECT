@@ -24,10 +24,11 @@ public class DAOParqueadero {
 	public void registrarParqueadero(Parqueadero parqueadero) throws SQLException {
 		try {
 			Connection connection = dbAdapter.getConnection();
-			String INSERT = "INSERT INTO parqueadero(referencia)" + "VALUES(?)";
+			String INSERT = "INSERT INTO parqueadero(referencia,parestado)" + "VALUES(?,?)";
 
 			PreparedStatement registrar = connection.prepareStatement(INSERT);
 			registrar.setString(1, parqueadero.getCodigo());
+			registrar.setString(2, "libre");
 			registrar.executeUpdate();
 			JOptionPane.showMessageDialog(null, "registro exitoso", null, 1);
 		} catch (Exception e) {
