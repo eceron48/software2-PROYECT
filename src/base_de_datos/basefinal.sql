@@ -31,9 +31,10 @@ CREATE TABLE `administrador` (
   `anombre` varchar(65) NOT NULL,
   `cedula` int NOT NULL,
   `telefono` int NOT NULL,
+  `direccion` varchar(45) NOT NULL,
   `rol` varchar(45) NOT NULL,
   PRIMARY KEY (`idadministrador`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +43,7 @@ CREATE TABLE `administrador` (
 
 LOCK TABLES `administrador` WRITE;
 /*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
-INSERT INTO `administrador` VALUES (1,'admin','admin','felipe',123456,987632,'SAdmin'),(2,'admin','admin','ermes',10869547,7921152,'Administrador');
+INSERT INTO `administrador` VALUES (1,'admin','admin','felipe',123456,987632,'hpa_c','SAdmin'),(2,'admin','admin','ermes',10869547,7921152,'sumadre','Administrador');
 /*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,11 +55,12 @@ DROP TABLE IF EXISTS `cuota`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cuota` (
-  `idcuota` int NOT NULL,
+  `idcuota` int unsigned NOT NULL,
   `porcentage` double DEFAULT NULL,
-  `precio` varchar(45) DEFAULT NULL,
+  `precio` double DEFAULT NULL,
   `persona_idpersona` int DEFAULT NULL,
   PRIMARY KEY (`idcuota`),
+  UNIQUE KEY `idcuota_UNIQUE` (`idcuota`),
   KEY `fk_cuota_persona_idx` (`persona_idpersona`),
   CONSTRAINT `fk_cuota_persona` FOREIGN KEY (`persona_idpersona`) REFERENCES `persona` (`idpersona`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -70,6 +72,7 @@ CREATE TABLE `cuota` (
 
 LOCK TABLES `cuota` WRITE;
 /*!40000 ALTER TABLE `cuota` DISABLE KEYS */;
+INSERT INTO `cuota` VALUES (1,5,5200,NULL);
 /*!40000 ALTER TABLE `cuota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,8 +113,10 @@ DROP TABLE IF EXISTS `parqueadero`;
 CREATE TABLE `parqueadero` (
   `idparqueadero` int NOT NULL AUTO_INCREMENT,
   `referencia` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idparqueadero`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `parestado` varchar(45) NOT NULL,
+  PRIMARY KEY (`idparqueadero`),
+  UNIQUE KEY `referencia_UNIQUE` (`referencia`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +125,7 @@ CREATE TABLE `parqueadero` (
 
 LOCK TABLES `parqueadero` WRITE;
 /*!40000 ALTER TABLE `parqueadero` DISABLE KEYS */;
-INSERT INTO `parqueadero` VALUES (1,'12'),(2,'1'),(3,'1a');
+INSERT INTO `parqueadero` VALUES (1,'12','ocupado'),(2,'11','libre'),(3,'1a','libre'),(5,'2a','libre');
 /*!40000 ALTER TABLE `parqueadero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,6 +142,7 @@ CREATE TABLE `persona` (
   `pcedula` varchar(45) DEFAULT NULL,
   `ptelefono` varchar(45) DEFAULT NULL,
   `prol` varchar(45) DEFAULT NULL,
+  `pestado` varchar(45) NOT NULL,
   PRIMARY KEY (`idpersona`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -147,7 +153,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'daniela','8888','77777','residente');
+INSERT INTO `persona` VALUES (1,'daniela','8888','77777','residente','ocupado');
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,7 +189,7 @@ CREATE TABLE `vivienda` (
 
 LOCK TABLES `vivienda` WRITE;
 /*!40000 ALTER TABLE `vivienda` DISABLE KEYS */;
-INSERT INTO `vivienda` VALUES (1,'casa','405',NULL,NULL,NULL,NULL,NULL),(2,'apartamento',NULL,3,'2',NULL,NULL,NULL),(3,'apartamento',NULL,3,'08',NULL,NULL,NULL),(4,'apartamento',NULL,3,'202',NULL,NULL,NULL),(5,'apartamento','505',3,'12',NULL,NULL,NULL),(6,'casa','102',0,'null',NULL,NULL,NULL);
+INSERT INTO `vivienda` VALUES (1,'casa','405',NULL,NULL,NULL,NULL,NULL),(2,'apartamento',NULL,3,'2',NULL,NULL,NULL),(3,'apartamento',NULL,3,'08',NULL,NULL,NULL),(4,'apartamento',NULL,3,'202',1,1,NULL),(5,'apartamento','505',3,'12',NULL,NULL,NULL),(6,'casa','102',0,'null',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `vivienda` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-21 16:14:59
+-- Dump completed on 2020-05-26 14:54:14
