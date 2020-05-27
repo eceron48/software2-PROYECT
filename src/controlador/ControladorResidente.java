@@ -147,7 +147,12 @@ public class ControladorResidente implements ActionListener {
 				persona1.setNombre(nombre1);
 				persona1.setTelefono(telefono);
 				persona1.setRol(rol);
-				adminModificar.gestionarPersona().modificarPersona(persona1);
+				try {
+					adminModificar.gestionarPersona().modificarPersona(persona1);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				for (int i = this.vr.tbResidentes.getRowCount(); i > 0; i--) {
 					this.vr.tbResidentes.removeRow(i - 1);
 				}

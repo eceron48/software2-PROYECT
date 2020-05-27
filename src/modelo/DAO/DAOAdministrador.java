@@ -41,7 +41,7 @@ public class DAOAdministrador {
 					p.setTelefono(results.getString(6));
 					p.setUsuario(results.getNString(2));
 					p.setPass(results.getString(3));
-
+ 
 				}
 			} else {
 

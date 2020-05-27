@@ -115,7 +115,15 @@ public class DAOPersona {
 
 	}
 
-	public void modificarPersona(Persona r) {
+	public void modificarPersona(Persona r) throws Exception {
+		Persona pe=new Persona();
+		
+		 pe=this.buscarPersona(r.getCedula());
+		 if(pe.getCedula().equals(r.getCedula())) {
+			 
+			JOptionPane.showMessageDialog(null, "Esta cedula ya esta registrada ",null, 2);
+			 throw new Exception("La cedula ya existe !!!");
+		 }else {
 
 		String actualizar = "UPDATE Persona set pnombre='" + r.getNombre() + "', pcedula='" + r.getCedula()
 				+ "', ptelefono='" + r.getTelefono() + "',prol='" + r.getRol() + "' where idpersona='" + r.getId()
@@ -128,7 +136,7 @@ public class DAOPersona {
 			
 		} catch (SQLException e) {
 		}
-
+		 }
 	}
 
 	public ArrayList<Casa> llenarComboCasa() {
@@ -170,9 +178,10 @@ public class DAOPersona {
 				p.setRol(results.getString(5));				
 
 			}
-
+				
 			return p;
-
+			
+		
 		} catch (Exception e) {
 
 			return null;
