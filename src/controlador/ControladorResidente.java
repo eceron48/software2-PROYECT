@@ -61,6 +61,9 @@ public class ControladorResidente implements ActionListener {
 					vr.btnMostrarTodos.doClick();
 				} catch (SQLException e) {
 					e.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 
 			}

@@ -1,5 +1,9 @@
 package modelo;
 
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import modelo.DAO.DAOApartamento;
 import modelo.DAO.DAOCasa;
 import modelo.DAO.DAOPagos;
@@ -8,6 +12,8 @@ import modelo.DAO.DAOPersona;
 import modelo.DAO.DAORegistrarCuota;
 import modelo.DAO.DAOVivienda;
 import modelo.residente.implementar.AsignarViviendaResidente;
+import vista.VistaIniciarSesion;
+import vista.VistaPrincipal;
 
 public class Administrador extends Persona {
 	private String usuario;
@@ -98,6 +104,27 @@ public class Administrador extends Persona {
 	public AsignarViviendaResidente asignarTodoAResidente() {
 		AsignarViviendaResidente DAO = new AsignarViviendaResidente();
 		return DAO;
+	}
+	
+	public boolean ValidarAdministrador(List<Administrador>admin,VistaIniciarSesion vlogin) {
+		boolean resp=true;
+		for (Administrador adm : admin) {
+
+			if (adm.getUsuario().equals(vlogin.txtUsuario.getText().toString())
+					&& adm.getPass().equals(vlogin.txtPassword.getText().toString())) {
+
+				JOptionPane.showMessageDialog(null, "Bienvenido al sistema de Zonas Residenciales", null,
+						1);
+
+				VistaPrincipal principal = new VistaPrincipal();
+				principal.setVisible(true);
+				principal.Administracion.setEnabled(false);
+				resp = false;
+			}
+
+		}
+		
+		return resp;
 	}
 
 }

@@ -55,7 +55,7 @@ public class ControladorLogin implements ActionListener {
 							vlogin.dispose();
 
 						} else {
-
+							vlogin.txtPassword.setText("");
 							JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
 
 						}
@@ -80,7 +80,15 @@ public class ControladorLogin implements ActionListener {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-
+					Administrador adm=new Administrador();
+				
+					if(!(res=adm.ValidarAdministrador(listaAdmin, vlogin))) {
+						vlogin.dispose();
+					}else {
+						vlogin.txtPassword.setText("");
+						JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
+					}
+/*
 					for (Administrador adm : listaAdmin) {
 
 						if (adm.getUsuario().equals(vlogin.txtUsuario.getText().toString())
@@ -98,10 +106,8 @@ public class ControladorLogin implements ActionListener {
 						}
 
 					}
-
-					if (res == true) {
-						JOptionPane.showMessageDialog(null, " Usuario y/o Contraseña incorrectos", null, 0);
-					}
+*/
+					
 
 				}
 

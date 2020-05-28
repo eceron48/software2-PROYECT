@@ -63,8 +63,16 @@ public class DAOPersona {
 
 	}
 
-	public boolean insertar(Persona persona) throws SQLException {
+	public boolean insertar(Persona persona) throws Exception {
 		Connection connection = dbAdapter.getConnection();
+		Persona pe=new Persona();
+		
+		 pe=this.buscarPersona(persona.getCedula());
+		 if(pe.getCedula().equals(persona.getCedula())) {
+			 
+			JOptionPane.showMessageDialog(null, "Esta cedula ya esta registrada ",null, 2);
+			 throw new Exception("La cedula ya existe !!!");
+		 }else {
 
 		try {
 			PreparedStatement statement = connection.
@@ -93,6 +101,7 @@ public class DAOPersona {
 			}
 
 		}
+		 }
 
 	}
 
@@ -119,7 +128,7 @@ public class DAOPersona {
 		Persona pe=new Persona();
 		
 		 pe=this.buscarPersona(r.getCedula());
-		 if(pe.getCedula().equals(r.getCedula())) {
+		 if(pe.getCedula().equals(r.getCedula()) && pe.getId()!=r.getId()) {
 			 
 			JOptionPane.showMessageDialog(null, "Esta cedula ya esta registrada ",null, 2);
 			 throw new Exception("La cedula ya existe !!!");

@@ -41,7 +41,7 @@ DAOPersona dao;
 	}
 	// se verifica los datos de ingreso deben ser aprobados con un true // este test  se puede ejecutar una sola vez luego fallara 
 @Test
-public void VerificarDatos() throws SQLException {
+public void VerificarDatos() throws Exception {
 	persona.setNombre(nombre);
 	persona.setCedula(cedula);
 	persona.setTelefono(telefono);
@@ -54,7 +54,7 @@ public void VerificarDatos() throws SQLException {
 
 // Los datos deben fallar porque no se agregara una cedula , se evidencia con un false  Estas pruebeas solo se pueden ejecutar una vez 
 @Test 
-public void datosFallidos() throws SQLException{
+public void datosFallidos() throws Exception{
 	
 	persona.setNombre(nombre);
 	persona.setTelefono(telefono);
@@ -68,7 +68,7 @@ public void datosFallidos() throws SQLException{
 	
 	
 }
-@Test public void repeticiondeDatos() throws SQLException {
+@Test public void repeticiondeDatos() throws Exception {
 	
 	
 	persona.setNombre(nombre);
