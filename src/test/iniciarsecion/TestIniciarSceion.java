@@ -29,7 +29,7 @@ public class TestIniciarSceion {
 		this.ad=new Administrador();
 	
 	}
-	@Test
+	@Test// se ingresa un usuario y contraseña correctos esto se valida con un false como respuesta de exito 
 	public void loguinCorrecto() throws SQLException {
 			vlogin.txtPassword.setText("admin");
 			vlogin.txtUsuario.setText("admin");
@@ -41,7 +41,7 @@ public class TestIniciarSceion {
 	}
 	
 	
-	@Test
+	@Test // se ingresa un usuario y contraseña incorrectos esto se valida con un true como respuesta de fallo
 	public void loguinInCorrecto() throws SQLException {
 			vlogin.txtPassword.setText("contraseña");
 			vlogin.txtUsuario.setText("administrador");
@@ -55,7 +55,10 @@ public class TestIniciarSceion {
 	
 	@After
 	public void Finalizar() {
-		
+		admin=null;
+		ad=null;
+		vlogin=null;
+		sdmin=null;
 	}
 
 }
