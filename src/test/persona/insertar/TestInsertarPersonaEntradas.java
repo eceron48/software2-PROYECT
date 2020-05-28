@@ -39,7 +39,7 @@ DAOPersona dao;
 		this.dao=new DAOPersona();
 		
 	}
-	// se verifica los datos de ingreso deben ser aprobados con un true 
+	// se verifica los datos de ingreso deben ser aprobados con un true // este test  se puede ejecutar una sola vez luego fallara 
 @Test
 public void VerificarDatos() throws SQLException {
 	persona.setNombre(nombre);
@@ -52,7 +52,7 @@ public void VerificarDatos() throws SQLException {
 	
 }
 
-// Los datos deben fallar porque no se agregara una cedula , se evidencia con un false 
+// Los datos deben fallar porque no se agregara una cedula , se evidencia con un false  Estas pruebeas solo se pueden ejecutar una vez 
 @Test 
 public void datosFallidos() throws SQLException{
 	
@@ -75,15 +75,7 @@ public void datosFallidos() throws SQLException{
 	persona.setTelefono(telefono);
 	persona.setRol(rol);
 	
-
-	
-	
 	assertSame(false, dao.insertar(persona));
-	
-	
-	
-	
-	
 }
 	
 	@After
