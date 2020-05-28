@@ -209,7 +209,6 @@ public class ControladorAdministrador implements ActionListener {
 			break;
 			
 		
-		
 		}
 		
 			

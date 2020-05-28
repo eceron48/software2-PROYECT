@@ -31,9 +31,7 @@ public void inicializar () {
 	admin.setPass("11");
 	admin.setTelefono("6699");
 	admin.setUsuario("11");
-	admin.setRol("administrador");
-
-	
+	admin.setRol("administrador");	
 }
 
 
