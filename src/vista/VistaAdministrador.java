@@ -23,6 +23,9 @@ import controlador.ControladorAdministrador;
 
 import javax.swing.JPasswordField;
 import java.awt.Label;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
 import javax.swing.ButtonGroup;
 import javax.swing.ScrollPaneConstants;
 
@@ -107,6 +110,16 @@ public class VistaAdministrador extends JFrame {
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
 		txtTelefono.setBounds(76, 81, 122, 20);
+		txtTelefono.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if (c < '0' || c > '9')
+					e.consume();
+
+			}
+		});
 		panel.add(txtTelefono);
 
 		JLabel lblNewLabel_2 = new JLabel("Usuario:");

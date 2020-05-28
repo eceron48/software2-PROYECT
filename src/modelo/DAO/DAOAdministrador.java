@@ -83,7 +83,7 @@ public class DAOAdministrador {
 			statement.executeUpdate();
 			JOptionPane.showMessageDialog(null, "ingresado con exito", null, 1);
 
-		} catch (Exception e) {
+		} catch (AssertionError e) {
 
 			e.printStackTrace();
 

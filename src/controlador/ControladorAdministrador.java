@@ -106,7 +106,7 @@ public class ControladorAdministrador implements ActionListener {
 			
 			if (vadmin.txtCedula.getText().isEmpty() || vadmin.txtNombre.getText().isEmpty()  || vadmin.passContrasena.getText().isEmpty()||vadmin.txtUsuario.getText().isEmpty())  {
 				
-				//JOptionPane.showMessageDialog(null, "los datos usuario,cedula, usuario y contraseña son obligatorios ",null, 0);
+				JOptionPane.showMessageDialog(null, "los datos usuario,cedula, usuario y contraseña son obligatorios ",null, 0);
 			
 
 			} else {
